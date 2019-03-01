@@ -13,6 +13,8 @@ const gulp = require('gulp'),
         browserSync = require("browser-sync"),
         reload = browserSync.reload;
 
+sass.compiler = require('node-sass');
+
 
 const path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
@@ -74,8 +76,10 @@ gulp.task('js:build', function (cb) {
 gulp.task('style:build', function (cb) {
     gulp.src(path.src.style)
         .pipe(sourcemaps.init())
-        .pipe(importCss())
-        .pipe(sass())
+        // .pipe(importCss())
+        .pipe(sass({
+            includePaths: ['node_modules']
+        }))
         .pipe(prefixer())
         // .pipe(cssmin())
         .pipe(sourcemaps.write())

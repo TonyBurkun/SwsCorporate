@@ -1,46 +1,55 @@
-@font-face {
-  font-family: 'Roboto-Light';
-  font-style: normal;
-  font-weight: 300;
-  src: url('../../fonts/Roboto-Light.woff2') format('woff2'),
-  url('../../fonts/Roboto-Light.woff') format('woff'),
-  url('../../fonts/Roboto-Light.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
-@font-face {
-  font-family: 'Roboto-Regular';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../../fonts/Roboto-Regular.woff2') format('woff2'),
-  url('../../fonts/Roboto-Regular.woff') format('woff'),
-  url('../../fonts/Roboto-Regular.ttf') format('truetype');
-}
 
-@font-face {
-  font-family: 'Roboto-Bold';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../../fonts/Roboto-Bold.woff2') format('woff2'),
-  url('../../fonts/Roboto-Bold.woff') format('woff'),
-  url('../../fonts/Roboto-Bold.ttf') format('truetype');
-}
+//@font-face {
+//  font-family: 'Roboto-Light';
+//  font-style: normal;
+//  font-weight: 300;
+//  src: url('../../fonts/Roboto-Light.woff2') format('woff2'),
+//  url('../../fonts/Roboto-Light.woff') format('woff'),
+//  url('../../fonts/Roboto-Light.ttf') format('truetype');
+//}
+//
+//@font-face {
+//  font-family: 'Roboto-Regular';
+//  font-style: normal;
+//  font-weight: 400;
+//  src: url('../../fonts/Roboto-Regular.woff2') format('woff2'),
+//  url('../../fonts/Roboto-Regular.woff') format('woff'),
+//  url('../../fonts/Roboto-Regular.ttf') format('truetype');
+//}
+//
+//@font-face {
+//  font-family: 'Roboto-Bold';
+//  font-style: normal;
+//  font-weight: 700;
+//  src: url('../../fonts/Roboto-Bold.woff2') format('woff2'),
+//  url('../../fonts/Roboto-Bold.woff') format('woff'),
+//  url('../../fonts/Roboto-Bold.ttf') format('truetype');
+//}
 
-@font-face {
-  font-family: 'Ubuntu-Regular';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../../fonts/Ubuntu-Regular.woff2') format('woff2'),
-  url('../../fonts/Ubuntu-Regular.woff') format('woff'),
-  url('../../fonts/Ubuntu-Regular.ttf') format('truetype');
-}
+//@font-face {
+//  font-family: 'Ubuntu';
+//  font-style: normal;
+//  font-weight: 400;
+//  src: url('../../fonts/Ubuntu-Regular.woff2') format('woff2'),
+//  url('../../fonts/Ubuntu-Regular.woff') format('woff'),
+//  url('../../fonts/Ubuntu-Regular.ttf') format('truetype');
+//}
+//
+//@font-face {
+//  font-family: 'Ubuntu';
+//  font-style: normal;
+//  font-weight: 500;
+//  src: url('../../fonts/Ubuntu-Medium.woff2') format('woff2'),
+//  url('../../fonts/Ubuntu-Medium.woff') format('woff'),
+//  url('../../fonts/Ubuntu-Medium.ttf') format('truetype');
+//}
 
-@font-face {
-  font-family: 'Ubuntu-Medium';
-  font-style: normal;
-  font-weight: 500;
-  src: url('../../fonts/Ubuntu-Medium.woff2') format('woff2'),
-  url('../../fonts/Ubuntu-Medium.woff') format('woff'),
-  url('../../fonts/Ubuntu-Medium.ttf') format('truetype');
+
+* {
+  box-sizing: border-box;
 }
 
 html, body{
@@ -48,7 +57,8 @@ html, body{
 }
 
 body{
-  font-family: 'Roboto-Regular',  sans-serif;
+  font-family: $ubuntu;
+  font-weight: 400;
 }
 
 ul{
@@ -58,20 +68,61 @@ ul{
 }
 
 
+
+.section-title{
+  font-family: $ubuntu;
+  font-weight: 400;
+  font-size: 2.5rem;
+  color: $dart-black;
+  text-align: center;
+  margin-top: 85px;
+  margin-bottom: 70px;
+
+  &--left{
+    text-align: left;
+  }
+}
+
+section{
+  overflow: hidden;
+}
+
+.section-bg{
+  background: $section-bg;
+}
+
+.bottom-padding-70{
+  padding-bottom: 70px;
+}
+
+.mb-100{
+  margin-bottom: 100px;
+}
+
+.w-auto{
+  width: auto !important;
+}
+
+
 .container {
-  max-width: 1160px;
-  padding: 0 10px;
+  max-width: 1200px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
 .btn{
-  font-family: 'Ubuntu-Medium', sans-serif;
+  font-family: $ubuntu;
+  font-weight: 500;
   color: $white;
   background-color: $btn;
   border-radius: 20px;
   border: none;
-  padding: 11px 18px;
+  padding: 12px 18px;
   cursor: pointer;
+  text-align: center;
+  line-height: 1;
+  display: inline-block;
+
 
   &:hover{
     background-color: $btn-hover;
