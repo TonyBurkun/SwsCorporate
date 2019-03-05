@@ -19,6 +19,7 @@ header{
 }
 
 .header{
+  color: $white;
 
   &__wrapper{
     display: flex;
@@ -26,6 +27,19 @@ header{
     padding: 20px 0;
   }
 
+  &__logo-block{
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+
+  &__trigger{
+    width: 50px;
+    text-align: left;
+    transition: opacity 3s;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 
 
   &__logo{
@@ -38,14 +52,42 @@ header{
     }
   }
 
+  @media screen and (max-width: $tablet-landscape-upper-boundary){
+
+    &__trigger{
+      display: flex;
+      align-self: center;
+      cursor: pointer;
+      margin-right: 20px;
+
+      &:before{
+        content: 'Menu';
+      }
+
+      &--open{
+        &:before{
+          content: 'Close';
+        }
+      }
+    }
+
+    .top-nav{
+      &__wrapper{
+        display: none;
+      }
+    }
+  }
+
 }
 
 .top-nav{
+  display: flex;
 
-  color: $white;
   &__wrapper{
     display: flex;
     justify-content: space-between;
+    align-self: center;
+    margin-right: 50px;
     text-transform: uppercase;
     font-family: $ubuntu;
     font-weight: 500;
@@ -55,14 +97,80 @@ header{
   &__item{
     margin-right: 44px;
     align-self: baseline;
-    cursor: pointer;
     &:last-child{
       margin-right: 0;
     }
+
+  }
+
+  &__link{
+    text-decoration: none;
+    color: inherit;
   }
 }
 
+.mobile-nav{
+  position: fixed;
+  top: 81px;
+  left: 0;
+  width: 100%;
+  max-width: 320px;
+  background: $btn;
+  color: $white;
+  text-transform: uppercase;
+  z-index:1000;
+  height: calc(100% - 81px);
+  transform: translateX(-100%);
+  transition: transform .3s;
+
+  &--active{
+    transform: translateX(0);
+    padding-bottom: 15px;
+  }
+
+  &__wrapper{
+    margin: 0 15px;
+  }
+
+  &__item{
+    border-bottom: 1px solid rgba(255,255,255, 0.1);
+  }
+
+
+  &__link{
+    color: inherit;
+    text-decoration: none;
+    padding: 20px 0;
+    display: inline-block;
+    width: 100%;
+  }
+
+}
+
+.header__overlay{
+  position: fixed;
+  top: 81px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5,5,5,.3);
+  transition: all .3s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 0;
+
+  &--active{
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .3s;
+
+  }
+
+}
+
 .header--scrolled{
+  color: $black;
   background: $white;
   transition: .3s;
   border-bottom: 1px solid $white-header-bottom-border;
@@ -71,11 +179,6 @@ header{
     background: url("../img/header/sws_logo_color.svg") no-repeat;
     transition: .3s;
   }
-
-  .top-nav{
-    color: $black;
-  }
-
 }
 
 

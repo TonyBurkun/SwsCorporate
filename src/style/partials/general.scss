@@ -59,6 +59,10 @@ html, body{
 body{
   font-family: $ubuntu;
   font-weight: 400;
+
+  &.menu-open{
+    overflow: hidden;
+  }
 }
 
 ul{
