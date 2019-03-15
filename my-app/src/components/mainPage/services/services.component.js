@@ -31,17 +31,14 @@ class ServiceComponent extends Component {
                                 <Link key={service.id} to={'/service/' + service.slug} className="services-blocks__item blackout-block blackout-block--hover">
                                     <img src={service.featured_image_url} alt="dedicated engineering teams" />
                                     <div className="blackout-block__inner">
-                                        <div className="blackout-block__title" dangerouslySetInnerHTML={{__html: service.title.rendered}}>
+                                        <div className="blackout-block__title" dangerouslySetInnerHTML={{__html: service.title}}>
                                         </div>
-                                        <p className="blackout-block__desc" dangerouslySetInnerHTML={{__html: service.excerpt.rendered}}>
+                                        <p className="blackout-block__desc" dangerouslySetInnerHTML={{__html: service.excerpt}}>
                                         </p>
                                         <div className="blackout-block__arrow"></div>
                                     </div>
                                 </Link>
                             )}
-                        </div>
-                        <div className="btn-block btn-block--center">
-                            <div className="btn btn--upper">more services</div>
                         </div>
                     </div>
                 </section>

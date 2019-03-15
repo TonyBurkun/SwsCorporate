@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ServiceComponent from './services/services.component';
 import ClientsComponent from './clients/clients.component';
-import WorksComponent from './works/works.component';
+import WorksComponent from '../../reuse/works/works.component';
 import AboutHomeComponent from './about/about.component';
 import ConnectComponent from '../../reuse/connect/connect.component';
 
