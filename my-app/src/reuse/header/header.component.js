@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
-class Header extends Component {
+class HeaderComponent extends Component {
 
     constructor(props) {
         super(props);
@@ -138,4 +138,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default HeaderComponent;
