@@ -49,7 +49,7 @@ class ClientsComponent extends Component {
         let reviews = this.state.reviews;
         if(slug){
            button = <div className="clients-list__item clients-list-block">
-                    <Link to={slug} className="clients-list-block__more-btn">More clients</Link>
+                    <Link  to={slug} className="clients-list-block__more-btn">More clients</Link >
                     </div>
         }
         return (

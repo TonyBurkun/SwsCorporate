@@ -12,6 +12,8 @@ html, body{
 body{
   font-family: $ubuntu;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &.menu-open{
     overflow: hidden;
@@ -38,6 +40,10 @@ ul{
   &--left{
     text-align: left;
   }
+
+  &--large{
+    font-size: 3.4375em;
+  }
 }
 
 section{
@@ -52,6 +58,10 @@ section{
   padding-bottom: 70px;
 }
 
+.bottom-padding-150{
+  padding-bottom: 150px;
+}
+
 .mb-100{
   margin-bottom: 100px;
 }
@@ -62,7 +72,7 @@ section{
 
 
 .container {
-  max-width: 1200px;
+  max-width: $width-container;
   padding: 0 20px;
   margin: 0 auto;
 }

@@ -165,7 +165,6 @@ header{
   }
 
 }
-
 .header--scrolled{
   color: $black;
   background: $white;
@@ -958,5 +957,215 @@ header{
 
   @media screen and (max-width: $tablet-landscape-upper-boundary - 200) {
     text-align: center;
+  }
+}
+// -- CLIENTS PAGE -----------
+
+.top-map-section {
+  background: url("img/clients/bg_clients.jpg") no-repeat 50%;
+  background-size: cover;
+  padding-bottom: 44.792%;
+
+  &__point{
+    position: absolute;
+    display: inline-block;
+    font-weight: 500;
+    color: $black;
+  }
+
+  &__point:before{
+    content: '';
+    display: block;
+    width: 9px;
+    height: 9px;
+    border-radius: 5px;
+    background: $btn;
+    margin: 4px auto 0 auto;
+  }
+
+  .Canada{
+    left: 18.6%;
+    top: 10.6%;
+  }
+  .USA{
+    left: 14.9%;
+    top: 22%;
+  }
+  .UK{
+    left: 45%;
+    top: 14%;
+  }
+  .ND{
+    left: 47%;
+    top: 14%;
+  }
+  .France{
+    left: 45.6%;
+    top: 20.1%;
+  }
+  .Spain{
+    left: 43.8%;
+    top: 23.5%;
+  }
+  .Latvia{
+    left: 52.3%;
+    top: 10.9%;
+  }
+  .Ukraine{
+    left: 54.8%;
+    top: 13.9%;
+  }
+  .Russia{
+    left: 58.6%;
+    top: 11%;
+  }
+  .Israel{
+    left: 56.5%;
+    top: 29.6%;
+
+  }
+  .Kazakhstan{
+    left: 63.2%;
+    top: 15.6%;
+  }
+
+}
+
+
+.shift-content{
+  margin-top: -31.3%;
+}
+
+.clients-blocks{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: -10px;
+
+  &__item{
+    position: relative;
+    width: 275px;
+    height: 275px;
+    border: 1px solid $white-border;
+    background-color: $white;
+    margin: 10px;
+    display: flex;
+  }
+
+  &__img{
+    align-self: flex-start;
+    margin: auto;
+  }
+}
+
+
+.entire-hover-block{
+  position: relative;
+
+  &__content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: $btn;
+    color: $white;
+    padding: 27px 22px 20px 22px;
+    font-weight: 400;
+    font-size: 0.9375em;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+
+  }
+
+  &:hover{
+    .entire-hover-block__content{
+      height: 275px;
+      opacity: 0.95;
+    }
+  }
+
+  &__title{
+    font-size: 1.375em;
+    font-weight: 500;
+    margin-bottom: 27px;
+  }
+
+
+  &__items-wrapper{
+    div {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__list-item{
+    position: relative;
+    padding-left: 30px;
+
+    &:before{
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &__project{
+    &:before{
+      content: '';
+      width: 21px;
+      height: 16px;
+      background: url("img/svg_icons/clients/project_mini.svg") no-repeat center;
+      display: block;
+    }
+  }
+  &__calendar{
+    &:before{
+      content: '';
+      width: 21px;
+      height: 17px;
+      background: url("img/svg_icons/clients/calendar_mini.svg") no-repeat center;
+      display: block;
+    }
+  }
+  &__team{
+    &:before{
+      content: '';
+      width: 21px;
+      height: 20px;
+      background: url("img/svg_icons/clients/team_mini.svg") no-repeat center;
+      display: block;
+      top: -2px;
+    }
+  }
+  &__pin{
+    &:before{
+      content: '';
+      width: 21px;
+      height: 17px;
+      background: url("img/svg_icons/clients/pin_mini.svg") no-repeat center;
+      display: block;
+    }
+  }
+
+
+  &__btn{
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 21px;
+    right: 20px;
+    color: $white;
+
+    &:after{
+      content: '';
+      display: block;
+      width: 20px;
+      height: 14px;
+      background: url("img/svg_icons/arrow_white_right.svg") no-repeat center;
+      align-self: center;
+      margin-left: 15px;
+
+    }
   }
 }

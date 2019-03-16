@@ -116,23 +116,6 @@ class HeaderComponent extends Component {
                     </ul>
                 </div>
                 <div id="header__overlay" className="header__overlay"></div>
-                <section className="head-block">
-                    <div className="slider-block">
-                        <div className="slider-block__item">
-                            <div className="slide">
-                                <h2 className="slide__title">
-                                    Project outsourcing and/or creating own development team
-                                </h2>
-                                <p className="slide__desc">
-                                    StairwaySoft is an Israeli and Ukraine based engineering provider
-                                    of innovative software development services with a team of expert
-                                    engineers. We services various businesses globally to create solutions
-
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </Fragment>
         );
     }

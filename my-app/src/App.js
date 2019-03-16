@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.scss';
 import HeaderComponent from './reuse/header/header.component';
 import FooterComponent from './reuse/footer/footer.component';
 
 import MainPageComponent from './components/mainPage/main.component';
+import ClientComponent from "./components/clients/clients.component";
 
 class App extends Component {
   render() {
@@ -12,7 +13,10 @@ class App extends Component {
         <Router>
             <Fragment>
                 <HeaderComponent />
-                <Route path="/" component={MainPageComponent} />
+                <Switch>
+                    <Route path="/" exact component={MainPageComponent} />
+                    <Route path="/clients" exact component={ClientComponent} />
+                </Switch>
                 <FooterComponent />
             </Fragment>
         </Router>
