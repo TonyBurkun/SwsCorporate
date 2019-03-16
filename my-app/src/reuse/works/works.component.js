@@ -9,7 +9,7 @@ class WorksComponent extends Component {
                     <h2 className="section-title">Our works</h2>
                     <div className="container">
                         <div className="works-list">
-                            <a href="#" className="works-list__item one-work-block blackout-block">
+                            <a href="/#" className="works-list__item one-work-block blackout-block">
                                 <img src="img/main/our_works/big_pic1.jpg" alt="example of work" />
                                     <div className="blackout-block__inner blackout-block__inner--bottom">
                                         <div className="blackout-block__title">
@@ -18,7 +18,7 @@ class WorksComponent extends Component {
                                         </div>
                                     </div>
                             </a>
-                            <a href="#" className="works-list__item one-work-block blackout-block">
+                            <a href="/#" className="works-list__item one-work-block blackout-block">
                                 <img src="img/main/our_works/pic2.jpg" alt="example of work" />
                                     <div className="blackout-block__inner blackout-block__inner--bottom">
                                         <div className="blackout-block__title">
@@ -27,7 +27,7 @@ class WorksComponent extends Component {
                                         </div>
                                     </div>
                             </a>
-                            <a href="#" className="works-list__item one-work-block blackout-block">
+                            <a href="/#" className="works-list__item one-work-block blackout-block">
                                 <img src="img/main/our_works/pic3.jpg" alt="example of work" />
                                     <div className="blackout-block__inner blackout-block__inner--bottom">
                                         <div className="blackout-block__title">
@@ -36,7 +36,7 @@ class WorksComponent extends Component {
                                         </div>
                                     </div>
                             </a>
-                            <a href="#" className="works-list__item one-work-block blackout-block">
+                            <a href="/#" className="works-list__item one-work-block blackout-block">
                                 <img src="img/main/our_works/pic4.jpg" alt="example of work" />
                                     <div className="blackout-block__inner blackout-block__inner--bottom">
                                         <div className="blackout-block__title">
@@ -45,7 +45,7 @@ class WorksComponent extends Component {
                                         </div>
                                     </div>
                             </a>
-                            <a href="#" className="works-list__item one-work-block blackout-block">
+                            <a href="/#" className="works-list__item one-work-block blackout-block">
                                 <img src="img/main/our_works/pic5.jpg" alt="example of work" />
                                     <div className="blackout-block__inner blackout-block__inner--bottom">
                                         <div className="blackout-block__title">
@@ -54,7 +54,7 @@ class WorksComponent extends Component {
                                         </div>
                                     </div>
                             </a>
-                            <a href="#" className="works-list__item one-work-block blackout-block">
+                            <a href="/#" className="works-list__item one-work-block blackout-block">
                                 <img src="img/main/our_works/pic6.jpg" alt="example of work" />
                                     <div className="blackout-block__inner blackout-block__inner--bottom">
                                         <div className="blackout-block__title">
