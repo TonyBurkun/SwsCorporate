@@ -1,53 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500&subset=cyrillic');
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
 
-
-//@font-face {
-//  font-family: 'Roboto-Light';
-//  font-style: normal;
-//  font-weight: 300;
-//  src: url('../../fonts/Roboto-Light.woff2') format('woff2'),
-//  url('../../fonts/Roboto-Light.woff') format('woff'),
-//  url('../../fonts/Roboto-Light.ttf') format('truetype');
-//}
-//
-//@font-face {
-//  font-family: 'Roboto-Regular';
-//  font-style: normal;
-//  font-weight: 400;
-//  src: url('../../fonts/Roboto-Regular.woff2') format('woff2'),
-//  url('../../fonts/Roboto-Regular.woff') format('woff'),
-//  url('../../fonts/Roboto-Regular.ttf') format('truetype');
-//}
-//
-//@font-face {
-//  font-family: 'Roboto-Bold';
-//  font-style: normal;
-//  font-weight: 700;
-//  src: url('../../fonts/Roboto-Bold.woff2') format('woff2'),
-//  url('../../fonts/Roboto-Bold.woff') format('woff'),
-//  url('../../fonts/Roboto-Bold.ttf') format('truetype');
-//}
-
-//@font-face {
-//  font-family: 'Ubuntu';
-//  font-style: normal;
-//  font-weight: 400;
-//  src: url('../../fonts/Ubuntu-Regular.woff2') format('woff2'),
-//  url('../../fonts/Ubuntu-Regular.woff') format('woff'),
-//  url('../../fonts/Ubuntu-Regular.ttf') format('truetype');
-//}
-//
-//@font-face {
-//  font-family: 'Ubuntu';
-//  font-style: normal;
-//  font-weight: 500;
-//  src: url('../../fonts/Ubuntu-Medium.woff2') format('woff2'),
-//  url('../../fonts/Ubuntu-Medium.woff') format('woff'),
-//  url('../../fonts/Ubuntu-Medium.ttf') format('truetype');
-//}
-
-
 * {
   box-sizing: border-box;
 }
@@ -59,6 +12,8 @@ html, body{
 body{
   font-family: $ubuntu;
   font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   &.menu-open{
     overflow: hidden;
@@ -85,6 +40,10 @@ ul{
   &--left{
     text-align: left;
   }
+
+  &--large{
+    font-size: 3.4375em;
+  }
 }
 
 section{
@@ -99,6 +58,10 @@ section{
   padding-bottom: 70px;
 }
 
+.bottom-padding-150{
+  padding-bottom: 150px;
+}
+
 .mb-100{
   margin-bottom: 100px;
 }
@@ -109,7 +72,7 @@ section{
 
 
 .container {
-  max-width: 1200px;
+  max-width: $width-container;
   padding: 0 20px;
   margin: 0 auto;
 }

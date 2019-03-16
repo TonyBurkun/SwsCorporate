@@ -43,7 +43,8 @@ const path = {
 
 const config = {
     server: {
-        baseDir: "./build"
+        baseDir: "./build",
+        index: "clients.html"
     },
     tunnel: true,
     host: 'localhost',

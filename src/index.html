@@ -9,9 +9,6 @@
         <link rel="stylesheet" href="./css/main.css">
     </head>
     <body>
-        <div>
-            <div></div>
-        </div>
         @@include('./templates/header.html')
         <section class="head-block">
             <div class="slider-block">
@@ -155,50 +152,52 @@
                     </div>
                 </div>
 
-                <div class="slider">
-                    <div class="one-slide">
-                        <img src="img/main/our_clients/pdf_logo.png" class="one-slide__client-logo" alt="">
-                        <div class="one-slide__content">
-                            <div class="one-slide__feedback">
-                                During 2013-2014 year the company Stairway Soft LLP has worked on web project  pdffiller.com
-                                Stairway Soft LLp is a reliable professional team and we were glad to work with them.
-                                <br/>
-                                Looking forward for further cooperation!
+                <div class="review-slider">
+                    <div class="review-slider__init">
+                        <div class="review-slider__one-slide review-slide">
+                            <img src="img/main/our_clients/pdf_logo.png" class="review-slide__client-logo" alt="">
+                            <div class="review-slide__content">
+                                <div class="review-slide__feedback">
+                                    During 2013-2014 year the company Stairway Soft LLP has worked on web project  pdffiller.com
+                                    Stairway Soft LLp is a reliable professional team and we were glad to work with them.
+                                    <br/>
+                                    Looking forward for further cooperation!
+                                </div>
+                                <div class="review-slide__name">
+                                    Vadim Yasinovskiy
+                                </div>
+                                <span class="review-slide__position">CEO PDFFiller INC.</span>
                             </div>
-                            <div class="one-slide__name">
-                                Vadim Yasinovskiy
-                            </div>
-                            <span class="one-slide__position">CEO PDFFiller INC.</span>
                         </div>
-                    </div>
-                    <div class="one-slide">
-                        <img src="img/main/our_clients/teletriumf.png" class="one-slide__client-logo" alt="">
-                        <div class="one-slide__content">
-                            <div class="one-slide__feedback">
-                                During 2013-2014 year the company Stairway Soft LLP has worked on web project  pdffiller.com
-                                Stairway Soft LLp is a reliable professional team and we were glad to work with them.
-                                <br/>
-                                Looking forward for further cooperation!
+                        <div class="review-slider__one-slide review-slide">
+                            <img src="img/main/our_clients/teletriumf.png" class="review-slide__client-logo" alt="">
+                            <div class="review-slide__content">
+                                <div class="review-slide__feedback">
+                                    During 2013-2014 year the company Stairway Soft LLP has worked on web project  pdffiller.com
+                                    Stairway Soft LLp is a reliable professional team and we were glad to work with them.
+                                    <br/>
+                                    Looking forward for further cooperation!
+                                </div>
+                                <div class="review-slide__name">
+                                    Vadim Yasinovskiy
+                                </div>
+                                <span class="review-slide__position">CEO PDFFiller INC.</span>
                             </div>
-                            <div class="one-slide__name">
-                                Vadim Yasinovskiy
-                            </div>
-                            <span class="one-slide__position">CEO PDFFiller INC.</span>
                         </div>
-                    </div>
-                    <div class="one-slide">
-                        <img src="img/main/our_clients/Otp_bank_Logo_capital.png" class="one-slide__client-logo" alt="">
-                        <div class="one-slide__content">
-                            <div class="one-slide__feedback">
-                                During 2013-2014 year the company Stairway Soft LLP has worked on web project  pdffiller.com
-                                Stairway Soft LLp is a reliable professional team and we were glad to work with them.
-                                <br/>
-                                Looking forward for further cooperation!
+                        <div class="review-slider__one-slide review-slide">
+                            <img src="img/main/our_clients/Otp_bank_Logo_capital.png" class="review-slide__client-logo" alt="">
+                            <div class="review-slide__content">
+                                <div class="review-slide__feedback">
+                                    During 2013-2014 year the company Stairway Soft LLP has worked on web project  pdffiller.com
+                                    Stairway Soft LLp is a reliable professional team and we were glad to work with them.
+                                    <br/>
+                                    Looking forward for further cooperation!
+                                </div>
+                                <div class="review-slide__name">
+                                    Vadim Yasinovskiy
+                                </div>
+                                <span class="review-slide__position">CEO PDFFiller INC.</span>
                             </div>
-                            <div class="one-slide__name">
-                                Vadim Yasinovskiy
-                            </div>
-                            <span class="one-slide__position">CEO PDFFiller INC.</span>
                         </div>
                     </div>
                 </div>
@@ -359,7 +358,7 @@
 
 
             tns({
-                container: document.querySelector('.slider'),
+                container: document.querySelector('.review-slider__init'),
                 slideByPage: false,
                 loop: true,
                 keyboard: true,
