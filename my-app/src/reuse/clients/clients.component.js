@@ -9,7 +9,7 @@ const settings = {
     controlsText: ['', ''],
 };
 
-class ClientsComponent extends Component {
+class ClientsReuse extends Component {
     constructor(props) {
         super(props);
 
@@ -86,4 +86,4 @@ class ClientsComponent extends Component {
         );
     }
 }
-export default ClientsComponent;
+export default ClientsReuse;

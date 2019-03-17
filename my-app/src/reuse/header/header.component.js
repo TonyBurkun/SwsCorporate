@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import React, {Component, Fragment} from "react";
+import {Link} from "react-router-dom";
 
 class HeaderComponent extends Component {
 
@@ -30,7 +30,7 @@ class HeaderComponent extends Component {
             bodyDOM.classList.toggle('menu-open');
         };
 
-        window.onscroll = function() {
+        window.onscroll = function () {
             const header = document.getElementById('header');
             if (window.pageYOffset >= 1) {
                 header.classList.add('header--scrolled');
@@ -53,7 +53,7 @@ class HeaderComponent extends Component {
             });
         });
 
-        window.onresize = function(){
+        window.onresize = function () {
             const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
             if (width > 1200) {
                 _removeClassesForMenuBtn();

@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { Route } from "react-router-dom";
 import ServiceComponent from './services/services.component';
-import ClientsComponent from '../../reuse/clients/clients.component';
-import WorksComponent from '../../reuse/works/works.component';
+import ClientsReuse from '../../reuse/clients/clients.component';
+import WorksReuseComponent from '../../reuse/works/works.component';
 import AboutHomeComponent from './about/about.component';
 import ConnectComponent from '../../reuse/connect/connect.component';
 
@@ -32,8 +32,8 @@ class MainPageComponent extends Component {
                     </div>
                 </section>
                 <Route path="/" component={ServiceComponent} />
-                <Route path="/" component={ClientsComponent} />
-                <Route path="/" component={WorksComponent} />
+                <Route path="/" component={ClientsReuse} />
+                <Route path="/" component={WorksReuseComponent} />
                 <Route path="/" component={AboutHomeComponent} />
                 <Route path="/" component={ConnectComponent} />
             </Fragment>

@@ -33,7 +33,7 @@ class ServiceComponent extends Component {
                                     <div className="blackout-block__inner">
                                         <div className="blackout-block__title" dangerouslySetInnerHTML={{__html: service.title}}>
                                         </div>
-                                        <p className="blackout-block__desc" dangerouslySetInnerHTML={{__html: service.excerpt}}>
+                                        <p className="blackout-block__desc" dangerouslySetInnerHTML={{__html: service.data.short_description}}>
                                         </p>
                                         <div className="blackout-block__arrow"></div>
                                     </div>
