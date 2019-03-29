@@ -1,6 +1,7 @@
 @import 'style/variables.scss';
 @import 'style/general.scss';
 @import 'style/tiny-slider.scss';
+@import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 
 // -- HEADER -----------------------
 header {
@@ -2626,6 +2627,85 @@ header {
     margin-right: 60px;
     margin-top: 70px;
     align-self: center;
+
+  }
+}
+
+
+//-- IMAGE GALLERY --------
+
+.app-image-gallery{
+  position: relative;
+  padding-bottom: 55px;
+
+  .image-gallery-slide-wrapper{
+    position: static;
+    span{
+      position: absolute;
+      bottom: -25px;
+      right: 0;
+      display: flex;
+      flex-direction: row-reverse;
+
+      button{
+        outline: none;
+        width: 40px;
+        height: 30px;
+        border-radius: 0;
+        border: 1px solid $white-border;
+        background: $white;
+        z-index:100;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  .image-gallery-left-nav{
+    transform: translateY(0);
+    left: -80px;
+    &:before{
+      content:'';
+      display: block;
+      background: url("img/svg_icons/arrow_violet_left.svg") no-repeat;
+      width: 20px;
+      height: 14px;
+      align-self: center;
+
+    }
+  }
+  .image-gallery-right-nav{
+    transform: translateY(0);
+    left: -40px;
+    &:before{
+      content:'';
+      display: block;
+      background: url("img/svg_icons/arrow_violet_right.svg") no-repeat;
+      width: 20px;
+      height: 14px;
+      align-self: center;
+
+    }
+  }
+
+  .image-gallery-thumbnails{
+    padding: 0;
+    margin-top: 40px;
+  }
+
+  .image-gallery-thumbnail{
+    width: 275px;
+    max-height: 200px;
+    border: none;
+    margin-left: 0;
+    padding: 0;
+    margin-right: 20px;
+
+    &.active{
+      border: none
+    }
+
 
   }
 }
