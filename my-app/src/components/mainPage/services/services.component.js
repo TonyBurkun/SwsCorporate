@@ -14,7 +14,7 @@ class ServiceComponent extends Component {
     }
 
     getServiceList() {
-        fetch('http://sws.local/api/wp/v2/posts?filter[category_name]=services')
+        fetch('http://cp.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=services')
             .then(response => response.json())
             .then(data => this.setState({services: data}));
     }

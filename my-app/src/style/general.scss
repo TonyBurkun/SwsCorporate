@@ -177,7 +177,7 @@ section {
     &:before{
       content: '';
       position: absolute;
-      background: url("../../img/services/add_violet.svg") no-repeat center;
+      background: url("img/services/add_violet.svg") no-repeat center;
       width: 21px;
       height: 21px;
       left: 15px;
@@ -192,7 +192,7 @@ section {
     }
 
     &:hover:before{
-      background: url("../../img/svg_icons/services/add_gray.svg") no-repeat center;
+      background: url("img/svg_icons/services/add_gray.svg") no-repeat center;
     }
 
   }

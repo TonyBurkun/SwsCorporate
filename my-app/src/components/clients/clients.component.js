@@ -16,7 +16,7 @@ class ClientComponent extends Component {
     }
 
     getClientsList() {
-        fetch('http://sws.local/api/wp/v2/pages?slug=clients')
+        fetch('http://cp.stairwaysoft.com/api/wp/v2/pages?slug=clients')
             .then(response => response.json())
             .then(data => {
                 this.setState({clients: data[0].data.client});
