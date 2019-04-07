@@ -7,7 +7,8 @@ import FooterComponent from './reuse/footer/footer.component';
 import MainPageComponent from './components/mainPage/main.component';
 import ClientComponent from "./components/clients/clients.component";
 import WorksComponent from "./components/works/works.component";
-import OneWorkComponent from './components/oneWork/oneWork.component'
+import OneWorkComponent from './components/oneWork/oneWork.component';
+import oneServiceComponent from './components/oneService/oneService.component';
 
 class App extends Component {
     render() {
@@ -20,6 +21,7 @@ class App extends Component {
                         <Route path="/clients" exact component={ClientComponent}/>
                         <Route path="/portfolio" exact component={WorksComponent}/>
                         <Route path="/work/:name" exact component={OneWorkComponent}/>
+                        <Route path="/service/:name" exact component={oneServiceComponent}/>
                     </Switch>
                     <FooterComponent/>
                 </Fragment>
