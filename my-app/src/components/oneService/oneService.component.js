@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from "react-router-dom";
 import WorksReuseComponent from "../../reuse/works/works.component";
 
 class oneServiceComponent extends Component {
