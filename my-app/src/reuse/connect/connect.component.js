@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from "react";
+import ContactComponent from "../contact/contact.component";
+
 class ConnectComponent extends Component {
 
     render() {
@@ -19,16 +21,7 @@ class ConnectComponent extends Component {
                     </div>
                 </section>
 
-                <section className="contacts-section">
-                    <div className="connection-block">
-                        <div className="connection-block__title">Connect with our experts</div>
-                        <div className="btn-block btn-block--center connection-block__btn">
-                            <div className="btn btn--upper">get in touch</div>
-                        </div>
-
-                    </div>
-
-                </section>
+                <ContactComponent/>
             </Fragment>
         );
     }

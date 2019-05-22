@@ -75,16 +75,16 @@ class HeaderComponent extends Component {
                             <nav className="header__top-navigation top-nav">
                                 <ul className="top-nav__wrapper">
                                     <li className="top-nav__item">
-                                        <Link to='/#' className="top-nav__link">Services</Link>
+                                        <Link to='/#services' className="top-nav__link">Services</Link>
                                     </li>
                                     <li className="top-nav__item">
                                         <Link to='/#' className="top-nav__link">Expertise</Link>
                                     </li>
+                                    {/*<li className="top-nav__item">*/}
+                                        {/*<Link to='/#' className="top-nav__link">Technologies</Link>*/}
+                                    {/*</li>*/}
                                     <li className="top-nav__item">
-                                        <Link to='/#' className="top-nav__link">Technologies</Link>
-                                    </li>
-                                    <li className="top-nav__item">
-                                        <Link to='/#' className="top-nav__link">Success Stories</Link>
+                                        <Link to='/portfolio' className="top-nav__link">Success Stories</Link>
                                     </li>
                                     <li className="top-nav__item">
                                         <Link to='/#' className="top-nav__link">Company</Link>

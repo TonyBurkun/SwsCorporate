@@ -19,7 +19,7 @@ class MainPageComponent extends Component {
                         <div className="slider-block__item">
                             <div className="slide">
                                 <h2 className="slide__title">
-                                    Project outsourcing and/or creating own development team
+                                    Project outsourcing and/or creating your own development team
                                 </h2>
                                 <p className="slide__desc">
                                     StairwaySoft is an Israeli and Ukraine based engineering provider

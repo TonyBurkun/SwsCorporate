@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import WorksReuseComponent from "../../reuse/works/works.component";
+import ContactComponent from "../../reuse/contact/contact.component";
 
 class oneServiceComponent extends Component {
     constructor(props) {
@@ -130,52 +131,7 @@ class oneServiceComponent extends Component {
                     </div>
                 </section>
 
-                <section className="section-bg bottom-padding-70">
-                    <div className="container">
-                        <h2 className="section-title">Get in touch</h2>
-                        <form className="feedback-form">
-                            <label className="feedback-form__label feedback-form__label--error">
-                                <span>Name<span>*</span></span>
-                                <input type="text" id="feedback-name" placeholder="Your full name"
-                                       className="feedback-form__input feedback-form__input--error"/>
-                                <span className="feedback-form__error-msg">You full name</span>
-                            </label>
-                            <label className="feedback-form__label">
-                                <span> Email<span>*</span></span>
-                                <input type="text" id="feedback-email" placeholder="Work email address"
-                                       className="feedback-form__input"/>
-                            </label>
-                            <label className="feedback-form__label">
-                                <span> Phone</span>
-                                <input type="text" id="feedback-phone" placeholder="Your phone number"
-                                       className="feedback-form__input"/>
-                            </label>
-                            <label className="feedback-form__label feedback-form__label--textarea">
-                                <span>Message<span>*</span></span>
-                                <textarea id="feedback-message" placeholder="Tell us more about your project"
-                                          className="feedback-form__input"/>
-                            </label>
-                            <div className="form-btn-block">
-                                <button className="btn btn--160w">Send Message</button>
-                                <button className="btn btn--attach feedback-form__attach-btn">Attach a file</button>
-                                <span
-                                    className="attachments-tip">Up to three attachments (up to 5Mb combined size)</span>
-                            </div>
-                        </form>
-                        <div className="privacy-block">
-                            <div className="privacy-block__title">Privacy</div>
-                            <div className="privacy-block__text-wrap">
-                                <p>
-                                    We respect your privacy, and will not share your information with any 3rd party
-                                    without your permission. Our multi-level corporate security
-                                    policies and procedures ensure prevention from loss, misuse or unauthorized
-                                    distribution of any business-sensitive information you share with us.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+                <ContactComponent/>
             </Fragment>
 
         );

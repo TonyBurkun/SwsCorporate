@@ -16,7 +16,7 @@ class WorksReuseComponent extends Component {
             .then(data => this.setState({works: data}));
     }
     render() {
-        let works = this.state.works;
+        let works = this.state.works.slice(0,6);
         return (
             <Fragment>
                 <section className="bottom-padding-70">

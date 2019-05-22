@@ -34,21 +34,21 @@ class FooterComponent extends Component {
 
                                 </div>
                             </div>
-                            <div className="footer-block__column">
-                                <div className="list-items">
-                                    <div className="list-items__title">Technologies</div>
-                                    <Link to="/#" className="list-items__one">Java</Link>
-                                    <Link to="/#" className="list-items__one">Scala</Link>
-                                    <Link to="/#" className="list-items__one">Python</Link>
-                                    <Link to="/#" className="list-items__one">Ruby</Link>
-                                    <Link to="/#" className="list-items__one">PHP</Link>
-                                    <Link to="/#" className="list-items__one">JavaScript</Link>
-                                    <Link to="/#" className="list-items__one">iOS</Link>
-                                    <Link to="/#" className="list-items__one">Android</Link>
-                                    <Link to="/#" className="list-items__one">Angular</Link>
+                            {/*<div className="footer-block__column">*/}
+                                {/*<div className="list-items">*/}
+                                    {/*<div className="list-items__title">Technologies</div>*/}
+                                    {/*<Link to="/#" className="list-items__one">Java</Link>*/}
+                                    {/*<Link to="/#" className="list-items__one">Scala</Link>*/}
+                                    {/*<Link to="/#" className="list-items__one">Python</Link>*/}
+                                    {/*<Link to="/#" className="list-items__one">Ruby</Link>*/}
+                                    {/*<Link to="/#" className="list-items__one">PHP</Link>*/}
+                                    {/*<Link to="/#" className="list-items__one">JavaScript</Link>*/}
+                                    {/*<Link to="/#" className="list-items__one">iOS</Link>*/}
+                                    {/*<Link to="/#" className="list-items__one">Android</Link>*/}
+                                    {/*<Link to="/#" className="list-items__one">Angular</Link>*/}
 
-                                </div>
-                            </div>
+                                {/*</div>*/}
+                            {/*</div>*/}
                             <div className="footer-block__column footer-block__column--tablet-only">
                                 <div className="list-items mb-100">
                                     <div className="list-items__title">Success Stories</div>
