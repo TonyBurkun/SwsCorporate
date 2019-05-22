@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from "react";
 import {Link} from "react-router-dom";
+import Scrollchor from 'react-scrollchor';
 
 class HeaderComponent extends Component {
 
@@ -75,7 +76,7 @@ class HeaderComponent extends Component {
                             <nav className="header__top-navigation top-nav">
                                 <ul className="top-nav__wrapper">
                                     <li className="top-nav__item">
-                                        <Link to='/#services' className="top-nav__link">Services</Link>
+                                        <Scrollchor to='#services' className="top-nav__link">Services</Scrollchor>
                                     </li>
                                     <li className="top-nav__item">
                                         <Link to='/#' className="top-nav__link">Expertise</Link>

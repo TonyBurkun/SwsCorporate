@@ -7,8 +7,8 @@ import AboutHomeComponent from './about/about.component';
 import ConnectComponent from '../../reuse/connect/connect.component';
 
 class MainPageComponent extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         window.scrollTo(0,0);
     }
     render() {

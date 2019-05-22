@@ -90,48 +90,10 @@ class oneServiceComponent extends Component {
                     </div>
                 </section>
 
+                <ContactComponent/>
+
                 <WorksReuseComponent/>
 
-                <section className="section-bg bottom-padding-70">
-                    <div className="container">
-                        <h2 className="section-title">How it works</h2>
-                        <div className="direction-block">
-                            {oneService.how_it_works && oneService.how_it_works.map(item =>
-                                <div key={item.title} className="direction-block__col direction-col">
-                                    <div className="direction-col__title">
-                                        {item.title}
-                                    </div>
-                                    <div className="direction-col__text"
-                                         dangerouslySetInnerHTML={{__html: item.description}}>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-                </section>
-
-                <section className="bottom-padding-70">
-                    <div className="container">
-                        <h2 className="section-title">Industry we serve</h2>
-                        <div className="icon-text-block">
-                            {oneService.industry_we_server && oneService.industry_we_server.map(item =>
-                                <div key={item.title} className="icon-text-block__one">
-                                    <img src={item.icon} alt="industry icon" className="icon-text-block__ico"/>
-
-                                    <div className="icon-text-block__wrap">
-                                        <h5 className="h5-title h5-title--purple">{item.title}</h5>
-                                        <div className="icon-text-block__text"
-                                             dangerouslySetInnerHTML={{__html: item.description}}>
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </section>
-
-                <ContactComponent/>
             </Fragment>
 
         );

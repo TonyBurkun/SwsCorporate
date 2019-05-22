@@ -149,7 +149,7 @@ class oneWorkComponent extends Component {
                     </div>
                 </section>
 
-                {oneWorkData.goal_and_tasks && (
+                {oneWorkData.goal_and_tasks && oneWorkData.goal_and_tasks.description && (
                     <section>
                         <div className="container">
                             <h2 className="section-title">
@@ -166,7 +166,7 @@ class oneWorkComponent extends Component {
                     </section>
                 )}
 
-                {oneWorkData.challenges && (
+                {oneWorkData.challenges && oneWorkData.challenges.description && (
                     <section>
                         <div className="container">
                             <h2 className="section-title">
@@ -182,7 +182,7 @@ class oneWorkComponent extends Component {
                     </section>
                 )}
 
-                {oneWorkData.research_and_discovery && (
+                {oneWorkData.research_and_discovery && oneWorkData.research_and_discovery.left_description && oneWorkData.research_and_discovery.right_description && (
                     <section className="section-bg bottom-padding-70">
                         <div className="container">
                             <h2 className="section-title">Research and Discovery</h2>
@@ -217,13 +217,13 @@ class oneWorkComponent extends Component {
                     </section>
                 )}
 
-                {oneWorkData.partnership_overview && (
+                {oneWorkData.partnership_overview && oneWorkData.partnership_overview.right_description && (
                     <section className="bottom-padding-70">
                         <div className="container">
                             <h2 className="section-title">Partnership overview</h2>
                             <div className="two-sides-text">
                                 <div className="two-sides-text__one-side"
-                                     dangerouslySetInnerHTML={{__html: oneWorkData.partnership_overview.right_description}}>
+                                     dangerouslySetInnerHTML={{__html: oneWorkData.partnership_overview.left_description}}>
                                 </div>
                                 <div className="two-sides-text__one-side"
                                      dangerouslySetInnerHTML={{__html: oneWorkData.partnership_overview.right_description}}>

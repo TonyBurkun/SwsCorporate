@@ -10,7 +10,7 @@ class ConnectComponent extends Component {
                     <div className="contacts-block">
                         <div className="contacts-block__item">
                             <div className="contacts-block__city">Tel Aviv</div>
-                            <div className="contacts-block__phone">+14433520108</div>
+                            <div className="contacts-block__phone">+972587747472</div>
                             <div className="contacts-block__country">Israel</div>
                         </div>
                         <div className="contacts-block__item">
