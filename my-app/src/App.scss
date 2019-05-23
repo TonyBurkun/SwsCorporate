@@ -411,6 +411,7 @@ header {
 .clients-list-block {
   display: flex;
   border: 1px solid $white-border;
+  background: #ffffff;
 
   img {
     margin: auto;
@@ -2418,6 +2419,7 @@ header {
   //margin-bottom: -50px;
 
   &__label{
+    position: relative;
     flex-basis: 373px;
     flex-grow: 1;
     margin-right: 10px;
@@ -2464,6 +2466,9 @@ header {
   }
 
   &__error-msg{
+    position: absolute;
+    left: 0;
+    bottom: -20px;
     display: none;
     color: $error;
     font-size: 0.75em;
