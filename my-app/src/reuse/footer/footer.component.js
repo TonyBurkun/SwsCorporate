@@ -16,7 +16,23 @@ class FooterComponent extends Component {
     getMenuList() {
         fetch('http://cp.stairwaysoft.com/api/acf/v3/options/options')
             .then(response => response.json())
-            .then(data => this.setState({menu: data.acf.footer_links_list}));
+            .then(data => {
+
+
+
+                let menu = data.acf.footer_links_list;
+
+                menu.services.forEach((item) => {
+                    let link = item.link;
+                    let result = link.replace('http://cp.stairwaysoft.com/','');
+                    result = result.replace('https://cp.stairwaysoft.com/','');
+
+                    item.link = result;
+
+                });
+
+                this.setState({menu})
+            });
     }
 
     render() {
