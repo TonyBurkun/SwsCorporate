@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from "react";
 import {Link} from "react-router-dom";
 import Scrollchor from 'react-scrollchor';
+import {scrollToSection} from '../../utils/scrollToSection'
 
 class HeaderComponent extends Component {
 
@@ -63,6 +64,16 @@ class HeaderComponent extends Component {
 
     }
 
+    handleClick = (event) => {
+      console.log('click');
+
+      if (event.target.hasAttribute('href')){
+          const hashStr = event.target.getAttribute('href').substring(2);
+          scrollToSection(hashStr);
+      }
+
+    };
+
     render() {
         return (
             <Fragment>
@@ -70,17 +81,18 @@ class HeaderComponent extends Component {
                     <div className="container">
                         <div className="header__wrapper">
                             <div className="header__logo-block">
-                                <div id="mobile-menu-btn" className="header__trigger"></div>
-                                <Link to="/" className="header__logo"></Link>
+                                <div id="mobile-menu-btn" className="header__trigger"/>
+                                <Link to="/" className="header__logo"/>
                             </div>
                             <nav className="header__top-navigation top-nav">
                                 <ul className="top-nav__wrapper">
                                     <li className="top-nav__item">
-                                        <Scrollchor to='#services' className="top-nav__link">Services</Scrollchor>
+                                        {/*<Scrollchor to='#services' className="top-nav__link">Services</Scrollchor>*/}
+                                        <Link to='/#services' className="top-nav__link" onClick={event => this.handleClick(event)}>Services</Link>
                                     </li>
-                                    <li className="top-nav__item">
-                                        <Link to='/#' className="top-nav__link">Expertise</Link>
-                                    </li>
+                                    {/*<li className="top-nav__item">*/}
+                                    {/*    <Link to='/#' className="top-nav__link">Expertise</Link>*/}
+                                    {/*</li>*/}
                                     {/*<li className="top-nav__item">*/}
                                         {/*<Link to='/#' className="top-nav__link">Technologies</Link>*/}
                                     {/*</li>*/}
@@ -88,7 +100,7 @@ class HeaderComponent extends Component {
                                         <Link to='/portfolio' className="top-nav__link">Success Stories</Link>
                                     </li>
                                     <li className="top-nav__item">
-                                        <Link to='/#' className="top-nav__link">Company</Link>
+                                        <Link to='/#company' className="top-nav__link" onClick={event => this.handleClick(event)}>Company</Link>
                                     </li>
                                 </ul>
                                 <button className="top-nav__btn btn btn--upper">Contact Us</button>
@@ -116,7 +128,7 @@ class HeaderComponent extends Component {
                         </li>
                     </ul>
                 </div>
-                <div id="header__overlay" className="header__overlay"></div>
+                <div id="header__overlay" className="header__overlay"/>
             </Fragment>
         );
     }

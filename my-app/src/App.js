@@ -21,7 +21,7 @@ class App extends Component {
                         <Route path="/clients" exact component={ClientComponent}/>
                         <Route path="/portfolio" exact component={WorksComponent}/>
                         <Route path="/work/:name" exact component={OneWorkComponent}/>
-                        <Route path="/service/:name" exact component={oneServiceComponent}/>
+                        <Route path="/services/:name" exact component={oneServiceComponent}/>
                     </Switch>
                     <FooterComponent/>
                 </Fragment>

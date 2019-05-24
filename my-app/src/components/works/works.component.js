@@ -79,12 +79,12 @@ class WorksComponent extends Component {
 
                     <div className="container">
                         <div className="tab-wrapper">
-                            <div className="tabs">
-                                <button className="tablinks">All</button>
-                                <button className="tablinks">Web</button>
-                                <button className="tablinks">Mobile</button>
-                                <button className="tablinks">Game</button>
-                            </div>
+                            {/*<div className="tabs">*/}
+                            {/*    <button className="tablinks">All</button>*/}
+                            {/*    <button className="tablinks">Web</button>*/}
+                            {/*    <button className="tablinks">Mobile</button>*/}
+                            {/*    <button className="tablinks">Game</button>*/}
+                            {/*</div>*/}
 
                             <div className="tabcontent">
                                 {works.map(work =>
@@ -107,9 +107,9 @@ class WorksComponent extends Component {
                     </div>
 
 
-                    <div className="btn-block btn-block--center">
-                        <div className="btn btn--upper">view more</div>
-                    </div>
+                    {/*<div className="btn-block btn-block--center">*/}
+                    {/*    <div className="btn btn--upper">view more</div>*/}
+                    {/*</div>*/}
                 </section>
             </Fragment>
         );

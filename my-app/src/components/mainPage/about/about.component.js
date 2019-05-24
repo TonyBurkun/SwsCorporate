@@ -56,7 +56,7 @@ class AboutHomeComponent extends Component {
                     </div>
                 </section>
 
-                <section className="bottom-padding-70">
+                <section className="bottom-padding-70" id='company'>
                     <div className="container">
                         <div className="about-block">
                             <div className="about-block__text">
@@ -69,12 +69,12 @@ class AboutHomeComponent extends Component {
                             <div className="about-block__img world-map-block">
                                 <div className="world-map-block__inner">
                                     <div className="odessa-pin">
-                                        <div className="odessa-pin__icon"></div>
+                                        <div className="odessa-pin__icon"/>
                                         <div className="odessa-pin__text">Odessa, UA</div>
 
                                     </div>
                                     <div className="tel-aviv-pin">
-                                        <div className="tel-aviv-pin__icon"></div>
+                                        <div className="tel-aviv-pin__icon"/>
                                         <div className="tel-aviv-pin__text">Tel Aviv, IL</div>
                                     </div>
                                 </div>
