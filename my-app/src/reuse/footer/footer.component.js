@@ -83,10 +83,10 @@ class FooterComponent extends Component {
                                 }
                                 <div className="list-items w-auto">
                                     <div className="list-items__title">Contact us:</div>
-                                    <Link to="mailto:info@stairwaysoft.com" className="list-items__one">
+                                    <a href="mailto:info@stairwaysoft.com" className="list-items__one">
                                         <span className="footer-icon footer-icon--mail"></span>
                                         <span>info@stairwaysoft.com</span>
-                                    </Link>
+                                    </a>
 
                                 </div>
                             </div>

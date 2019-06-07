@@ -1,9 +1,11 @@
 import React, {Component, Fragment} from "react";
-import {Link} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 import Scrollchor from 'react-scrollchor';
 import {scrollToSection} from '../../utils/scrollToSection'
 
 class HeaderComponent extends Component {
+
+
 
     constructor(props) {
         super(props);
@@ -61,11 +63,9 @@ class HeaderComponent extends Component {
                 _removeClassesForMenuBtn();
             }
         };
-
     }
 
     handleClick = (event) => {
-      console.log('click');
 
       if (event.target.hasAttribute('href')){
           const hashStr = event.target.getAttribute('href').substring(2);
@@ -74,7 +74,33 @@ class HeaderComponent extends Component {
 
     };
 
+    handleClickOnLogo = () => {
+        this.props.history.push(`/`);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    handleContactUsBtn = () => {
+
+       const contactForm = document.querySelector('.feedback-form');
+       if (contactForm){
+           contactForm.scrollIntoView({block: "center", behavior: "smooth"});
+       } else {
+           this.props.history.push(`/`);
+           setTimeout(() => {
+               const el = document.querySelector('.feedback-form');
+               el.scrollIntoView({block: "center", behavior: "smooth"});
+           }, 200)
+
+
+       }
+
+    };
+
     render() {
+        console.log(this.state);
         return (
             <Fragment>
                 <header id="header" className="header">
@@ -82,7 +108,7 @@ class HeaderComponent extends Component {
                         <div className="header__wrapper">
                             <div className="header__logo-block">
                                 <div id="mobile-menu-btn" className="header__trigger"/>
-                                <Link to="/" className="header__logo"/>
+                                <Link to="/" className="header__logo" onClick={this.handleClickOnLogo}/>
                             </div>
                             <nav className="header__top-navigation top-nav">
                                 <ul className="top-nav__wrapper">
@@ -103,7 +129,10 @@ class HeaderComponent extends Component {
                                         <Link to='/#company' className="top-nav__link" onClick={event => this.handleClick(event)}>Company</Link>
                                     </li>
                                 </ul>
-                                <button className="top-nav__btn btn btn--upper">Contact Us</button>
+                                <button
+                                    className="top-nav__btn btn btn--upper"
+                                    onClick={this.handleContactUsBtn}
+                                >Contact Us</button>
                             </nav>
 
                         </div>
@@ -112,19 +141,19 @@ class HeaderComponent extends Component {
                 <div id="header__nav-mobile" className="mobile-nav">
                     <ul className="mobile-nav__wrapper">
                         <li className="mobile-nav__item">
-                            <Link to="#" className="mobile-nav__link">Services</Link>
+                            <Link to='/#services' className="mobile-nav__link" onClick={event => this.handleClick(event)}>Services</Link>
+                        </li>
+                        {/*<li className="mobile-nav__item">*/}
+                        {/*    <Link to="#" className="mobile-nav__link">Expertise</Link>*/}
+                        {/*</li>*/}
+                        {/*<li className="mobile-nav__item">*/}
+                        {/*    <Link to="#" className="mobile-nav__link">Technologies</Link>*/}
+                        {/*</li>*/}
+                        <li className="mobile-nav__item">
+                            <Link to='/portfolio' className="mobile-nav__link">Success Stories</Link>
                         </li>
                         <li className="mobile-nav__item">
-                            <Link to="#" className="mobile-nav__link">Expertise</Link>
-                        </li>
-                        <li className="mobile-nav__item">
-                            <Link to="#" className="mobile-nav__link">Technologies</Link>
-                        </li>
-                        <li className="mobile-nav__item">
-                            <Link to="#" className="mobile-nav__link">Success Stories</Link>
-                        </li>
-                        <li className="mobile-nav__item">
-                            <Link to="#" className="mobile-nav__link">Company</Link>
+                            <Link to='/#company' className="mobile-nav__link" onClick={event => this.handleClick(event)}>Company</Link>
                         </li>
                     </ul>
                 </div>
@@ -134,4 +163,4 @@ class HeaderComponent extends Component {
     }
 }
 
-export default HeaderComponent;
+export default withRouter(HeaderComponent);
