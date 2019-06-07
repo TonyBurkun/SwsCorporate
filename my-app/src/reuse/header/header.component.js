@@ -65,11 +65,13 @@ class HeaderComponent extends Component {
                     header.classList.add('header--scrolled');
                 } else {
                     header.classList.remove('header--scrolled');
+                    // document.querySelector('body').classList.remove('hasHeader')
                 }
             };
-        }else {
-            const header = document.getElementById('header');
+        } else {
+            // const header = document.getElementById('header');
             header.classList.add('header--scrolled');
+            document.querySelector('body').classList.add('hasHeader')
         }
     }
 
@@ -77,6 +79,7 @@ class HeaderComponent extends Component {
         const header = document.getElementById('header');
         if (window.location.pathname.length === 1) {
             header.classList.remove('header--scrolled');
+            document.querySelector('body').classList.remove('hasHeader');
             window.onscroll = function () {
                 if (window.pageYOffset >= 1) {
                     header.classList.add('header--scrolled');
@@ -86,6 +89,7 @@ class HeaderComponent extends Component {
             };
         } else {
             header.classList.add('header--scrolled');
+            document.querySelector('body').classList.add('hasHeader')
             window.onscroll = function () {
                 header.classList.add('header--scrolled');
             }

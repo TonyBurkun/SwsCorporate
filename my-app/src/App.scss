@@ -4,6 +4,11 @@
 @import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 
 // -- HEADER -----------------------
+
+.hasHeader{
+  margin-top: 80px;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -1183,11 +1188,19 @@ header {
       transform: translate(0, -50%);
       top: 50%;
       font-size: 16px;
+
+      @media screen and (max-width: $tablet-portrait-upper-boundary){
+        font-size: 12px;
+        width: 100%;
+      }
     }
 
     &__short-text {
       font-size: 1.625em;
       text-transform: uppercase;
+      @media screen and (max-width: $phone-upper-boundary){
+       display: none;
+      }
     }
 
     &__slide-title {
@@ -1203,6 +1216,9 @@ header {
       margin-top: 0;
       font-size: 1.375em;
       font-weight: 300;
+      @media screen and (max-width: $phone-upper-boundary){
+        display: none;
+      }
 
       p {
         margin-top: 0;
@@ -1233,6 +1249,7 @@ header {
     left: 50%;
     transition: translate(0, -50%);
     z-index: 100;
+    display: none; // hide the navigation dots for slider
 
     button {
       outline: none;

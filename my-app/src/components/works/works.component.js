@@ -48,7 +48,7 @@ class WorksComponent extends Component {
                                                 technologies.
                                             </p>
                                         </div>
-                                        <div className="btn btn--upper img-slide__btn">read more</div>
+                                        {/*<div className="btn btn--upper img-slide__btn">read more</div>*/}
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +67,7 @@ class WorksComponent extends Component {
                                                 technologies.
                                             </p>
                                         </div>
-                                        <div className="btn btn--upper img-slide__btn">read more</div>
+                                        {/*<div className="btn btn--upper img-slide__btn">read more</div>*/}
                                     </div>
                                 </div>
                             </div>
