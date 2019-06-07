@@ -34,14 +34,6 @@ class HeaderComponent extends Component {
             bodyDOM.classList.toggle('menu-open');
         };
 
-        window.onscroll = function () {
-            const header = document.getElementById('header');
-            if (window.pageYOffset >= 1) {
-                header.classList.add('header--scrolled');
-            } else {
-                header.classList.remove('header--scrolled');
-            }
-        };
 
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.getElementById('header');
@@ -63,6 +55,41 @@ class HeaderComponent extends Component {
                 _removeClassesForMenuBtn();
             }
         };
+    }
+
+    componentDidMount(){
+        const header = document.getElementById('header');
+        if (window.location.pathname.length === 1) {
+            window.onscroll = function () {
+                if (window.pageYOffset >= 1) {
+                    header.classList.add('header--scrolled');
+                } else {
+                    header.classList.remove('header--scrolled');
+                }
+            };
+        }else {
+            const header = document.getElementById('header');
+            header.classList.add('header--scrolled');
+        }
+    }
+
+    componentWillReceiveProps(nextProps, nextContext){
+        const header = document.getElementById('header');
+        if (window.location.pathname.length === 1) {
+            header.classList.remove('header--scrolled');
+            window.onscroll = function () {
+                if (window.pageYOffset >= 1) {
+                    header.classList.add('header--scrolled');
+                } else {
+                    header.classList.remove('header--scrolled');
+                }
+            };
+        } else {
+            header.classList.add('header--scrolled');
+            window.onscroll = function () {
+                header.classList.add('header--scrolled');
+            }
+        }
     }
 
     handleClick = (event) => {
