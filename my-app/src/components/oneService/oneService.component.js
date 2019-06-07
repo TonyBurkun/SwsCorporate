@@ -13,6 +13,21 @@ class oneServiceComponent extends Component {
             short_description: null
         };
         this.getServiceData(props.match.params.name);
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        console.log(this.props.match.params.name);
+        console.log(nextProps.match.params.name);
+        const prevParam = this.props.match.params.name;
+        const nextParam = nextProps.match.params.name;
+
+        if (prevParam !== nextParam){
+            this.getServiceData(nextParam);
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
 
     }
 

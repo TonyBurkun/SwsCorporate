@@ -24,8 +24,8 @@ class FooterComponent extends Component {
 
                 menu.services.forEach((item) => {
                     let link = item.link;
-                    let result = link.replace('http://cp.stairwaysoft.com/','');
-                    result = result.replace('https://cp.stairwaysoft.com/','');
+                    let result = link.replace('http://cp.stairwaysoft.com/','/');
+                    result = result.replace('https://cp.stairwaysoft.com/','/');
 
                     item.link = result;
 
