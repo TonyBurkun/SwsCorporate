@@ -16,8 +16,6 @@ class oneServiceComponent extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        console.log(this.props.match.params.name);
-        console.log(nextProps.match.params.name);
         const prevParam = this.props.match.params.name;
         const nextParam = nextProps.match.params.name;
 
