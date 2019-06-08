@@ -65,19 +65,18 @@ class HeaderComponent extends Component {
                     header.classList.add('header--scrolled');
                 } else {
                     header.classList.remove('header--scrolled');
-                    // document.querySelector('body').classList.remove('hasHeader')
                 }
             };
         } else {
-            // const header = document.getElementById('header');
             header.classList.add('header--scrolled');
-            document.querySelector('body').classList.add('hasHeader')
+            document.querySelector('body').classList.add('hasHeader');
         }
     }
 
     componentWillReceiveProps(nextProps, nextContext){
+        console.log(window.location);
         const header = document.getElementById('header');
-        if (window.location.pathname.length === 1) {
+        if (window.location.pathname.length === 1 && window.location.hash.length === 0) {
             header.classList.remove('header--scrolled');
             document.querySelector('body').classList.remove('hasHeader');
             window.onscroll = function () {
@@ -87,9 +86,15 @@ class HeaderComponent extends Component {
                     header.classList.remove('header--scrolled');
                 }
             };
-        } else {
+        }
+
+        if (window.location.pathname.length === 1 && window.location.hash.length) {
             header.classList.add('header--scrolled');
-            document.querySelector('body').classList.add('hasHeader')
+        }
+
+        if (window.location.pathname.length > 1) {
+            header.classList.add('header--scrolled');
+            document.querySelector('body').classList.add('hasHeader');
             window.onscroll = function () {
                 header.classList.add('header--scrolled');
             }
