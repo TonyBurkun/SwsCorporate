@@ -7,6 +7,7 @@ class FooterComponent extends Component {
         super(props);
 
         this.state = {
+            gotData: false,
             menu : []
         };
 
@@ -31,7 +32,10 @@ class FooterComponent extends Component {
 
                 });
 
-                this.setState({menu})
+                this.setState({
+                    gotData: true,
+                    menu
+                })
             });
     }
 
@@ -39,47 +43,48 @@ class FooterComponent extends Component {
         let menu = this.state.menu;
         return (
             <Fragment>
-                <footer className="footer">
+                {this.state.gotData &&
+                   <footer className="footer">
                     <div className="container">
                         <div className="footer-block">
                             {menu.services &&
-                                <div className="footer-block__column">
-                                    <div className="list-items">
-                                        <div className="list-items__title">Services</div>
-                                        {menu.services.map(item =>
-                                            <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
-                                        )}
-                                    </div>
+                            <div className="footer-block__column">
+                                <div className="list-items">
+                                    <div className="list-items__title">Services</div>
+                                    {menu.services.map(item =>
+                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+                                    )}
                                 </div>
+                            </div>
                             }
                             {menu.expertise &&
-                                <div className="footer-block__column">
-                                    <div className="list-items">
-                                        <div className="list-items__title">Expertise</div>
-                                        {menu.expertise.map(item =>
-                                            <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
-                                        )}
-                                    </div>
+                            <div className="footer-block__column">
+                                <div className="list-items">
+                                    <div className="list-items__title">Expertise</div>
+                                    {menu.expertise.map(item =>
+                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+                                    )}
                                 </div>
+                            </div>
                             }
                             {menu.technologies &&
-                                <div className="footer-block__column">
-                                    <div className="list-items">
-                                        <div className="list-items__title">Expertise</div>
-                                        {menu.technologies.map(item =>
-                                            <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
-                                        )}
-                                    </div>
+                            <div className="footer-block__column">
+                                <div className="list-items">
+                                    <div className="list-items__title">Expertise</div>
+                                    {menu.technologies.map(item =>
+                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+                                    )}
                                 </div>
+                            </div>
                             }
                             <div className="footer-block__column footer-block__column--tablet-only">
                                 {menu.success_stories &&
-                                    <div className="list-items mb-100">
-                                        <div className="list-items__title">Success Stories</div>
-                                        {menu.success_stories.map(item =>
-                                            <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
-                                        )}
-                                    </div>
+                                <div className="list-items mb-100">
+                                    <div className="list-items__title">Success Stories</div>
+                                    {menu.success_stories.map(item =>
+                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+                                    )}
+                                </div>
                                 }
                                 <div className="list-items w-auto">
                                     <div className="list-items__title">Contact us:</div>
@@ -92,12 +97,12 @@ class FooterComponent extends Component {
                             </div>
                             <div className="footer-block__column footer-block__column--tablet-only">
                                 {menu.company &&
-                                    <div className="list-items mb-100">
-                                        <div className="list-items__title">Company</div>
-                                        {menu.company.map(item =>
-                                            <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
-                                        )}
-                                    </div>
+                                <div className="list-items mb-100">
+                                    <div className="list-items__title">Company</div>
+                                    {menu.company.map(item =>
+                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+                                    )}
+                                </div>
                                 }
                                 <div className="list-items list-items--icons">
                                     <div className="list-items__title">Follow Us:</div>
@@ -113,6 +118,7 @@ class FooterComponent extends Component {
                         </div>
                     </div>
                 </footer>
+                }
             </Fragment>
         );
     }

@@ -1,52 +1,45 @@
 import React, {Component, Fragment} from "react";
 import {Link, withRouter} from "react-router-dom";
-import Scrollchor from 'react-scrollchor';
-import {scrollToSection} from '../../utils/scrollToSection'
+
+
+
+const _removeClassesForMenuBtn = () => {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('header__nav-mobile');
+    const mobileMenuOverlay = document.getElementById('header__overlay');
+    const bodyDOM = document.getElementsByTagName('BODY')[0];
+
+    mobileMenuOverlay.classList.remove('header__overlay--active');
+    mobileMenuBtn.classList.remove('header__trigger--open');
+    mobileMenu.classList.remove('mobile-nav--active');
+    bodyDOM.classList.remove('menu-open');
+};
+
+const _toggleClassesForMenuBtn = () => {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('header__nav-mobile');
+    const mobileMenuOverlay = document.getElementById('header__overlay');
+    const bodyDOM = document.getElementsByTagName('BODY')[0];
+
+
+    mobileMenuOverlay.classList.toggle('header__overlay--active');
+    mobileMenuBtn.classList.toggle('header__trigger--open');
+    mobileMenu.classList.toggle('mobile-nav--active');
+    bodyDOM.classList.toggle('menu-open');
+};
+
+
 
 class HeaderComponent extends Component {
 
-
-
     constructor(props) {
         super(props);
-
-        const _removeClassesForMenuBtn = () => {
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('header__nav-mobile');
-            const mobileMenuOverlay = document.getElementById('header__overlay');
-            const bodyDOM = document.getElementsByTagName('BODY')[0];
-
-            mobileMenuOverlay.classList.remove('header__overlay--active');
-            mobileMenuBtn.classList.remove('header__trigger--open');
-            mobileMenu.classList.remove('mobile-nav--active');
-            bodyDOM.classList.remove('menu-open');
-        };
-
-        const _toggleClassesForMenuBtn = () => {
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('header__nav-mobile');
-            const mobileMenuOverlay = document.getElementById('header__overlay');
-            const bodyDOM = document.getElementsByTagName('BODY')[0];
-
-            mobileMenuOverlay.classList.toggle('header__overlay--active');
-            mobileMenuBtn.classList.toggle('header__trigger--open');
-            mobileMenu.classList.toggle('mobile-nav--active');
-            bodyDOM.classList.toggle('menu-open');
-        };
-
-
         document.addEventListener('DOMContentLoaded', function () {
             const header = document.getElementById('header');
 
             if (window.pageYOffset >= 1) {
                 header.classList.add('header--scrolled');
             }
-
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-
-            mobileMenuBtn.addEventListener('click', function () {
-                _toggleClassesForMenuBtn();
-            });
         });
 
         window.onresize = function () {
@@ -55,9 +48,34 @@ class HeaderComponent extends Component {
                 _removeClassesForMenuBtn();
             }
         };
+
+        window.addEventListener('click', function(event){
+
+            const headerNavMobileBlock = document.getElementById('header__nav-mobile');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+
+
+            if (event.target !== mobileMenuBtn) {
+                console.log(headerNavMobileBlock);
+               if (headerNavMobileBlock){
+                   if (!headerNavMobileBlock.classList.contains(event.target)){
+                       // Clicked outside box
+                       // console.log('clicked outside box');
+                       _removeClassesForMenuBtn();
+                   }
+               }
+            }
+
+            if (event.target.classList.contains('mobile-nav__link')){
+                _removeClassesForMenuBtn();
+            }
+
+        });
+
     }
 
     componentDidMount(){
+        _removeClassesForMenuBtn();
         const header = document.getElementById('header');
         if (window.location.pathname.length === 1) {
             window.onscroll = function () {
@@ -74,83 +92,83 @@ class HeaderComponent extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext){
-        console.log(window.location);
         const header = document.getElementById('header');
+        const body =  document.querySelector('body');
         if (window.location.pathname.length === 1 && window.location.hash.length === 0) {
             header.classList.remove('header--scrolled');
-            document.querySelector('body').classList.remove('hasHeader');
+            body.classList.remove('hasHeader');
+
+            if (window.pageYOffset >= 1) {
+                header.classList.add('header--scrolled');
+            }
+
             window.onscroll = function () {
                 if (window.pageYOffset >= 1) {
                     header.classList.add('header--scrolled');
                 } else {
                     header.classList.remove('header--scrolled');
+                    body.classList.remove('hasHeader');
                 }
             };
         }
 
         if (window.location.pathname.length === 1 && window.location.hash.length) {
             header.classList.add('header--scrolled');
+            body.classList.remove('hasHeader');
         }
 
         if (window.location.pathname.length > 1) {
             header.classList.add('header--scrolled');
-            document.querySelector('body').classList.add('hasHeader');
+            body.classList.add('hasHeader');
             window.onscroll = function () {
                 header.classList.add('header--scrolled');
             }
         }
     }
 
-    handleClick = (event) => {
-
-      if (event.target.hasAttribute('href')){
-          const hashStr = event.target.getAttribute('href').substring(2);
-          scrollToSection(hashStr);
-      }
-
-    };
 
     handleClickOnLogo = () => {
-        this.props.history.push(`/`);
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+       const pathname = window.location.pathname - 1;
+
+       if (pathname) {
+           this.props.history.push(`/`);
+       } else {
+           window.scrollTo({
+               top: 0,
+               behavior: "smooth"
+           });
+       }
     };
 
     handleContactUsBtn = () => {
-
-       const contactForm = document.querySelector('.feedback-form');
+       const contactForm = document.getElementById('contact-form');
        if (contactForm){
-           contactForm.scrollIntoView({block: "center", behavior: "smooth"});
+           contactForm.scrollIntoView({block: "start", behavior: "smooth"});
        } else {
-           this.props.history.push(`/`);
-           setTimeout(() => {
-               const el = document.querySelector('.feedback-form');
-               el.scrollIntoView({block: "center", behavior: "smooth"});
-           }, 200)
-
-
+           this.props.history.push(`/#contact-form`);
        }
 
     };
 
+    handleClickOnMenuBtn = () => {
+        _toggleClassesForMenuBtn();
+    };
+
     render() {
-        console.log(this.state);
         return (
             <Fragment>
                 <header id="header" className="header">
                     <div className="container">
                         <div className="header__wrapper">
                             <div className="header__logo-block">
-                                <div id="mobile-menu-btn" className="header__trigger"/>
+                                <div id="mobile-menu-btn" className="header__trigger" onClick={this.handleClickOnMenuBtn}/>
                                 <Link to="/" className="header__logo" onClick={this.handleClickOnLogo}/>
                             </div>
                             <nav className="header__top-navigation top-nav">
                                 <ul className="top-nav__wrapper">
                                     <li className="top-nav__item">
-                                        {/*<Scrollchor to='#services' className="top-nav__link">Services</Scrollchor>*/}
-                                        <Link to='/#services' className="top-nav__link" onClick={event => this.handleClick(event)}>Services</Link>
+                                        <Link to='/#services' className="top-nav__link"
+                                        >Services</Link>
                                     </li>
                                     {/*<li className="top-nav__item">*/}
                                     {/*    <Link to='/#' className="top-nav__link">Expertise</Link>*/}
@@ -162,7 +180,8 @@ class HeaderComponent extends Component {
                                         <Link to='/portfolio' className="top-nav__link">Success Stories</Link>
                                     </li>
                                     <li className="top-nav__item">
-                                        <Link to='/#company' className="top-nav__link" onClick={event => this.handleClick(event)}>Company</Link>
+                                        <Link to='/#company' className="top-nav__link"
+                                        >Company</Link>
                                     </li>
                                 </ul>
                                 <button
@@ -177,7 +196,8 @@ class HeaderComponent extends Component {
                 <div id="header__nav-mobile" className="mobile-nav">
                     <ul className="mobile-nav__wrapper">
                         <li className="mobile-nav__item">
-                            <Link to='/#services' className="mobile-nav__link" onClick={event => this.handleClick(event)}>Services</Link>
+                            <Link to='/#services' className="mobile-nav__link"
+                            >Services</Link>
                         </li>
                         {/*<li className="mobile-nav__item">*/}
                         {/*    <Link to="#" className="mobile-nav__link">Expertise</Link>*/}
@@ -189,7 +209,8 @@ class HeaderComponent extends Component {
                             <Link to='/portfolio' className="mobile-nav__link">Success Stories</Link>
                         </li>
                         <li className="mobile-nav__item">
-                            <Link to='/#company' className="mobile-nav__link" onClick={event => this.handleClick(event)}>Company</Link>
+                            <Link to='/#company' className="mobile-nav__link"
+                            >Company</Link>
                         </li>
                     </ul>
                 </div>

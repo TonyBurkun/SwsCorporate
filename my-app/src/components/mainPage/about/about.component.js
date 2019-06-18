@@ -16,6 +16,7 @@ class AboutHomeComponent extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({about: data[0]});
+                this.props.updateData('gotAboutHome', true)
             });
     }
     render() {

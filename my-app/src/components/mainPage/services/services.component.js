@@ -16,8 +16,16 @@ class ServiceComponent extends Component {
     getServiceList() {
         fetch('http://cp.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=services')
             .then(response => response.json())
-            .then(data => this.setState({services: data}));
+            .then(data => {
+                this.props.updateData('gotServices', true);
+
+                this.setState({
+                    services: data
+                })
+            });
     }
+
+
 
     render() {
         const { services } = this.state;

@@ -1,6 +1,8 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import WorksReuseComponent from "../../reuse/works/works.component";
 import ContactComponent from "../../reuse/contact/contact.component";
+import HeaderComponent from '../../reuse/header/header.component';
+import FooterComponent from '../../reuse/footer/footer.component';
 
 class oneServiceComponent extends Component {
     constructor(props) {
@@ -29,8 +31,6 @@ class oneServiceComponent extends Component {
 
     }
 
-    componentWillUnmount() {
-    }
 
     getServiceData(slug) {
         fetch('http://cp.stairwaysoft.com/api/wp/v2/posts?slug=' + slug)
@@ -45,14 +45,24 @@ class oneServiceComponent extends Component {
 
     }
 
+    gotDataFromInternalComponent = (stateItem, value) => {
+        this.setState({
+            [stateItem]: value,
+
+        });
+    };
+
 
     render() {
 
-        const {oneService, title, short_description} = this.state;
+        const {oneService, title, short_description, gotWorksReuse} = this.state;
+
 
         return (
 
-            <Fragment>
+            <div className={Object.keys(oneService).length && gotWorksReuse ? 'fade-in visible' : 'fade-in'}>
+                <HeaderComponent/>
+
                 <section className="top-img-section top-img-section--services">
                     <div className="top-img-section__container">
                         <div className="top-img-section__content-wrapper">
@@ -105,9 +115,11 @@ class oneServiceComponent extends Component {
 
                 <ContactComponent/>
 
-                <WorksReuseComponent/>
+                <WorksReuseComponent gotData={this.gotDataFromInternalComponent}/>
 
-            </Fragment>
+                <FooterComponent/>
+
+            </div>
 
         );
     }

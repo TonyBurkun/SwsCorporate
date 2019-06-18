@@ -89,7 +89,6 @@ class ContactComponent extends Component {
         if (isNameValid && isEmailValid && isMessageValid) {
             const data = new FormData(e.target);
 
-            console.log('Your favorite flavor is: ' + JSON.stringify(this.state));
             fetch('http://cp.stairwaysoft.com/api/contact-form-7/v1/contact-forms/407/feedback',
                 {
                     method: 'POST',
@@ -97,7 +96,7 @@ class ContactComponent extends Component {
                 })
                 .then(response => response.json())
                 .then( response => {
-                    console.log(response);
+                    // console.log(response);
                 });
         }
     }
@@ -105,10 +104,9 @@ class ContactComponent extends Component {
 
     render() {
 
-        console.log(this.state);
         return (
             <Fragment>
-                <section className="section-bg bottom-padding-70">
+                <section className="section-bg bottom-padding-70" id='contact-form'>
                     <div className="container">
                         <h2 className="section-title">Get in touch</h2>
                         <form className="feedback-form" onSubmit={this.sendForm}>

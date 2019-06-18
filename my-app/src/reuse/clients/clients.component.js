@@ -36,7 +36,11 @@ class ClientsReuse extends Component {
                         reviews.push(val.review);
                     }
                 });
-                this.setState({reviews: reviews});
+                this.setState({
+                    reviews: reviews
+                });
+
+                this.props.updateData('gotClientsReuse', true);
             });
     }
     render() {

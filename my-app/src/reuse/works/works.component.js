@@ -7,16 +7,35 @@ class WorksReuseComponent extends Component {
         this.state = {
             works : []
         };
+
         this.getWorksList();
     }
 
     getWorksList() {
         fetch('http://cp.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
             .then(response => response.json())
-            .then(data => this.setState({works: data}));
+            .then(data => {
+                this.setState({
+                    works: data
+                });
+
+               if (this.props.updateData) {
+                   this.props.updateData('gotWorksReuse', true);
+               }
+
+               if (this.props.gotData) {
+                   this.props.gotData('gotWorksReuse', true);
+               }
+            });
     }
+
+
+
+
+
     render() {
         let works = this.state.works.slice(0,6);
+
         return (
             <Fragment>
                 <section className="bottom-padding-70">
@@ -41,6 +60,7 @@ class WorksReuseComponent extends Component {
                         </div>
                     </div>
                 </section>
+
             </Fragment>
         );
     }

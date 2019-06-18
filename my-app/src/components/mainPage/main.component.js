@@ -1,19 +1,54 @@
-import React, { Component, Fragment } from 'react';
-import { Route } from "react-router-dom";
+import React, { Component } from 'react';
 import ServiceComponent from './services/services.component';
 import ClientsReuse from '../../reuse/clients/clients.component';
 import WorksReuseComponent from '../../reuse/works/works.component';
 import AboutHomeComponent from './about/about.component';
 import ConnectComponent from '../../reuse/connect/connect.component';
+import HeaderComponent from '../../reuse/header/header.component';
+import FooterComponent from '../../reuse/footer/footer.component';
+import {scrollToSection} from '../../utils/scrollToSection'
+
 
 class MainPageComponent extends Component {
     constructor(props){
         super(props);
         window.scrollTo(0,0);
+        this.state={
+            gotServices: false,
+            gotClientsReuse: false,
+            gotWorksReuse: false,
+            gotAboutHome: false,
+        };
     }
+
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        const statusObj = nextProps.dataStatus;
+        this.setState({
+            gotServices: statusObj.gotServices,
+            gotClientsReuse: statusObj.gotClientsReuse,
+            gotWorksReuse: statusObj.gotWorksReuse,
+            gotAboutHome: statusObj.gotAboutHome,
+        })
+
+    }
+
+
     render() {
+        const {gotServices, gotClientsReuse, gotWorksReuse, gotAboutHome} = this.state;
+
+        if (gotServices && gotClientsReuse && gotWorksReuse && gotAboutHome) {
+            const hash = window.location.hash.substring(1);
+            scrollToSection(hash);
+        }
+
+
+
+
+
         return (
-            <Fragment>
+            <div className={gotServices && gotClientsReuse && gotWorksReuse && gotAboutHome ? 'fade-in visible' : 'fade-in'}>
+                <HeaderComponent/>
                 <section className="head-block">
                     <div className="slider-block">
                         <div className="slider-block__item">
@@ -31,12 +66,15 @@ class MainPageComponent extends Component {
                         </div>
                     </div>
                 </section>
-                <Route path="/" component={ServiceComponent} />
-                <Route path="/" component={ClientsReuse} />
-                <Route path="/" component={WorksReuseComponent} />
-                <Route path="/" component={AboutHomeComponent} />
-                <Route path="/" component={ConnectComponent} />
-            </Fragment>
+                <section>
+                   <ServiceComponent updateData={this.props.updateData}/>
+                   <ClientsReuse updateData={this.props.updateData}/>
+                   <WorksReuseComponent updateData={this.props.updateData} />
+                   <AboutHomeComponent updateData={this.props.updateData}/>
+                   <ConnectComponent/>
+                   <FooterComponent/>
+               </section>
+            </div>
         );
     }
 }

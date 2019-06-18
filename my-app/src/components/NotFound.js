@@ -5,12 +5,6 @@ import {Link} from "react-router-dom";
 class NotFound extends Component {
 
 
-
-    constructor(props) {
-        super(props);
-    }
-
-
     render() {
         console.log(this.state);
         return (
