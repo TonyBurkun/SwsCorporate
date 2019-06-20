@@ -89,10 +89,15 @@ class FooterComponent extends Component {
                                 <div className="list-items w-auto">
                                     <div className="list-items__title">Contact us:</div>
                                     <a href="mailto:info@stairwaysoft.com" className="list-items__one">
-                                        <span className="footer-icon footer-icon--mail"></span>
+                                        <svg
+                                            viewBox="0 0 25 25"
+                                            className="footer-icon footer-icon--mail">
+                                            <path className="st0" d="M12.5,0C5.6,0,0,5.6,0,12.5C0,19.4,5.6,25,12.5,25C19.4,25,25,19.4,25,12.5C25,5.6,19.4,0,12.5,0L12.5,0z
+	 M18.1,6.9l-5.6,4.5L6.7,6.9H18.1L18.1,6.9z M18.7,18.1H6.1V8.8l5.8,4.4c0.2,0.1,0.4,0.2,0.6,0.2c0.2,0,0.4-0.1,0.5-0.2l5.7-4.5
+	V18.1L18.7,18.1z"/>
+                                        </svg>
                                         <span>info@stairwaysoft.com</span>
                                     </a>
-
                                 </div>
                             </div>
                             <div className="footer-block__column footer-block__column--tablet-only">

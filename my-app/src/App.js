@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import './App.scss';
+import smoothscroll from 'smoothscroll-polyfill';
 
 import MainPageComponent from './components/mainPage/main.component';
 import ClientComponent from "./components/clients/clients.component";
@@ -18,8 +19,9 @@ class App extends Component {
             gotClientsReuse: false,
             gotWorksReuse: false,
             gotAboutHome: false,
-        }
+        };
 
+        smoothscroll.polyfill();
     }
 
 

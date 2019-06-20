@@ -13,22 +13,34 @@
 // -- HEADER -----------------------
 
 .hasHeader{
-  //margin-top: 80px;
   padding-top: 80px;
 }
 
-header {
-  position: fixed;
+.header {
+  color: $white;
+  position: absolute;
+  background: none;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 999;
   border-bottom: 1px solid rgba(223, 222, 221, 0.24);
 
-}
 
-.header {
-  color: $white;
+  &.header--scrolled {
+    position: fixed;
+    color: $black;
+    background: $white;
+    transition: .3s;
+    border-bottom: 1px solid $white-header-bottom-border;
+
+    .header__logo {
+      .st0{fill:#432671;}
+      .st1{fill:#888888;}
+      .st2{fill:#432671;}
+    }
+  }
+
 
   &__wrapper {
     display: flex;
@@ -50,13 +62,10 @@ header {
   }
 
   &__logo {
-    background: url("img/header/sws_logo_w.svg") no-repeat;
     width: 185px;
     height: 39px;
     align-self: center;
-    &--color {
-      background: url("img/header/sws_logo_color.svg") no-repeat;
-    }
+    fill: $white
   }
 
   @media screen and (max-width: $tablet-landscape-upper-boundary) {
@@ -176,18 +185,8 @@ header {
 
 }
 
-#root.header-fixed .header,
-.header--scrolled {
-  color: $black;
-  background: $white;
-  transition: .3s;
-  border-bottom: 1px solid $white-header-bottom-border;
 
-  .header__logo {
-    background: url("img/header/sws_logo_color.svg") no-repeat;
-    transition: .3s;
-  }
-}
+
 
 // --MAIN SCREEN -------------------
 
@@ -878,6 +877,13 @@ header {
     text-decoration: none;
     margin-top: 24px;
     color: $white;
+
+    &:hover{
+      .st0{
+        transition: .3s;
+        fill: #fff;
+      }
+    }
   }
 
   &__ico {
@@ -926,9 +932,9 @@ header {
   display: inline-block;
   vertical-align: middle;
   margin-right: 5px;
+  fill:#687482;
 
   &--mail {
-    background: url("img/svg_icons/mail.svg") no-repeat;
   }
 
   &--skype {
@@ -2833,4 +2839,3 @@ header {
   }
 
 }
-
