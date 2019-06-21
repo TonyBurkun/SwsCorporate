@@ -43,6 +43,12 @@ class ClientsReuse extends Component {
                 this.props.updateData('gotClientsReuse', true);
             });
     }
+
+
+    componentWillUnmount() {
+        this.props.updateData('gotClientsReuse', false);
+    }
+
     render() {
         let slug;
         let button;

@@ -30,6 +30,11 @@ class WorksReuseComponent extends Component {
     }
 
 
+    componentWillUnmount() {
+        if (this.props.gotData) {
+            this.props.gotData('gotWorksReuse', false);
+        }
+    }
 
 
 

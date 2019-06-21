@@ -19,6 +19,10 @@ class AboutHomeComponent extends Component {
                 this.props.updateData('gotAboutHome', true)
             });
     }
+
+    componentWillUnmount() {
+        this.props.updateData('gotAboutHome', false);
+    }
     render() {
         let about = this.state.about;
         return (

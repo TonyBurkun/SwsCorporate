@@ -25,6 +25,9 @@ class ServiceComponent extends Component {
             });
     }
 
+    componentWillUnmount() {
+        this.props.updateData('gotServices', false);
+    }
 
 
     render() {

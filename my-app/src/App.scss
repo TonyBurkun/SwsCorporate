@@ -23,7 +23,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 998;
   border-bottom: 1px solid rgba(223, 222, 221, 0.24);
 
 
@@ -45,7 +45,7 @@
   &__wrapper {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 19px 0;
   }
 
   &__logo-block {
@@ -165,21 +165,31 @@
 
 .header__overlay {
   position: fixed;
-  top: 80px;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(5, 5, 5, .3);
-  transition: all .3s;
   visibility: hidden;
   opacity: 0;
   z-index: 0;
 
   &--active {
-    z-index: 1;
+    z-index: 999;
     opacity: 1;
     visibility: visible;
     transition: opacity .3s;
+
+    &:before{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 80px;
+      width: 100%;
+      height: 100%;
+      transition: opacity .3s;
+      background: rgba(5, 5, 5, .3);
+
+    }
 
   }
 
@@ -2826,6 +2836,7 @@
     background: #fff;
     z-index: 1000;
     opacity: 1;
+    transition: ease-out 0.3s;
 
   }
 

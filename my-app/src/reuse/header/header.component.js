@@ -28,6 +28,14 @@ const _toggleClassesForMenuBtn = () => {
     bodyDOM.classList.toggle('menu-open');
 };
 
+const _makeHeaderNotTransparent = () => {
+    const header = document.getElementById('header');
+
+    if (header && !header.classList.contains('header--scrolled')){
+        header.classList.add('header--scrolled');
+    }
+};
+
 
 
 class HeaderComponent extends Component {
@@ -35,10 +43,9 @@ class HeaderComponent extends Component {
     constructor(props) {
         super(props);
         document.addEventListener('DOMContentLoaded', function () {
-            const header = document.getElementById('header');
 
             if (window.pageYOffset >= 1) {
-                header.classList.add('header--scrolled');
+                _makeHeaderNotTransparent();
             }
         });
 
@@ -49,29 +56,6 @@ class HeaderComponent extends Component {
             }
         };
 
-        window.addEventListener('click', function(event){
-
-            const headerNavMobileBlock = document.getElementById('header__nav-mobile');
-            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-
-
-            if (event.target !== mobileMenuBtn) {
-                console.log(headerNavMobileBlock);
-               if (headerNavMobileBlock){
-                   if (!headerNavMobileBlock.classList.contains(event.target)){
-                       // Clicked outside box
-                       // console.log('clicked outside box');
-                       _removeClassesForMenuBtn();
-                   }
-               }
-            }
-
-            if (event.target.classList.contains('mobile-nav__link')){
-                _removeClassesForMenuBtn();
-            }
-
-        });
-
     }
 
     componentDidMount(){
@@ -80,13 +64,13 @@ class HeaderComponent extends Component {
         if (window.location.pathname.length === 1) {
             window.onscroll = function () {
                 if (window.pageYOffset >= 1) {
-                    header.classList.add('header--scrolled');
+                    _makeHeaderNotTransparent();
                 } else {
                     header.classList.remove('header--scrolled');
                 }
             };
         } else {
-            header.classList.add('header--scrolled');
+            _makeHeaderNotTransparent();
             document.querySelector('body').classList.add('hasHeader');
         }
     }
@@ -99,12 +83,12 @@ class HeaderComponent extends Component {
             body.classList.remove('hasHeader');
 
             if (window.pageYOffset >= 1) {
-                header.classList.add('header--scrolled');
+                _makeHeaderNotTransparent();
             }
 
             window.onscroll = function () {
                 if (window.pageYOffset >= 1) {
-                    header.classList.add('header--scrolled');
+                    _makeHeaderNotTransparent();
                 } else {
                     header.classList.remove('header--scrolled');
                     body.classList.remove('hasHeader');
@@ -113,22 +97,23 @@ class HeaderComponent extends Component {
         }
 
         if (window.location.pathname.length === 1 && window.location.hash.length) {
-            header.classList.add('header--scrolled');
+            _makeHeaderNotTransparent();
             body.classList.remove('hasHeader');
         }
 
         if (window.location.pathname.length > 1) {
-            header.classList.add('header--scrolled');
+            _makeHeaderNotTransparent();
             body.classList.add('hasHeader');
             window.onscroll = function () {
-                header.classList.add('header--scrolled');
+               _makeHeaderNotTransparent()
             }
         }
     }
 
 
-    handleClickOnLogo = () => {
-       const pathname = window.location.pathname - 1;
+    handleClickOnLogo = (event) => {
+        event.preventDefault();
+       const pathname = window.location.pathname.length - 1;
 
        if (pathname) {
            this.props.history.push(`/`);
@@ -152,6 +137,14 @@ class HeaderComponent extends Component {
 
     handleClickOnMenuBtn = () => {
         _toggleClassesForMenuBtn();
+    };
+
+    handleClickOnOverlay = () => {
+        _removeClassesForMenuBtn();
+    };
+
+    handleClickOnMobileMenuItem = () => {
+        _removeClassesForMenuBtn();
     };
 
     render() {
@@ -284,7 +277,7 @@ class HeaderComponent extends Component {
                     </div>
                 </header>
                 <div id="header__nav-mobile" className="mobile-nav">
-                    <ul className="mobile-nav__wrapper">
+                    <ul className="mobile-nav__wrapper" onClick={this.handleClickOnMobileMenuItem}>
                         <li className="mobile-nav__item">
                             <Link to='/#services' className="mobile-nav__link"
                             >Services</Link>
@@ -304,7 +297,7 @@ class HeaderComponent extends Component {
                         </li>
                     </ul>
                 </div>
-                <div id="header__overlay" className="header__overlay"/>
+                <div id="header__overlay" className="header__overlay" onClick={this.handleClickOnOverlay}/>
             </Fragment>
         );
     }

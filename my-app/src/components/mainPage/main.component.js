@@ -26,8 +26,6 @@ class MainPageComponent extends Component {
 
     componentWillReceiveProps(nextProps, nextContext) {
         const statusObj = nextProps.dataStatus;
-        console.log(nextContext);
-
 
         this.setState({
             gotServices: statusObj.gotServices,
@@ -43,14 +41,17 @@ class MainPageComponent extends Component {
 
 
     render() {
-        console.log(this.state);
+
         const {gotServices, gotClientsReuse, gotWorksReuse, gotAboutHome} = this.state;
 
-        // if (gotServices && gotClientsReuse && gotWorksReuse && gotAboutHome) {
-        //     const hash = window.location.hash.substring(1);
-        //     console.log('scroll');
-        //     scrollToSection(hash);
-        // }
+        if (gotServices && gotClientsReuse && gotWorksReuse && gotAboutHome) {
+            const hash = window.location.hash.substring(1);
+
+            if (hash.length) {
+                scrollToSection(hash);
+            }
+
+        }
 
 
 
@@ -58,7 +59,7 @@ class MainPageComponent extends Component {
 
 
         return (
-            <div className={gotServices && gotClientsReuse && gotWorksReuse && gotAboutHome ? 'visible' : 'fade-in'}>
+            <div className={gotServices && gotClientsReuse && gotWorksReuse && gotAboutHome ? 'fade-in visible' : 'fade-in'}>
                 <HeaderComponent/>
                 <section className="head-block">
                     <div className="slider-block">
