@@ -11,6 +11,10 @@ html{
 
 html, body {
   font-size: 16px;
+
+  &.menu-open {
+    overflow: hidden;
+  }
 }
 
 body {
@@ -18,10 +22,6 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  &.menu-open {
-    overflow: hidden;
-  }
 }
 
 ul {
@@ -34,7 +34,7 @@ ul {
   position: relative;
   font-family: $ubuntu;
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 2.5em;
   color: $dart-black;
   text-align: center;
   margin-top: 85px;
@@ -50,6 +50,10 @@ ul {
 
   &--purple {
     color: $btn;
+  }
+
+  @media screen and (max-width: $phone-upper-boundary) {
+    font-size: 2em;
   }
 }
 

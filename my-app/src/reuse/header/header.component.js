@@ -7,25 +7,25 @@ const _removeClassesForMenuBtn = () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('header__nav-mobile');
     const mobileMenuOverlay = document.getElementById('header__overlay');
-    const bodyDOM = document.getElementsByTagName('BODY')[0];
+    const htmlDOM = document.getElementsByTagName('HTML')[0];
 
     mobileMenuOverlay.classList.remove('header__overlay--active');
     mobileMenuBtn.classList.remove('header__trigger--open');
     mobileMenu.classList.remove('mobile-nav--active');
-    bodyDOM.classList.remove('menu-open');
+    htmlDOM.classList.remove('menu-open');
 };
 
 const _toggleClassesForMenuBtn = () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('header__nav-mobile');
     const mobileMenuOverlay = document.getElementById('header__overlay');
-    const bodyDOM = document.getElementsByTagName('BODY')[0];
+    const htmlDOM = document.getElementsByTagName('HTML')[0];
 
 
     mobileMenuOverlay.classList.toggle('header__overlay--active');
     mobileMenuBtn.classList.toggle('header__trigger--open');
     mobileMenu.classList.toggle('mobile-nav--active');
-    bodyDOM.classList.toggle('menu-open');
+    htmlDOM.classList.toggle('menu-open');
 };
 
 const _makeHeaderNotTransparent = () => {

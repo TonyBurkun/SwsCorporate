@@ -41,8 +41,8 @@ class WorksComponent extends Component {
                     <div className="img-slider">
                         <TinySlider className="img-slider__init" settings={settings}>
                             <div className="img-slide">
-                                <img src="img/services/slide_bg.jpg" className="img-slide__img-bg" alt="" />
-                                <div className="img-slide__container">
+                                {/*<img src="img/services/slide_bg.jpg" className="img-slide__img-bg" alt="" />*/}
+                                {/*<div className="img-slide__container">*/}
                                     <div className="img-slide__text-wrapper">
                                         <div className="img-slide__short-text">Top case study</div>
                                         <h2 className="img-slide__slide-title">INSTANT DEDICATED SERVERS</h2>
@@ -56,7 +56,7 @@ class WorksComponent extends Component {
                                         </div>
                                         {/*<div className="btn btn--upper img-slide__btn">read more</div>*/}
                                     </div>
-                                </div>
+                                {/*</div>*/}
                             </div>
                             <div className="img-slide">
                                 <img src="img/services/slide_bg.jpg" className="img-slide__img-bg" alt="" />
