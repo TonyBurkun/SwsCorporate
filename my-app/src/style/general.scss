@@ -7,14 +7,19 @@
 
 html{
   //scroll-behavior: smooth;
+  &.menu-open {
+    overflow: hidden;
+  }
+}
+
+.menu-open {
+    body{
+      overflow: hidden;
+    }
 }
 
 html, body {
   font-size: 16px;
-
-  &.menu-open {
-    overflow: hidden;
-  }
 }
 
 body {
