@@ -12,7 +12,7 @@ class WorksReuseComponent extends Component {
     }
 
     getWorksList() {
-        fetch('http://cp.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
+        fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
             .then(response => response.json())
             .then(data => {
                 this.setState({

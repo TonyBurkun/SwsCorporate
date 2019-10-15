@@ -14,7 +14,7 @@ class ServiceComponent extends Component {
     }
 
     getServiceList() {
-        fetch('http://cp.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=services')
+        fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=services')
             .then(response => response.json())
             .then(data => {
                 this.props.updateData('gotServices', true);

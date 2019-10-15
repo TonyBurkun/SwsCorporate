@@ -34,7 +34,7 @@ class ContactComponent extends Component {
 
 
         const {name, email, message} = this.state;
-        const emailRegular = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const emailRegular = '[^@\\s]+@[^@\\s]+\\.[^@\\s]+';
 
         const feedbackNameInput = document.getElementById('feedback-name');
         const feedbackNameLabel = feedbackNameInput.closest('label');
@@ -89,7 +89,7 @@ class ContactComponent extends Component {
         if (isNameValid && isEmailValid && isMessageValid) {
             const data = new FormData(e.target);
 
-            fetch('http://cp.stairwaysoft.com/api/contact-form-7/v1/contact-forms/407/feedback',
+            fetch('http://panel.stairwaysoft.com/api/contact-form-7/v1/contact-forms/407/feedback',
                 {
                     method: 'POST',
                     body: data

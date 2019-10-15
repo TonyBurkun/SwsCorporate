@@ -24,7 +24,7 @@ class ClientsReuse extends Component {
 
     }
     getClientsList() {
-        fetch('http://cp.stairwaysoft.com/api/wp/v2/pages?slug=clients')
+        fetch('http://panel.stairwaysoft.com/api/wp/v2/pages?slug=clients')
             .then(response => response.json())
             .then(data => {
                 let reviews = [];

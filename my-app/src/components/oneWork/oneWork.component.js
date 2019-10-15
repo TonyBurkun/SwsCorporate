@@ -26,7 +26,7 @@ class oneWorkComponent extends Component {
     }
 
     getWorkData(slug) {
-        fetch('http://cp.stairwaysoft.com/api/wp/v2/posts?slug=' + slug)
+        fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?slug=' + slug)
             .then(response => response.json())
             .then(data => {
                 const imgArr = data[0].data.implementation;
