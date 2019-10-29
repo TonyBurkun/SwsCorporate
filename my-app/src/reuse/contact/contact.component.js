@@ -34,7 +34,7 @@ class ContactComponent extends Component {
 
 
         const {name, email, message} = this.state;
-        const emailRegular = '[^@\\s]+@[^@\\s]+\\.[^@\\s]+';
+        const emailRegular = /^[0-9a-z-.]+@[0-9a-z-]{2,}\.[a-z]{2,}$/i;
 
         const feedbackNameInput = document.getElementById('feedback-name');
         const feedbackNameLabel = feedbackNameInput.closest('label');
