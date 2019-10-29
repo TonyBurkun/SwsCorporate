@@ -11,6 +11,8 @@ class ContactComponent extends Component {
             phone: '',
             message: '',
             formValid: false,
+            showSuccessMsg: false,
+            showErrorMsg: false,
 
         };
 
@@ -34,7 +36,7 @@ class ContactComponent extends Component {
 
 
         const {name, email, message} = this.state;
-        const emailRegular = /^[0-9a-z-.]+@[0-9a-z-]{2,}\.[a-z]{2,}$/i;
+        const emailRegular = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
         const feedbackNameInput = document.getElementById('feedback-name');
         const feedbackNameLabel = feedbackNameInput.closest('label');
@@ -94,7 +96,42 @@ class ContactComponent extends Component {
                     method: 'POST',
                     body: data
                 })
-                .then(response => response.json())
+                .then(response => {
+                    response.json();
+
+                    this.setState({
+                        ...this.state,
+                        name: '',
+                        email: '',
+                        phone: '',
+                        message: '',
+                        showSuccessMsg: true
+                    });
+
+                    setTimeout(() => {
+                       this.setState({
+                           ...this.state,
+                           showSuccessMsg: false
+                       })
+                    },5000)
+                })
+
+                .catch(error => {
+                    this.setState({
+                        ...this.state,
+                        showErrorMsg: true
+                    });
+
+                    setTimeout(() => {
+                        this.setState({
+                            ...this.state,
+                            showErrorMsg: false
+                        })
+                    },5000)
+                })
+
+
+
                 .then( response => {
                     // console.log(response);
                 });
@@ -168,6 +205,10 @@ class ContactComponent extends Component {
                             </label>
                             <div className="form-btn-block">
                                 <button className="btn btn--160w" type="submit">Send Message</button>
+                            </div>
+                            <div className="feedback-form__notification">
+                                <p className={this.state.showSuccessMsg ? ('feedback-form__success feedback-form__success--show') : ('feedback-form__success')}>Thank you for getting in touch!</p>
+                                <p className={this.state.showErrorMsg ? ('feedback-form__error feedback-form__error--show') : ('feedback-form__error')}>Unfortunately, message wasn't sent. Please try to send it again or contact us by phone.</p>
                             </div>
                         </form>
                         <div className="privacy-block">

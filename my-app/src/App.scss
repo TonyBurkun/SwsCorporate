@@ -2577,6 +2577,43 @@
   &__attach-btn{
     margin-left: 30px;
   }
+
+  &__notification{
+    width: 100%;
+    padding-top: 15px;
+  }
+
+  &__success{
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+    margin: 0;
+    color: $success;
+    align-self: center;
+
+
+    &--show{
+      visibility: visible;
+      opacity: 1;
+      transition: 1s;
+    }
+  }
+
+  &__error{
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+    margin: 0;
+    color: $error;
+    align-self: center;
+
+
+    &--show{
+      visibility: visible;
+      opacity: 1;
+      transition: 1s;
+    }
+  }
 }
 
 .form-btn-block{
@@ -2607,7 +2644,7 @@
 
 .privacy-block{
   color: $black;
-  margin-top: 70px;
+  margin-top: 30px;
 
   &__title{
     font-size: 0.9375em;
