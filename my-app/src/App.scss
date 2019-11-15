@@ -436,6 +436,8 @@
   }
   &.btn-block--center {
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -918,10 +920,6 @@
         justify-content: center;
         margin-bottom: 40px;
         text-align: center;
-
-        //& .list-items:first-child {
-        //  display: none;
-        //}
       }
     }
   }
@@ -2619,7 +2617,8 @@
 .form-btn-block{
   display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  //flex-wrap: wrap;
+  margin: 0 10px;
 
   .attachments-tip{
     align-self: center;
@@ -2632,6 +2631,7 @@
 
   @media screen and (max-width: 800px) {
     justify-content: center;
+    flex-wrap: wrap;
 
     .attachments-tip{
       width: 100%;
@@ -2903,30 +2903,427 @@
 }
 
 
-.fade-in{
+
+
+
+// CAREER PAGE
+
+.career-img-section{
   position: relative;
 
-  &:before{
+  &::after{
     content: '';
+    display: block;
     position: absolute;
-    width: 100%;
-    height: calc(100% + 80px);
+    top: 0;
     left: 0;
-    top: -80px;
-    background: #fff;
-    z-index: 1000;
-    opacity: 1;
-    transition: ease-out 0.3s;
+    width: 100%;
+    height: 100%;
+    background-color: $grey;
+    opacity: 0.75;
+  }
+
+
+  &__img{
+    width: 100%;
+    display: block;
+  }
+
+  &__text-block{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: #fff;
+    text-align: left;
+    z-index: 100;
+    width: $width-container;
+    padding: 0 20px;
+    transform: translate(-50%, -50%);
+
+    @media screen and (max-width: $tablet-landscape-upper-boundary) {
+      width: 100%;
+    }
 
   }
 
-  &.visible{
-    &:before{
-      opacity: 0;
-      transition: ease-out 0.3s;
-      //display: none;
-      visibility: hidden;
+  &__title{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 3.4375em;
+    font-family: $ubuntu;
+    font-weight: 400;
+
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
+      font-size: 2.1875em;
+    }
+
+    @media screen and (max-width: $phone-upper-boundary) {
+      font-size: 1.125em;
+    }
+
+  }
+
+  &__description{
+    margin-top: 28px;
+    font-family: $roboto;
+    font-weight: 300;
+    @media screen and (max-width: $tablet-landscape-upper-boundary) {
+      display: none;
+    }
+
+  }
+
+  &__paragraph{
+    font-size: 1.375em;
+    margin-bottom: 0;
+  }
+}
+
+.career-list-section{
+  padding-bottom: 125px
+}
+
+
+.career-list-item {
+  border-bottom: 2px solid $white-border;
+  margin-top: 20px;
+  padding-bottom: 35px;
+  overflow: hidden;
+
+
+  &__description-wrap{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+    @media screen and (max-width: 800px) {
+     flex-wrap: wrap;
+    }
+
+    .left-side{
+      display: flex;
+      flex-direction: row;
+      //justify-content: space-between;
+      flex-grow: 1;
+
+      @media screen and (max-width: $phone-upper-boundary) {
+        flex-wrap: wrap;
+      }
+    }
+
+    .right-side{
+      padding-left: 20px;
+      @media screen and (max-width: 800px) {
+        margin-top: 40px;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.career-item,
+.career-item-between{
+  display: flex;
+  flex-direction: row;
+  margin-right: 25px;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    flex-direction: column;
+    width: 100% !important;
+    margin-bottom: 25px;
+  }
+
+  &__location{
+    width: 25%;
+  }
+
+  &__type{
+    width: 35%;
+
+  }
+
+  &__technology{
+    width: 35%;
+  }
+
+  &__capture{
+    font-family: $roboto;
+    font-size: 1.125em;
+    color: $light-grey;
+    padding-right: 25px;
+  }
+
+  &__value{
+    font-family: $roboto;
+    font-size: 1.125em;
+    color: $btn;
+  }
+
+}
+
+.career-item-between{
+  justify-content: space-between;
+  margin-bottom: 25px;
+
+  &__capture{
+    width: 224px;
+  }
+  &__value{
+    flex-grow: 1;
+  }
+
+}
+
+.no-career{
+  text-align: center;
+  font-family: $roboto;
+  font-size: 1.125em;
+}
+
+
+
+
+
+// ONE CAREER PAGE -------------
+
+.career-title{
+  margin-bottom: 40px;
+}
+
+.two-col{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: -10px;
+  margin-right: -10px;
+
+  &__item{
+    margin: 0 10px;
+  }
+
+  &__left{
+    width: 50%;
+  }
+  &__right{
+    width: 50%;
+    padding-left: 20px;
+
+    .btn{
+      margin-top: 30px;
+      margin-bottom: 30px;
     }
   }
 
+  &__desc{
+    font-family: $roboto;
+    font-weight: 300;
+    font-size: 1em;
+    p{
+      margin-top: 0
+    }
+  }
+}
+
+.more-btn__wrapper{
+  margin-top: 25px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.desc-block-wrapper{
+  display: flex;
+  margin: 0 -45px;
+  flex-wrap: wrap;
+
+  .desc-block{
+    margin: 40px 45px 0 45px;
+  }
+}
+
+
+
+
+
+
+
+
+
+#resume-form{
+  .container{
+    padding: 0 54px;
+    margin: 0 -10px;
+  }
+
+  .feedback-form__label{
+    flex-basis: auto;
+    margin: 0 10px 50px 10px;
+  }
+
+  .feedback-form__label--textarea{
+    margin-bottom: 30px;
+    flex-basis: 100%
+  }
+
+  .feedback-form__attach-btn{
+    width: 180px;
+    margin-right: 20px;
+  }
+
+
+
+
+  @media screen and (max-width: 800px) {
+    .form-btn-block{
+      justify-content: flex-start;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .feedback-form__attach-btn {
+      margin-left: 0;
+    }
+
+    .submit-btn{
+      order: 2;
+      align-self: center;
+      margin-top: 30px;
+    }
+    .attach-file-btn {
+      display: flex;
+      order: 1;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .attachments-tip{
+      width: 100%;
+      margin-left: 0;
+      margin-top: 25px;
+      text-align: center;
+    }
+  }
+
+
+
+}
+
+.close-modal-btn{
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: block;
+  background: url("./img/svg_icons/close.svg") no-repeat center;
+  width: 20px;
+  height: 20px;
+}
+
+
+
+.attach-file-btn{
+  display: flex;
+  align-items: center;
+
+  .type-file-wrapper{
+    overflow: hidden;
+    opacity: 0;
+    &.show{
+      opacity: 1;
+      transition: .3s;
+    }
+  }
+
+  input{
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    width: 20px;
+
+    &:hover{
+      outline: none;
+    }
+  }
+
+  span {
+    font-family: $ubuntu;
+    font-weight: 500;
+    font-size: 1em;
+    color: $btn;
+    border: none;
+
+    padding: 0;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+
+
+
+
+// LOADER component
+
+@mixin position-center($text-align: center) {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: $text-align;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 9999;
+
+  &.show {
+    //opacity: 1;
+    transition: ease-out 0.3s;
+  }
+
+  &.hide{
+    //opacity: 0;
+    transition: ease-out 0.3s;
+    visibility: hidden;
+  }
+}
+
+
+.loading-text {
+  @include position-center;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  span {
+    display: inline-block;
+    margin: 0 5px;
+    color: $btn;
+    font-size: 3.125em;
+    //font-weight: bold;
+    font-family: $ubuntu;
+    @for $i from 0 through 6 {
+      &:nth-child(#{$i + 1}) {
+        filter: blur(0px);
+        animation: blur-text 1.5s #{$i/5}s infinite linear alternate;
+
+      }
+    }
+  }
+}
+
+@keyframes blur-text {
+  0% {filter: blur(0px);}
+  100% {filter: blur(4px);}
 }

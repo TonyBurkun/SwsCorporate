@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component, Fragment} from 'react';
 import ServiceComponent from './services/services.component';
 import ClientsReuse from '../../reuse/clients/clients.component';
 import WorksReuseComponent from '../../reuse/works/works.component';
@@ -7,6 +7,7 @@ import ConnectComponent from '../../reuse/connect/connect.component';
 import HeaderComponent from '../../reuse/header/header.component';
 import FooterComponent from '../../reuse/footer/footer.component';
 import {scrollToSection} from '../../utils/scrollToSection'
+import LoaderComponent from "../../reuse/loader/Loader.component";
 
 
 class MainPageComponent extends Component {
@@ -18,6 +19,7 @@ class MainPageComponent extends Component {
             gotClientsReuse: false,
             gotWorksReuse: false,
             gotAboutHome: false,
+            showLoader: true,
         };
 
 
@@ -25,6 +27,7 @@ class MainPageComponent extends Component {
 
 
     componentWillReceiveProps(nextProps, nextContext) {
+        console.log(nextProps);
         const statusObj = nextProps.dataStatus;
 
         this.setState({
@@ -32,6 +35,7 @@ class MainPageComponent extends Component {
             gotClientsReuse: statusObj.gotClientsReuse,
             gotWorksReuse: statusObj.gotWorksReuse,
             gotAboutHome: statusObj.gotAboutHome,
+            showLoader: false
         });
 
     }
@@ -54,12 +58,9 @@ class MainPageComponent extends Component {
         }
 
 
-
-
-
-
         return (
-            <div className={gotServices && gotClientsReuse && gotWorksReuse && gotAboutHome ? 'fade-in visible' : 'fade-in'}>
+            <Fragment>
+                <LoaderComponent visible={this.state.showLoader}/>
                 <HeaderComponent/>
                 <section className="head-block">
                     <div className="slider-block">
@@ -86,7 +87,7 @@ class MainPageComponent extends Component {
                    <ConnectComponent/>
                    <FooterComponent/>
                </section>
-            </div>
+            </Fragment>
         );
     }
 }

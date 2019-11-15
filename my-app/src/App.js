@@ -9,6 +9,8 @@ import WorksComponent from "./components/works/works.component";
 import OneWorkComponent from './components/oneWork/oneWork.component';
 import OneServiceComponent from './components/oneService/OneService.component';
 import NotFound from './components/NotFound';
+import CareerComponent from "./components/career/Career.component";
+import OneCareerComponent from "./components/oneCareer/OneCareer.component";
 
 class App extends Component {
     constructor(props){
@@ -44,6 +46,8 @@ class App extends Component {
                         <Route path="/portfolio" exact component={WorksComponent}/>
                         <Route path="/work/:name" exact component={OneWorkComponent}/>
                         <Route path="/services/:name" exact component={OneServiceComponent}/>
+                        <Route path="/career" exact component={CareerComponent}/>
+                        <Route path="/career/:id" exact component={OneCareerComponent}/>
                         <Route path="*" component={NotFound} />
                     </Switch>
                 </Fragment>

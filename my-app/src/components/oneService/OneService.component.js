@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import WorksReuseComponent from "../../reuse/works/works.component";
 import ContactComponent from "../../reuse/contact/contact.component";
 import HeaderComponent from '../../reuse/header/header.component';
 import FooterComponent from '../../reuse/footer/footer.component';
+import LoaderComponent from "../../reuse/loader/Loader.component";
 
 class oneServiceComponent extends Component {
     constructor(props) {
@@ -12,7 +13,8 @@ class oneServiceComponent extends Component {
         this.state = {
             oneService: {},
             title: null,
-            short_description: null
+            short_description: null,
+            showLoader: true,
         };
         this.getServiceData(props.match.params.name);
     }
@@ -40,6 +42,7 @@ class oneServiceComponent extends Component {
                     oneService: data[0].data,
                     title: data[0].title,
                     short_description: data[0].data.short_description,
+                    showLoader: false
                 })
             });
 
@@ -55,12 +58,13 @@ class oneServiceComponent extends Component {
 
     render() {
 
-        const {oneService, title, short_description, gotWorksReuse} = this.state;
+        const {oneService, title, short_description} = this.state;
 
 
         return (
 
-            <div className={Object.keys(oneService).length && gotWorksReuse ? 'fade-in visible' : 'fade-in'}>
+            <Fragment>
+                <LoaderComponent visible={!Object.keys(oneService).length && this.state.showLoader}/>
                 <HeaderComponent/>
 
                 <section className="top-img-section top-img-section--services">
@@ -119,7 +123,7 @@ class oneServiceComponent extends Component {
 
                 <FooterComponent/>
 
-            </div>
+            </Fragment>
 
         );
     }

@@ -4,6 +4,7 @@ import ImageGallery from 'react-image-gallery';
 import ContactComponent from "../../reuse/contact/contact.component";
 import HeaderComponent from '../../reuse/header/header.component';
 import FooterComponent from '../../reuse/footer/footer.component';
+import LoaderComponent from "../../reuse/loader/Loader.component";
 
 class oneWorkComponent extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class oneWorkComponent extends Component {
             gotData: false,
             oneWorkData: {},
             images: [],
+            showLoader: true,
         };
         this.getWorkData(props.match.params.name);
 
@@ -44,6 +46,7 @@ class oneWorkComponent extends Component {
                     gotData: true,
                     oneWorkData: data[0].data,
                     images: images,
+                    showLoader: false
                 })
             });
 
@@ -55,7 +58,8 @@ class oneWorkComponent extends Component {
 
         return (
 
-            <div className={this.state.gotData? 'fade-in visible': 'fade-in'}>
+            <Fragment>
+                <LoaderComponent visible={this.state.showLoader}/>
                 {this.state.gotData &&
                     <Fragment>
                         <HeaderComponent/>
@@ -244,7 +248,7 @@ class oneWorkComponent extends Component {
                         <FooterComponent/>
                     </Fragment>
                 }
-            </div>
+            </Fragment>
 
         );
     }

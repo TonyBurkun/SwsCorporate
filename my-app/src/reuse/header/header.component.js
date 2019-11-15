@@ -266,6 +266,10 @@ class HeaderComponent extends Component {
                                         <Link to='/#company' className="top-nav__link"
                                         >Company</Link>
                                     </li>
+                                    <li className="top-nav__item">
+                                        <Link to='/career' className="top-nav__link"
+                                        >Career</Link>
+                                    </li>
                                 </ul>
                                 <button
                                     className="top-nav__btn btn btn--upper"
@@ -294,6 +298,10 @@ class HeaderComponent extends Component {
                         <li className="mobile-nav__item">
                             <Link to='/#company' className="mobile-nav__link"
                             >Company</Link>
+                        </li>
+                        <li className="mobile-nav__item">
+                            <Link to='/career' className="mobile-nav__link"
+                            >Career</Link>
                         </li>
                     </ul>
                 </div>

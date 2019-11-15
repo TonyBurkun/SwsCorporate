@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {Link} from "react-router-dom";
 import TinySlider from "tiny-slider-react";
 import HeaderComponent from '../../reuse/header/header.component';
 import FooterComponent from '../../reuse/footer/footer.component';
+import LoaderComponent from "../../reuse/loader/Loader.component";
 
 const settings = {
     slideByPage: false,
@@ -18,7 +19,8 @@ class WorksComponent extends Component {
         window.scrollTo(0,0);
 
         this.state = {
-            works : []
+            works : [],
+            showLoader: true,
         };
         this.getWorksList();
     }
@@ -27,7 +29,8 @@ class WorksComponent extends Component {
         fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
             .then(response => response.json())
             .then(data => this.setState({
-                works: data
+                works: data,
+                showLoader: false
             }));
     }
 
@@ -35,7 +38,8 @@ class WorksComponent extends Component {
         let {works} = this.state;
 
         return (
-            <div  className={works.length ? 'fade-in visible': 'fade-in'}>
+            <Fragment>
+                <LoaderComponent visible={this.state.showLoader}/>
                 <HeaderComponent/>
                 <section>
                     <div className="img-slider">
@@ -115,7 +119,7 @@ class WorksComponent extends Component {
                     {/*</div>*/}
                 </section>
                 <FooterComponent/>
-            </div>
+            </Fragment>
         );
     }
 }

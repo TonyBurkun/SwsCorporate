@@ -204,7 +204,7 @@ class ContactComponent extends Component {
                                 <span className="feedback-form__error-msg">Fill out the message</span>
                             </label>
                             <div className="form-btn-block">
-                                <button className="btn btn--160w" type="submit">Send Message</button>
+                                <button className="btn btn--160w btn--upper" type="submit">Send Message</button>
                             </div>
                             <div className="feedback-form__notification">
                                 <p className={this.state.showSuccessMsg ? ('feedback-form__success feedback-form__success--show') : ('feedback-form__success')}>Thank you for getting in touch!</p>
