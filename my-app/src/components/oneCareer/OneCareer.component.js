@@ -53,13 +53,20 @@ class OneCareerComponent extends Component {
 
     closeModal() {
         this.setState({
-            visible: false
+            ...this.state,
+            visible: false,
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            pathFile: ''
+
         });
     }
 
 
-    sendForm = (e) => {
-        e.preventDefault();
+    sendForm = (event) => {
+        event.preventDefault();
 
         this.setState({
             name: this.state.name.trim(),
@@ -70,10 +77,11 @@ class OneCareerComponent extends Component {
 
         let isEmailValid = false,
             isNameValid = false,
-            isMessageValid = false;
+            isMessageValid = false,
+            isFileTypeValid = false;
 
 
-        const {name, email, message} = this.state;
+        const {name, email, message, pathFile} = this.state;
         const emailRegular = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
         const feedbackNameInput = document.getElementById('feedback-name');
@@ -84,6 +92,9 @@ class OneCareerComponent extends Component {
 
         const feedbackMessageInput = document.getElementById('feedback-message');
         const feedbackMessageLabel = feedbackMessageInput.closest('label');
+
+        const attachBtnError = document.getElementById('attach-error');
+
 
 
         if (!name.trim().length) {
@@ -124,56 +135,69 @@ class OneCareerComponent extends Component {
             isMessageValid = true;
         }
 
+        const fileType = pathFile.split('.')[1];
+        isFileTypeValid = fileType === 'docx' || fileType === 'pdf';
+
+        if (!isFileTypeValid) {
+            attachBtnError.classList.add('show')
+        } else {
+            attachBtnError.classList.remove('show')
+        }
 
 
-        // if (isNameValid && isEmailValid && isMessageValid) {
-        //     const data = new FormData(e.target);
-        //
-        //     fetch('http://panel.stairwaysoft.com/api/contact-form-7/v1/contact-forms/407/feedback',
-        //         {
-        //             method: 'POST',
-        //             body: data
-        //         })
-        //         .then(response => {
-        //             response.json();
-        //
-        //             this.setState({
-        //                 ...this.state,
-        //                 name: '',
-        //                 email: '',
-        //                 phone: '',
-        //                 message: '',
-        //                 showSuccessMsg: true
-        //             });
-        //
-        //             setTimeout(() => {
-        //                 this.setState({
-        //                     ...this.state,
-        //                     showSuccessMsg: false
-        //                 })
-        //             },5000)
-        //         })
-        //
-        //         .catch(error => {
-        //             this.setState({
-        //                 ...this.state,
-        //                 showErrorMsg: true
-        //             });
-        //
-        //             setTimeout(() => {
-        //                 this.setState({
-        //                     ...this.state,
-        //                     showErrorMsg: false
-        //                 })
-        //             },5000)
-        //         })
-        //
-        //
-        //
-        //         .then( response => {
-        //             // console.log(response);
-        //         });
-        // }
+
+
+        if (isNameValid && isEmailValid && isMessageValid && isFileTypeValid) {
+            const data = new FormData(event.target);
+
+            fetch('http://panel.stairwaysoft.com/api/contact-form-7/v1/contact-forms/516/feedback',
+                {
+                    method: 'POST',
+                    body: data
+                })
+                .then(response => {
+                    console.log(data, response);
+                    console.log( response.json());
+
+                    this.setState({
+                        ...this.state,
+                        name: '',
+                        email: '',
+                        phone: '',
+                        message: '',
+                        showSuccessMsg: true,
+                        pathFile: ''
+                    });
+
+                    setTimeout(() => {
+                        this.setState({
+                            ...this.state,
+                            showSuccessMsg: false,
+                            visible: false
+                        })
+                    },5000)
+                })
+
+                .catch(error => {
+                    this.setState({
+                        ...this.state,
+                        showErrorMsg: true
+                    });
+
+                    setTimeout(() => {
+                        this.setState({
+                            ...this.state,
+                            showErrorMsg: false,
+                        });
+                    },5000)
+                })
+
+
+
+                .then( response => {
+                    // console.log(response);
+                });
+        }
     };
 
 
@@ -191,7 +215,7 @@ class OneCareerComponent extends Component {
                            onClick={() => this.closeModal()}/>
                         <div className="container">
                             <h2 className="section-title">Send your resume</h2>
-                            <form className="feedback-form" onSubmit={this.sendForm}>
+                            <form className="feedback-form" onSubmit={(event) => {this.sendForm(event)}}>
                                 {/*feedback-form__label--error*/}
                                 <label className="feedback-form__label">
                                     <span>Name<span>*</span></span>
@@ -249,30 +273,36 @@ class OneCareerComponent extends Component {
                                     <span className="feedback-form__error-msg">Fill out the message</span>
                                 </label>
                                 <div className="form-btn-block">
-                                    <button className="submit-btn btn btn--160w btn--upper"
-                                            type="submit"
-                                            onClick={this.sendForm}
-                                    >
+                                    <button className="submit-btn btn btn--160w btn--upper" type="submit">
                                         Send Message
                                     </button>
                                     <div className='attach-file-btn'>
-                                        <label htmlFor="file" className="btn btn--attach feedback-form__attach-btn">Attach the file</label>
-                                       <div  className={(Boolean(this.state.pathFile)) ? 'type-file-wrapper  show' : 'type-file-wrapper'}>
-                                           <input type='file' id='file'
-                                           onChange={() => {
-                                               const file = document.getElementById("file");
-                                               let value = file.value;
-                                               value = value.replace('C:\\fakepath\\', '');
-                                               this.setState({
-                                                   pathFile: value
-                                               })
-
-
-                                           }}
-                                           />
-                                           <span>{this.state.pathFile}</span>
-                                       </div>
-
+                                        <label htmlFor="file-type"
+                                               className="btn btn--attach feedback-form__attach-btn">
+                                            Attach the file
+                                        </label>
+                                        <div className='attach-file-btn__near'>
+                                            <span className='sub-desc'>add *.docx or *.pdf file</span>
+                                            <div
+                                                className={(Boolean(this.state.pathFile)) ? 'type-file-wrapper  show' : 'type-file-wrapper'}>
+                                                <input type='file'
+                                                       id='file-type'
+                                                       name='file-type'
+                                                       accept=".doc, .docx, .pdf"
+                                                       value=''
+                                                       onChange={() => {
+                                                           const file = document.getElementById("file-type");
+                                                           let value = file.value;
+                                                           value = value.replace('C:\\fakepath\\', '');
+                                                           this.setState({
+                                                               pathFile: value
+                                                           })
+                                                       }}
+                                                />
+                                                <span className='attach-file-btn__file-name'>{this.state.pathFile}</span>
+                                            </div>
+                                        </div>
+                                        <span className="feedback-form__error-msg" id='attach-error'>Please add file with correct file format</span>
                                     </div>
                                 </div>
                                 <div className="feedback-form__notification">

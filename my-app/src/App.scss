@@ -2512,6 +2512,12 @@
   margin-left: -10px;
   //margin-bottom: -50px;
 
+  &__error-msg{
+    &.show{
+      display: block;
+    }
+  }
+
   &__label{
     position: relative;
     flex-basis: 373px;
@@ -3154,9 +3160,11 @@
 
 
 #resume-form{
+  padding-bottom: 20px;
   .container{
     padding: 0 54px;
-    margin: 0 -10px;
+    overflow: hidden;
+    //margin: 0 -10px;
   }
 
   .feedback-form__label{
@@ -3170,8 +3178,22 @@
   }
 
   .feedback-form__attach-btn{
+    position: relative;
     width: 180px;
     margin-right: 20px;
+    margin-left: 0;
+  }
+
+  .attach-file-btn{
+    position: relative;
+    margin-left: 30px;
+  }
+
+  .sub-desc{
+    display: block;
+    font-size: 0.625em;
+    text-align: left;
+    color: $grey;
   }
 
 
@@ -3184,7 +3206,7 @@
       width: 100%;
     }
 
-    .feedback-form__attach-btn {
+    .attach-file-btn{
       margin-left: 0;
     }
 
@@ -3205,6 +3227,13 @@
       margin-left: 0;
       margin-top: 25px;
       text-align: center;
+    }
+  }
+
+  @media screen and (max-width: $phone-upper-boundary) {
+    .attach-file-btn__near {
+      width: 100%;
+      margin-top: 10px;
     }
   }
 
@@ -3248,7 +3277,7 @@
     }
   }
 
-  span {
+  &__file-name{
     font-family: $ubuntu;
     font-weight: 500;
     font-size: 1em;
