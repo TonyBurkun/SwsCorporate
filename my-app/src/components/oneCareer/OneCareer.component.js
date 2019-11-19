@@ -35,8 +35,13 @@ class OneCareerComponent extends Component {
                     gotCareer: Boolean(data.length),
                     careerData: data,
                     showLoader: false
-                })
+                });
+                if (data.data.status && data.data.status.toString() === '404') {
+                    this.props.history.push('/career');
+                }
             });
+
+
     }
 
     componentDidMount(){
