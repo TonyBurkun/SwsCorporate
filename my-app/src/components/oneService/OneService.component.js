@@ -38,12 +38,18 @@ class oneServiceComponent extends Component {
         fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?slug=' + slug)
             .then(response => response.json())
             .then(data => {
-                this.setState({
-                    oneService: data[0].data,
-                    title: data[0].title,
-                    short_description: data[0].data.short_description,
-                    showLoader: false
-                })
+
+                if (data.length) {
+                    this.setState({
+                        oneService: data[0].data,
+                        title: data[0].title,
+                        short_description: data[0].data.short_description,
+                        showLoader: false
+                    })
+                } else {
+                    this.props.history.push('/#services');
+                }
+
             });
 
     }

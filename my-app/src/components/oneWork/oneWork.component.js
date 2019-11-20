@@ -31,23 +31,29 @@ class oneWorkComponent extends Component {
         fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?slug=' + slug)
             .then(response => response.json())
             .then(data => {
-                const imgArr = data[0].data.implementation;
+                console.log(data);
 
-                const images = imgArr.map(item => {
-                    return (
-                        {
-                            original: item.url,
-                            thumbnail: item.sizes.large,
-                        }
-                    )
-                });
+                if (!data.length) {
+                    this.props.history.push('/portfolio');
+                } else {
+                    const imgArr = data[0].data.implementation;
 
-                this.setState({
-                    gotData: true,
-                    oneWorkData: data[0].data,
-                    images: images,
-                    showLoader: false
-                })
+                    const images = imgArr.map(item => {
+                        return (
+                            {
+                                original: item.url,
+                                thumbnail: item.sizes.large,
+                            }
+                        )
+                    });
+
+                    this.setState({
+                        gotData: true,
+                        oneWorkData: data[0].data,
+                        images: images,
+                        showLoader: false
+                    })
+                }
             });
 
     }

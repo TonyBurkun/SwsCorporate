@@ -72,7 +72,7 @@ class FooterComponent extends Component {
                                 <div className="list-items">
                                     <div className="list-items__title">Expertise</div>
                                     {menu.technologies.map(item =>
-                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+                                        <span key={item.link_name} className="list-items__one">{item.link_name}</span>
                                     )}
                                 </div>
                             </div>
