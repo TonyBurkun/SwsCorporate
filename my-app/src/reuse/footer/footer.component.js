@@ -111,9 +111,9 @@ class FooterComponent extends Component {
                                 }
                                 <div className="list-items list-items--icons">
                                     <div className="list-items__title">Follow Us:</div>
-                                    <Link to="/#" className="list-items__one list-items__ico list-items--fb"></Link>
-                                    <Link to="/#" className="list-items__one list-items__ico list-items--in"></Link>
-                                    <Link to="/#" className="list-items__one list-items__ico list-items--be"></Link>
+                                    <a target='_blank'  href="https://www.facebook.com/StairwaySoft/?view_public_for=539471492746174" className="list-items__one list-items__ico list-items--fb"/>
+                                    <a target='_blank' href="https://www.linkedin.com/company/27164745" className="list-items__one list-items__ico list-items--in"/>
+                                    {/*<Link to="/#" className="list-items__one list-items__ico list-items--be"></Link>*/}
 
                                 </div>
                             </div>
