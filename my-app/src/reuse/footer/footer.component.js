@@ -15,7 +15,7 @@ class FooterComponent extends Component {
     }
 
     getMenuList() {
-        fetch('http://panel.stairwaysoft.com/api/acf/v3/options/options')
+        fetch('https://panel.stairwaysoft.com/api/acf/v3/options/options')
             .then(response => response.json())
             .then(data => {
 

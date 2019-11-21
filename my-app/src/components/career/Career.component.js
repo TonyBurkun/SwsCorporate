@@ -21,7 +21,7 @@ class CareerComponent extends Component {
     }
 
     getCareersList() {
-        fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=careers')
+        fetch('https://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=careers')
             .then(response => response.json())
             .then(data => {
                 this.setState({

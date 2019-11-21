@@ -91,7 +91,7 @@ class ContactComponent extends Component {
         if (isNameValid && isEmailValid && isMessageValid) {
             const data = new FormData(e.target);
 
-            fetch('http://panel.stairwaysoft.com/api/contact-form-7/v1/contact-forms/407/feedback',
+            fetch('https://panel.stairwaysoft.com/api/contact-form-7/v1/contact-forms/407/feedback',
                 {
                     method: 'POST',
                     body: data

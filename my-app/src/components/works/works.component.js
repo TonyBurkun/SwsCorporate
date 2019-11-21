@@ -26,7 +26,7 @@ class WorksComponent extends Component {
     }
 
     getWorksList() {
-        fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
+        fetch('https://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
             .then(response => response.json())
             .then(data =>{
                 console.log(data);

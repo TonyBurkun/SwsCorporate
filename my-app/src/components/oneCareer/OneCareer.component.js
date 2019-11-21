@@ -27,7 +27,7 @@ class OneCareerComponent extends Component {
     }
 
     getCareerByID(postID) {
-        fetch('http://panel.stairwaysoft.com/api/wp/v2/posts/'+ postID)
+        fetch('https://panel.stairwaysoft.com/api/wp/v2/posts/'+ postID)
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -155,7 +155,7 @@ class OneCareerComponent extends Component {
         if (isNameValid && isEmailValid && isMessageValid && isFileTypeValid) {
             const data = new FormData(event.target);
 
-            fetch('http://panel.stairwaysoft.com/api/contact-form-7/v1/contact-forms/516/feedback',
+            fetch('https://panel.stairwaysoft.com/api/contact-form-7/v1/contact-forms/516/feedback',
                 {
                     method: 'POST',
                     body: data

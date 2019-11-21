@@ -12,7 +12,7 @@ class AboutHomeComponent extends Component {
     }
 
     getClientsList() {
-        fetch('http://panel.stairwaysoft.com/api/wp/v2/pages?slug=about')
+        fetch('https://panel.stairwaysoft.com/api/wp/v2/pages?slug=about')
             .then(response => response.json())
             .then(data => {
                 this.setState({about: data[0]});
