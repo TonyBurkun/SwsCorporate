@@ -28,10 +28,19 @@ class WorksComponent extends Component {
     getWorksList() {
         fetch('http://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
             .then(response => response.json())
-            .then(data => this.setState({
-                works: data,
-                showLoader: false
-            }));
+            .then(data =>{
+                console.log(data);
+
+
+                data.sort(function(a, b){
+                    return a.data.order-b.data.order
+                });
+                this.setState({
+
+                    works: data,
+                    showLoader: false
+                })
+            });
     }
 
     render() {
