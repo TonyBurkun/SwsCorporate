@@ -115,7 +115,8 @@ class WorksComponent extends Component {
                                         <div className="bottom-hover-block__desc">
                                             <div className="bottom-hover-block__title-block">
                                                 {work.title}
-                                                <span className="bottom-hover-block__date">2 may 2018</span>
+                                                {/*<span className="bottom-hover-block__date">2 may 2018</span>*/}
+                                                <span className="bottom-hover-block__date">{work.data.portfolio_date_short_post}</span>
                                             </div>
                                             <div className="bottom-hover-block__text">
                                                 {work.data.short_description}
