@@ -49,7 +49,7 @@ class FooterComponent extends Component {
                         <div className="footer-block">
                             {menu.services &&
                             <div className="footer-block__column">
-                                <div className="list-items">
+                                <div className="list-items list-items--link">
                                     <div className="list-items__title">Services</div>
                                     {menu.services.map(item =>
                                         <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>

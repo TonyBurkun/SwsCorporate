@@ -61,6 +61,7 @@ class oneWorkComponent extends Component {
     render() {
 
         const {oneWorkData, images} = this.state;
+        console.log(this.state);
 
         return (
 
@@ -226,8 +227,8 @@ class oneWorkComponent extends Component {
                                     />
                                     {oneWorkData.site_url && (
                                         <div className="btn-block btn-block--center">
-                                            <Link to={oneWorkData.site_url} className="btn btn--upper btn--160w">view
-                                                site</Link>
+                                            <a target='_blank' href={oneWorkData.site_url} className="btn btn--upper btn--160w">view
+                                                site</a>
                                         </div>
                                     )}
                                 </div>

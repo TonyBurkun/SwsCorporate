@@ -21,8 +21,25 @@ class WorksComponent extends Component {
         this.state = {
             works : [],
             showLoader: true,
+            sliderData: [],
+
         };
+        this.getTopSliderData();
         this.getWorksList();
+    }
+
+    getTopSliderData(){
+        fetch('https://panel.stairwaysoft.com/api/acf/v3/options/options')
+            .then(response => response.json())
+            .then(data => {
+
+                let top_slider_success_stories = data.acf.top_slider_success_stories;
+
+                console.log(top_slider_success_stories);
+                this.setState({
+                    sliderData: top_slider_success_stories
+                })
+            })
     }
 
     getWorksList() {
@@ -44,7 +61,7 @@ class WorksComponent extends Component {
     }
 
     render() {
-        let {works} = this.state;
+        let {works, sliderData} = this.state;
 
         return (
             <Fragment>
@@ -52,42 +69,31 @@ class WorksComponent extends Component {
                 <HeaderComponent/>
                 <section>
                     <div className="img-slider">
+                        {sliderData && sliderData.length &&
                         <TinySlider className="img-slider__init" settings={settings}>
-                            <div className="img-slide">
-                                <div className="img-slide__text-wrapper">
-                                    <div className="img-slide__short-text">Top case study</div>
-                                    <h2 className="img-slide__slide-title">INSTANT DEDICATED SERVERS</h2>
-                                    <div className="img-slide__text">
-                                        <p>
-                                            GLOBALTELEHOST Corp. was founded in 2012. Our leading
-                                            specialists have more
-                                            than twenty years of experience in the sphere of network
-                                            technologies.
-                                        </p>
-                                    </div>
-                                    {/*<div className="btn btn--upper img-slide__btn">read more</div>*/}
-                                </div>
-                            </div>
-                            <div className="img-slide">
-                                <img src="img/services/slide_bg.jpg" className="img-slide__img-bg" alt="" />
-                                <div className="img-slide__container">
-                                    <div className="img-slide__text-wrapper">
-                                        <div className="img-slide__short-text">Top case study</div>
-                                        <h2 className="img-slide__slide-title">INSTANT DEDICATED SERVERS --
-                                            2</h2>
-                                        <div className="img-slide__text">
-                                            <p>
-                                                GLOBALTELEHOST Corp. was founded in 2012. Our leading
-                                                specialists have more
-                                                than twenty years of experience in the sphere of network
-                                                technologies.
-                                            </p>
+                            {sliderData.map((item, index) => {
+                                return (
+                                    <div
+                                        key={index}
+                                        className="img-slide">
+                                        <div className='img-slide__container'>
+                                            <img src={item.image.url} className="img-slide__img-bg" alt=""/>
+                                            <div className="img-slide__text-wrapper">
+                                                <div className="img-slide__short-text">{item['sub_title']}</div>
+                                                <h2 className="img-slide__slide-title">{item['title']}</h2>
+                                                <div className="img-slide__text">
+                                                    <p>
+                                                        {item['description']}
+                                                    </p>
+                                                </div>
+                                                <a href={item['button_link']} className="btn btn--160w btn--upper img-slide__btn ">read more</a>
+                                            </div>
                                         </div>
-                                        {/*<div className="btn btn--upper img-slide__btn">read more</div>*/}
                                     </div>
-                                </div>
-                            </div>
+                                )
+                            })}
                         </TinySlider>
+                        }
                     </div>
                 </section>
                 <section className="section-bg bottom-padding-70">
