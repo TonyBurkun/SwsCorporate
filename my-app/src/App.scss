@@ -1022,10 +1022,24 @@
   font-weight: 300;
   font-size: 0.75em;
   color: $grey;
+  display: flex;
+
+  .privacy{
+    margin-top: 0;
+    margin-left: 25px;
+  }
 
   @media screen and (max-width: $tablet-landscape-upper-boundary - 200) {
     text-align: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .privacy{
+      margin-top: 25px;
+      margin-left: 0;
+    }
   }
+
 }
 
 // -- CLIENTS PAGE -----------
@@ -3390,4 +3404,11 @@
 @keyframes blur-text {
   0% {filter: blur(0px);}
   100% {filter: blur(4px);}
+}
+
+
+.text-page{
+  font-family: $roboto;
+  font-size: 1.125em;
+  color: $black;
 }

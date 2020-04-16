@@ -11,6 +11,8 @@ import OneServiceComponent from './components/oneService/OneService.component';
 import NotFound from './components/NotFound';
 import CareerComponent from "./components/career/Career.component";
 import OneCareerComponent from "./components/oneCareer/OneCareer.component";
+import PrivacyPolicyComponent from "./components/privacyPolicy/privacyPolicy.component";
+import TermsOfUseComponent from "./components/termsOfUse/TermsOfUse.component";
 
 class App extends Component {
     constructor(props){
@@ -48,6 +50,8 @@ class App extends Component {
                         <Route path="/services/:name" exact component={OneServiceComponent}/>
                         <Route path="/career" exact component={CareerComponent}/>
                         <Route path="/career/:id" exact component={OneCareerComponent}/>
+                        <Route path="/privacy-policy" exact component={PrivacyPolicyComponent}/>
+                        <Route path="/terms-of-use" exact component={TermsOfUseComponent}/>
                         <Route path="*" component={NotFound} />
                     </Switch>
                 </Fragment>

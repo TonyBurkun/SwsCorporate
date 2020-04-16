@@ -118,8 +118,10 @@ class FooterComponent extends Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="copyright-block">
+                        <div className="copyright-block list-items--link">
                             <div>Copyright © 2012 - 2018 StairwaySoft Ltd</div>
+                            <Link target="_blank" to="/privacy-policy" className="list-items__one privacy">Privacy Policy</Link>
+                            <Link target="_blank" to="/terms-of-use" className="list-items__one privacy">Terms Of Use</Link>
                         </div>
                     </div>
                 </footer>
