@@ -3156,7 +3156,7 @@
   margin-right: -10px;
 
   &__item{
-    margin: 0 10px;
+    padding: 0 10px;
   }
 
   &__left{
@@ -3178,6 +3178,25 @@
     font-size: 1em;
     p{
       margin-top: 0
+    }
+  }
+
+  @media screen and (max-width: 800px){
+    flex-direction: column;
+    margin-left: 0;
+    margin-right: 0;
+    &__item{
+      width: 100%;
+      padding: 0;
+    }
+
+    &__left {
+      margin-bottom: 25px;
+    }
+
+    &__right {
+      width: 100%;
+      padding-left: 0;
     }
   }
 }
