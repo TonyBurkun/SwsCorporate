@@ -15,8 +15,14 @@ class WorksReuseComponent extends Component {
         fetch('https://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
             .then(response => response.json())
             .then(data => {
+
+                let works = data.slice(0,6);
+                works.sort(function(a, b){
+                    return a.data.order-b.data.order
+                });
+                console.log(works);
                 this.setState({
-                    works: data
+                    works
                 });
 
                if (this.props.updateData) {
@@ -39,7 +45,8 @@ class WorksReuseComponent extends Component {
 
 
     render() {
-        let works = this.state.works.slice(0,6);
+        let {works} = this.state;
+
 
         return (
             <Fragment>
