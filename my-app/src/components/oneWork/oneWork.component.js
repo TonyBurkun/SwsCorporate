@@ -185,7 +185,7 @@ class oneWorkComponent extends Component {
                         )}
 
                         {oneWorkData.challenges && oneWorkData.challenges.description && (
-                            <section>
+                            <section className="enableMarkerUlToList">
                                 <div className="container">
                                     <h2 className="section-title">
                                         Challenges

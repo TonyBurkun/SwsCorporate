@@ -3,12 +3,15 @@
 @import 'style/tiny-slider.scss';
 @import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
 
-
+$small-devices-portrait-upper-boundary: 640px;
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
+
+
+
 
 // -- HEADER -----------------------
 
@@ -1300,6 +1303,15 @@
       object-fit: cover;
       height: 100%;
       width: 100%;
+
+      @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+      }
+
     }
 
     &__container {
@@ -1313,13 +1325,8 @@
     &__text-wrapper {
       position: absolute;
       top: 0;
-      left: -50%;
-      transform: translate(-50%, 0);
-
-      //position: relative;
       color: $white;
-      width: 100%;
-      max-width: $width-container;
+      width: 100vw;
       padding: 0 20px;
       font-size: 16px;
       z-index: 1;
@@ -1327,13 +1334,27 @@
       flex-direction: column;
       height: 100%;
       justify-content: center;
-      margin: auto;
+      align-items: center;
+      @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+        position: relative;
+        padding-bottom: 50px;
+        padding-top: 50px;
+
+      }
+
+      &__contain{
+
+        max-width: $width-container;
+        width: 95vw;
 
 
+      }
       @media screen and (max-width: $tablet-portrait-upper-boundary){
         font-size: 12px;
         width: 100%;
       }
+
     }
 
     &__short-text {
@@ -1351,6 +1372,12 @@
       font-weight: 400;
       margin-top: 42px;
       margin-bottom: 32px;
+
+      @media screen and (max-width: $tablet-portrait-upper-boundary){
+
+        margin-top: 0;
+
+      }
 
     }
     &__text {
@@ -1378,7 +1405,7 @@
       &__container {
         width: 100%;
         left: 0;
-        transform: translate(0, 0)
+        transform: none;
       }
     }
 
@@ -3431,3 +3458,90 @@
   font-size: 1.125em;
   color: $black;
 }
+
+
+// set circle
+
+section{
+
+  ul{
+
+    li{
+
+      position: relative;
+      margin-bottom: 15px;
+      padding-left: 20px;
+
+      @media screen and (max-width: $tablet-portrait-upper-boundary){
+
+        padding-left: 0px;
+
+      }
+      &::before{
+
+        position: absolute;
+        left: 0px;
+        top: 4px;
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #432671;
+        border-radius: 10px;
+        box-sizing: border-box;
+
+        @media screen and (max-width: $tablet-portrait-upper-boundary){
+
+          padding-left: 0px;
+          left: -20px;
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+// set animate on portfolio page
+//$speedAnimate: 1s!important;
+//.tns-slide-active {
+//
+//  animation-name: tns-fadeIn;
+//  transition: $speedAnimate;
+//  transition-duration: $speedAnimate;
+//  animation-duration: $speedAnimate;
+//  transition-timing-function: ease-in-out;
+//  z-index: 1;
+//
+//}
+//
+//@keyframes tns-fadeIn {
+//
+//  0%{
+//
+//    transform: translateX(200vw);
+//
+//
+//  }
+//
+//  100% {
+//
+//    transform: translateX(0);
+//
+//
+//  }
+//
+//}
+//
+//.tns-normal, .tns-item{
+//
+//  opacity: 1!important;
+//  transition: $speedAnimate;
+//  transition-duration: $speedAnimate;
+//  animation-duration: $speedAnimate;
+//  transition-timing-function: ease-in-out;
+//
+//}

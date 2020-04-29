@@ -6,11 +6,19 @@ import FooterComponent from '../../reuse/footer/footer.component';
 import LoaderComponent from "../../reuse/loader/Loader.component";
 
 const settings = {
+
+    // mode: 'gallery',
     slideByPage: false,
     loop: true,
     keyboard: true,
     controls: false,
-    controlsText: ['', '']
+    controlsText: ['', ''],
+    autoplayButtonOutput: false,
+    // autoplay: true,
+    autoplayTimeout: 10000,
+    autoplayHoverPause: false,
+    mouseDrag: true,
+
 };
 
 class WorksComponent extends Component {
@@ -19,11 +27,13 @@ class WorksComponent extends Component {
         window.scrollTo(0,0);
 
         this.state = {
+
             works : [],
             showLoader: true,
             sliderData: [],
 
         };
+
         this.getTopSliderData();
         this.getWorksList();
     }
@@ -35,18 +45,18 @@ class WorksComponent extends Component {
 
                 let top_slider_success_stories = data.acf.top_slider_success_stories;
 
-                console.log(top_slider_success_stories);
                 this.setState({
                     sliderData: top_slider_success_stories
                 })
+
             })
+
     }
 
     getWorksList() {
         fetch('https://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
             .then(response => response.json())
             .then(data =>{
-                console.log(data);
 
 
                 data.sort(function(a, b){
@@ -56,6 +66,7 @@ class WorksComponent extends Component {
 
                     works: data,
                     showLoader: false
+
                 })
             });
     }
@@ -64,43 +75,68 @@ class WorksComponent extends Component {
         let {works, sliderData} = this.state;
 
         return (
+
             <Fragment>
                 <LoaderComponent visible={this.state.showLoader}/>
+
                 <HeaderComponent/>
                 <section>
+
                     <div className="img-slider">
+
                         {sliderData && sliderData.length &&
                         <TinySlider className="img-slider__init" settings={settings}>
+
                             {sliderData.map((item, index) => {
+
                                 return (
-                                    <div
-                                        key={index}
-                                        className="img-slide">
+
+                                    <div key={index} className="img-slide">
+
                                         <div className='img-slide__container'>
-                                            <img src={item.image.url} className="img-slide__img-bg" alt=""/>
+
+                                            <img src={item["image"]["url"]} className="img-slide__img-bg"  key={index} alt=""/>
+
                                             <div className="img-slide__text-wrapper">
-                                                <div className="img-slide__short-text">{item['sub_title']}</div>
-                                                <h2 className="img-slide__slide-title">{item['title']}</h2>
-                                                <div className="img-slide__text">
-                                                    <p>
-                                                        {item['description']}
-                                                    </p>
+
+                                                <div className="img-slide__text-wrapper__contain">
+
+                                                    <div className="img-slide__short-text"> {item["sub_title"]}</div>
+
+                                                    <h2 className="img-slide__slide-title">{item['title']}</h2>
+                                                    <div className="img-slide__text">
+
+                                                        <p>
+                                                            {item['description']}
+                                                        </p>
+
+                                                    </div>
+
+                                                    <a href={item['button_link']} className="btn btn--160w btn--upper img-slide__btn ">read more</a>
+
                                                 </div>
-                                                <a href={item['button_link']} className="btn btn--160w btn--upper img-slide__btn ">read more</a>
+
                                             </div>
+
+
                                         </div>
                                     </div>
-                                )
+                                );
+
+
+
                             })}
                         </TinySlider>
                         }
                     </div>
                 </section>
+
                 <section className="section-bg bottom-padding-70">
                     <h2 className="section-title">Our case studies</h2>
 
                     <div className="container">
                         <div className="tab-wrapper">
+
                             {/*<div className="tabs">*/}
                             {/*    <button className="tablinks">All</button>*/}
                             {/*    <button className="tablinks">Web</button>*/}
@@ -115,7 +151,7 @@ class WorksComponent extends Component {
                                         <div className="bottom-hover-block__desc">
                                             <div className="bottom-hover-block__title-block">
                                                 {work.title}
-                                                {/*<span className="bottom-hover-block__date">2 may 2018</span>*/}
+                                                {<span className="bottom-hover-block__date"> {work.portfolio_date_short_post}</span>}
                                                 <span className="bottom-hover-block__date">{work.data.portfolio_date_short_post}</span>
                                             </div>
                                             <div className="bottom-hover-block__text">

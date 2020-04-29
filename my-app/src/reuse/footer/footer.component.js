@@ -8,18 +8,18 @@ class FooterComponent extends Component {
 
         this.state = {
             gotData: false,
-            menu : []
+            menu : [],
+            copyright: '',
         };
 
         this.getMenuList();
     }
 
     getMenuList() {
+
         fetch('https://panel.stairwaysoft.com/api/acf/v3/options/options')
             .then(response => response.json())
             .then(data => {
-
-
 
                 let menu = data.acf.footer_links_list;
 
@@ -34,13 +34,17 @@ class FooterComponent extends Component {
 
                 this.setState({
                     gotData: true,
-                    menu
-                })
+                    menu,
+                    copyright: data.acf.copyright_footer
+                });
+
             });
     }
 
     render() {
         let menu = this.state.menu;
+        let copyright = this.state.copyright;
+
         return (
             <Fragment>
                 {this.state.gotData &&
@@ -70,7 +74,7 @@ class FooterComponent extends Component {
                             {menu.technologies &&
                             <div className="footer-block__column">
                                 <div className="list-items">
-                                    <div className="list-items__title">Expertise</div>
+                                    <div className="list-items__title">Technologies</div>
                                     {menu.technologies.map(item =>
                                         <span key={item.link_name} className="list-items__one">{item.link_name}</span>
                                     )}
@@ -78,14 +82,13 @@ class FooterComponent extends Component {
                             </div>
                             }
                             <div className="footer-block__column footer-block__column--tablet-only">
-                                {menu.success_stories &&
-                                <div className="list-items mb-100">
-                                    <div className="list-items__title">Success Stories</div>
-                                    {menu.success_stories.map(item =>
-                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
-                                    )}
-                                </div>
-                                }
+
+                                {/*{menu.success_stories &&*/}
+                                {/*<div className="list-items mb-100">*/}
+                                {/*    <div className="list-items__title">Success Stories</div>*/}
+                                {/*    {menu.success_stories}*/}
+                                {/*</div>*/}
+                                {/*}*/}
                                 <div className="list-items w-auto">
                                     <div className="list-items__title">Contact us:</div>
                                     <a href="mailto:info@stairwaysoft.com" className="list-items__one">
@@ -99,29 +102,37 @@ class FooterComponent extends Component {
                                         <span>info@stairwaysoft.com</span>
                                     </a>
                                 </div>
+
                             </div>
                             <div className="footer-block__column footer-block__column--tablet-only">
                                 {menu.company &&
                                 <div className="list-items mb-100">
                                     <div className="list-items__title">Company</div>
                                     {menu.company.map(item =>
+
                                         <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+
                                     )}
                                 </div>
                                 }
                                 <div className="list-items list-items--icons">
                                     <div className="list-items__title">Follow Us:</div>
-                                    <a target='_blank'  href="https://www.facebook.com/StairwaySoft/?view_public_for=539471492746174" className="list-items__one list-items__ico list-items--fb"/>
-                                    <a target='_blank' href="https://www.linkedin.com/company/27164745" className="list-items__one list-items__ico list-items--in"/>
+
+                                    <a target='_blank'  href={menu.fb_link} className="list-items__one list-items__ico list-items--fb"/>
+                                    <a target='_blank' href={menu.in_link} className="list-items__one list-items__ico list-items--in"/>
+                                    <a target='_blank' href={menu.be_link} className="list-items__one list-items__ico list-items--be"/>
                                     {/*<Link to="/#" className="list-items__one list-items__ico list-items--be"></Link>*/}
 
                                 </div>
                             </div>
                         </div>
+
                         <div className="copyright-block list-items--link">
-                            <div>Copyright © 2012 - 2018 StairwaySoft Ltd</div>
+
+                            <div>{copyright}</div>
                             <Link target="_blank" to="/privacy-policy" className="list-items__one privacy">Privacy Policy</Link>
                             <Link target="_blank" to="/terms-of-use" className="list-items__one privacy">Terms Of Use</Link>
+
                         </div>
                     </div>
                 </footer>
