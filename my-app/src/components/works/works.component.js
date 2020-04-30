@@ -7,7 +7,7 @@ import LoaderComponent from "../../reuse/loader/Loader.component";
 
 const settings = {
 
-    // mode: 'gallery',
+    mode: 'gallery',
     slideByPage: false,
     loop: true,
     keyboard: true,
@@ -18,6 +18,8 @@ const settings = {
     autoplayTimeout: 10000,
     autoplayHoverPause: false,
     mouseDrag: true,
+    speed: 820,
+
 
 };
 

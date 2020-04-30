@@ -1294,7 +1294,7 @@ $small-devices-portrait-upper-boundary: 640px;
       left: 0;
       top: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
       background: $grey;
       opacity: .75;
     }
@@ -2349,10 +2349,12 @@ $small-devices-portrait-upper-boundary: 640px;
     }
 
     &__container{
+
       width: 100%;
       padding-left: 20px;
       padding-right: 20px;
       margin-left: 0;
+
     }
 
     &__text-wrapper{
@@ -3505,43 +3507,62 @@ section{
 
 }
 
-// set animate on portfolio page
-//$speedAnimate: 1s!important;
-//.tns-slide-active {
-//
-//  animation-name: tns-fadeIn;
-//  transition: $speedAnimate;
-//  transition-duration: $speedAnimate;
-//  animation-duration: $speedAnimate;
-//  transition-timing-function: ease-in-out;
-//  z-index: 1;
-//
-//}
-//
-//@keyframes tns-fadeIn {
-//
-//  0%{
-//
-//    transform: translateX(200vw);
-//
-//
-//  }
-//
-//  100% {
-//
-//    transform: translateX(0);
-//
-//
-//  }
-//
-//}
-//
-//.tns-normal, .tns-item{
-//
-//  opacity: 1!important;
-//  transition: $speedAnimate;
-//  transition-duration: $speedAnimate;
-//  animation-duration: $speedAnimate;
-//  transition-timing-function: ease-in-out;
-//
-//}
+// set animate on portfolio page, edit tiny-slider-react
+.tns-gallery{
+
+  .tns-item, .tns-item{
+
+    min-height: 309px;
+    transform: scale(1.3) translateY(-10vh);
+    border-radius: 100%;
+
+
+    .img-slide__text-wrapper__contain{
+
+
+      opacity: 0;
+      transition: 0.001s;
+      transform: translateY(100vh);
+
+
+    }
+
+
+  }
+
+
+  .tns-slide-active{
+
+    right: 0;
+    transform: none;
+    animation: none;
+    transition-duration: 0.82s;
+    .img-slide__text-wrapper__contain{
+
+      transform: none;
+      opacity: 1;
+      animation-name: img-slide__text-wrapper__contain;
+      animation-delay: 1s;
+      transition-duration: 0.82s;
+      //transform:translateY(0vh);
+
+
+    }
+
+    img{
+
+      transform: scale(1.01);
+
+      @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+        transform: scale(1.2);
+
+      }
+
+    }
+
+  }
+
+}
+
+

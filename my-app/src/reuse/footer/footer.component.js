@@ -7,9 +7,11 @@ class FooterComponent extends Component {
         super(props);
 
         this.state = {
+
             gotData: false,
             menu : [],
             copyright: '',
+
         };
 
         this.getMenuList();
@@ -33,9 +35,11 @@ class FooterComponent extends Component {
                 });
 
                 this.setState({
+
                     gotData: true,
                     menu,
-                    copyright: data.acf.copyright_footer
+                    copyright: data.acf.copyright_footer,
+
                 });
 
             });
@@ -83,12 +87,18 @@ class FooterComponent extends Component {
                             }
                             <div className="footer-block__column footer-block__column--tablet-only">
 
-                                {/*{menu.success_stories &&*/}
-                                {/*<div className="list-items mb-100">*/}
-                                {/*    <div className="list-items__title">Success Stories</div>*/}
-                                {/*    {menu.success_stories}*/}
-                                {/*</div>*/}
-                                {/*}*/}
+                                {menu.success_stories &&
+                                <div className="list-items mb-100">
+
+                                    <div className="list-items__title">Success Stories</div>
+                                    <div> {console.log(menu.success_stories, "==")}</div>
+
+                                    {menu.success_stories.map(item =>
+                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+                                    )}
+
+                                </div>
+                                }
                                 <div className="list-items w-auto">
                                     <div className="list-items__title">Contact us:</div>
                                     <a href="mailto:info@stairwaysoft.com" className="list-items__one">
