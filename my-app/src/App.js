@@ -13,6 +13,7 @@ import CareerComponent from "./components/career/Career.component";
 import OneCareerComponent from "./components/oneCareer/OneCareer.component";
 import PrivacyPolicyComponent from "./components/privacyPolicy/privacyPolicy.component";
 import TermsOfUseComponent from "./components/termsOfUse/TermsOfUse.component";
+import TechnologiesComponent from "./components/technologies/technologies.component";
 
 class App extends Component {
     constructor(props){
@@ -43,6 +44,7 @@ class App extends Component {
             <Router>
                 <Fragment>
                     <Switch>
+
                         <Route path="/" exact render={() => (<MainPageComponent dataStatus={this.state} updateData={this.mainPageGotData}/>)}/>
                         <Route path="/clients" exact component={ClientComponent}/>
                         <Route path="/portfolio" exact component={WorksComponent}/>
@@ -52,7 +54,12 @@ class App extends Component {
                         <Route path="/career/:id" exact component={OneCareerComponent}/>
                         <Route path="/privacy-policy" exact component={PrivacyPolicyComponent}/>
                         <Route path="/terms-of-use" exact component={TermsOfUseComponent}/>
+                        <Route path="/technologies-*" exact component={TechnologiesComponent}/>
+
                         <Route path="*" component={NotFound} />
+                        {console.log("main page", smoothscroll)}
+
+
                     </Switch>
                 </Fragment>
             </Router>

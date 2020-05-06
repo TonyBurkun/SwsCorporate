@@ -224,6 +224,8 @@ class oneWorkComponent extends Component {
                                                   showPlayButton={false}
                                                   showFullscreenButton={false}
                                                   additionalClass="app-image-gallery"
+                                                  preventDefaultTouchmoveEvent={false}
+                                                  // disableSwipe={true}
                                     />
                                     {oneWorkData.site_url && (
                                         <div className="btn-block btn-block--center">

@@ -14,7 +14,7 @@ const settings = {
     controls: false,
     controlsText: ['', ''],
     autoplayButtonOutput: false,
-    // autoplay: true,
+    autoplay: true,
     autoplayTimeout: 10000,
     autoplayHoverPause: false,
     mouseDrag: true,
@@ -74,6 +74,7 @@ class WorksComponent extends Component {
     }
 
     render() {
+
         let {works, sliderData} = this.state;
 
         return (
@@ -82,7 +83,7 @@ class WorksComponent extends Component {
                 <LoaderComponent visible={this.state.showLoader}/>
 
                 <HeaderComponent/>
-                <section>
+                <section className="portfolio_slider" >
 
                     <div className="img-slider">
 
@@ -128,6 +129,7 @@ class WorksComponent extends Component {
 
 
                             })}
+
                         </TinySlider>
                         }
                     </div>

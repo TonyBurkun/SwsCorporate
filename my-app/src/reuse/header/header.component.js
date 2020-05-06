@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import {Link, withRouter} from "react-router-dom";
 
-
+window.history.scrollRestoration = "manual";
 
 const _removeClassesForMenuBtn = () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');

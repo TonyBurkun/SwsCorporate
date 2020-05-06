@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
+
 class FooterComponent extends Component {
 
     constructor(props) {
@@ -51,6 +52,7 @@ class FooterComponent extends Component {
 
         return (
             <Fragment>
+
                 {this.state.gotData &&
                    <footer className="footer">
                     <div className="container">
@@ -67,7 +69,7 @@ class FooterComponent extends Component {
                             }
                             {menu.expertise &&
                             <div className="footer-block__column">
-                                <div className="list-items">
+                                <div className="list-items list-items--link">
                                     <div className="list-items__title">Expertise</div>
                                     {menu.expertise.map(item =>
                                         <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
@@ -77,7 +79,7 @@ class FooterComponent extends Component {
                             }
                             {menu.technologies &&
                             <div className="footer-block__column">
-                                <div className="list-items">
+                                <div className="list-items list-items--link">
                                     <div className="list-items__title">Technologies</div>
                                     {menu.technologies.map(item =>
                                         <span key={item.link_name} className="list-items__one">{item.link_name}</span>
@@ -88,10 +90,9 @@ class FooterComponent extends Component {
                             <div className="footer-block__column footer-block__column--tablet-only">
 
                                 {menu.success_stories &&
-                                <div className="list-items mb-100">
+                                <div className="list-items mb-100 list-items--link">
 
                                     <div className="list-items__title">Success Stories</div>
-                                    <div> {console.log(menu.success_stories, "==")}</div>
 
                                     {menu.success_stories.map(item =>
                                         <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
@@ -116,7 +117,7 @@ class FooterComponent extends Component {
                             </div>
                             <div className="footer-block__column footer-block__column--tablet-only">
                                 {menu.company &&
-                                <div className="list-items mb-100">
+                                <div className="list-items mb-100 list-items--link">
                                     <div className="list-items__title">Company</div>
                                     {menu.company.map(item =>
 
