@@ -27,6 +27,9 @@ class App extends Component {
             gotWorksReuse: false,
             gotAboutHome: false,
 
+
+
+
         };
 
         smoothscroll.polyfill();
@@ -46,6 +49,8 @@ class App extends Component {
 
     render() {
 
+        const WorksComponentLink =  "/case-studies";
+
         return (
             <Router>
                 <Fragment>
@@ -54,7 +59,7 @@ class App extends Component {
 
                         <Route path="/" exact render={() => (<MainPageComponent dataStatus={this.state} updateData={this.mainPageGotData}/>)}/>
                         <Route path="/clients" exact component={ClientComponent}/>
-                        <Route path="/case-studies" exact component={WorksComponent}/>
+                        <Route path={WorksComponentLink} exact component={WorksComponent}/>
                         <Route path="/work/:name" exact component={OneWorkComponent}/>
                         <Route path="/services/:name" exact component={OneServiceComponent}/>
                         <Route path="/career" exact component={CareerComponent}/>

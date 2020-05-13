@@ -4,6 +4,7 @@ import ContactComponent from "../../reuse/contact/contact.component";
 import HeaderComponent from '../../reuse/header/header.component';
 import FooterComponent from '../../reuse/footer/footer.component';
 import LoaderComponent from "../../reuse/loader/Loader.component";
+import NotFound from "../NotFound";
 
 class oneWorkComponent extends Component {
 
@@ -14,14 +15,16 @@ class oneWorkComponent extends Component {
         document.querySelector('#root').classList.add('header-fixed');
 
         this.state = {
-            gotData: false,
-            oneWorkData: {},
-            images: [],
-            showLoader: true,
+
+            gotData         : false,
+            oneWorkData     : {},
+            images          : [],
+            showLoader      : true,
+            errorPage       : false,
+
         };
 
         this.getWorkData(props.match.params.name);
-        console.log(props.match.params.name)
     }
 
     componentWillUnmount() {
@@ -39,7 +42,14 @@ class oneWorkComponent extends Component {
             .then(data => {
 
                 if (!data.length) {
-                    this.props.history.push('/portfolio');
+
+                    this.setState({
+
+                        showLoader  : false,
+                        errorPage   : true,
+
+                    })
+
                 } else {
                     const imgArr = data[0].data.implementation;
 
@@ -69,7 +79,6 @@ class oneWorkComponent extends Component {
 
         if (prevParam !== nextParam){
             this.getWorkData(nextParam);
-            console.log(this)
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
@@ -82,13 +91,17 @@ class oneWorkComponent extends Component {
 
         const {oneWorkData, images} = this.state;
 
-        return (
+        if (this.state.errorPage === true){
+            return (<NotFound></NotFound>)
+        }else{
 
-            <Fragment>
+            return (
 
-                <LoaderComponent visible={this.state.showLoader}/>
+                <Fragment>
 
-                {this.state.gotData &&
+                    <LoaderComponent visible={this.state.showLoader}/>
+
+                    {this.state.gotData &&
                     <Fragment>
                         <HeaderComponent/>
                         <section className="top-img-section top-img-section--project"
@@ -247,7 +260,7 @@ class oneWorkComponent extends Component {
                                                   showFullscreenButton={false}
                                                   additionalClass="app-image-gallery"
                                                   preventDefaultTouchmoveEvent={false}
-                                                  // disableSwipe={true}
+                                        // disableSwipe={true}
                                     />
                                     {oneWorkData.site_url && (
                                         <div className="btn-block btn-block--center">
@@ -279,10 +292,14 @@ class oneWorkComponent extends Component {
 
                         <FooterComponent/>
                     </Fragment>
-                }
-            </Fragment>
+                    }
+                </Fragment>
 
-        );
+            );
+
+        }
+
+
     }
 }
 
