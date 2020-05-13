@@ -73,7 +73,9 @@ class WorksComponent extends Component {
                     showLoader: false
 
                 })
+
             });
+
     }
 
     render() {
@@ -101,7 +103,6 @@ class WorksComponent extends Component {
                                 let getArrOfLinkOfButoon = getLinkOfButoon.split('/');
                                 let getOfArrValidateLinks = getArrOfLinkOfButoon[getArrOfLinkOfButoon.length - 2];
                                 let linkButton ={ url: getOfArrValidateLinks};
-                                console.log(linkButton);
 
                                 return (
 
