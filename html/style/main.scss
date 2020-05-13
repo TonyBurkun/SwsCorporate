@@ -864,6 +864,7 @@ header{
   flex-wrap: wrap;
   padding-bottom: 20px;
 
+
   @media screen and (max-width: $tablet-landscape-upper-boundary - 200) {
     &__column {
       display: none;

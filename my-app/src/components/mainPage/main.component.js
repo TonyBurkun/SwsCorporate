@@ -11,15 +11,19 @@ import LoaderComponent from "../../reuse/loader/Loader.component";
 
 
 class MainPageComponent extends Component {
+
     constructor(props){
+
         super(props);
         window.scrollTo(0,0);
         this.state={
+
             gotServices: false,
             gotClientsReuse: false,
             gotWorksReuse: false,
             gotAboutHome: false,
             showLoader: true,
+
         };
 
 
@@ -27,22 +31,19 @@ class MainPageComponent extends Component {
 
 
     componentWillReceiveProps(nextProps, nextContext) {
-        console.log(nextProps);
         const statusObj = nextProps.dataStatus;
 
+        console.log(statusObj.gotClientsReuse);
+
         this.setState({
-            gotServices: statusObj.gotServices,
-            gotClientsReuse: statusObj.gotClientsReuse,
+            gotServices: statusObj.gotServices ,
+            gotClientsReuse: statusObj.gotClientsReuse || true,
             gotWorksReuse: statusObj.gotWorksReuse,
             gotAboutHome: statusObj.gotAboutHome,
             showLoader: false
         });
 
     }
-
-
-
-
 
     render() {
 
@@ -80,12 +81,20 @@ class MainPageComponent extends Component {
                     </div>
                 </section>
                 <section>
+
                    <ServiceComponent updateData={this.props.updateData}/>
-                   <ClientsReuse updateData={this.props.updateData}/>
+
+                   <section className="slider-animate-v1">
+
+                        <ClientsReuse updateData={this.props.updateData}/>
+
+                    </section>
+
                    <WorksReuseComponent updateData={this.props.updateData} />
                    <AboutHomeComponent updateData={this.props.updateData}/>
                    <ConnectComponent/>
                    <FooterComponent/>
+
                </section>
             </Fragment>
         );

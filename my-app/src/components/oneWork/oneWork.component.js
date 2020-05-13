@@ -1,5 +1,4 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import ContactComponent from "../../reuse/contact/contact.component";
 import HeaderComponent from '../../reuse/header/header.component';
@@ -7,9 +6,11 @@ import FooterComponent from '../../reuse/footer/footer.component';
 import LoaderComponent from "../../reuse/loader/Loader.component";
 
 class oneWorkComponent extends Component {
+
     constructor(props) {
         super(props);
         window.scrollTo(0, 0);
+
         document.querySelector('#root').classList.add('header-fixed');
 
         this.state = {
@@ -18,20 +19,24 @@ class oneWorkComponent extends Component {
             images: [],
             showLoader: true,
         };
-        this.getWorkData(props.match.params.name);
 
+        this.getWorkData(props.match.params.name);
+        console.log(props.match.params.name)
     }
 
-
     componentWillUnmount() {
+
         document.querySelector('#root').classList.remove('header-fixed');
+
     }
 
     getWorkData(slug) {
+
         fetch('https://panel.stairwaysoft.com/api/wp/v2/posts?slug=' + slug)
+
             .then(response => response.json())
+
             .then(data => {
-                console.log(data);
 
                 if (!data.length) {
                     this.props.history.push('/portfolio');
@@ -58,15 +63,31 @@ class oneWorkComponent extends Component {
 
     }
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        const prevParam = this.props.match.params.name;
+        const nextParam = nextProps.match.params.name;
+
+        if (prevParam !== nextParam){
+            this.getWorkData(nextParam);
+            console.log(this)
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+    }
+
     render() {
 
         const {oneWorkData, images} = this.state;
-        console.log(this.state);
 
         return (
 
             <Fragment>
+
                 <LoaderComponent visible={this.state.showLoader}/>
+
                 {this.state.gotData &&
                     <Fragment>
                         <HeaderComponent/>
@@ -90,7 +111,8 @@ class oneWorkComponent extends Component {
                                         <div className="project-title-block__desc project-desc">
                                             {oneWorkData.project_description && (
                                                 <div className="project-desc__item">
-                                                    <img src="../img/svg_icons/projects_ico/pin_gray.svg" alt="item icon"
+
+                                                    <img src="/img/svg_icons/projects_ico/pin_gray.svg" alt="item icon"
                                                          className="project-desc__icon "/>
                                                     <div className="project-desc__wrapper">
                                                         <div
@@ -102,7 +124,7 @@ class oneWorkComponent extends Component {
 
                                             {oneWorkData.project_description && (
                                                 <div className="project-desc__item">
-                                                    <img src="../img/svg_icons/projects_ico/team_gray.svg" alt="item icon"
+                                                    <img src="/img/svg_icons/projects_ico/team_gray.svg" alt="item icon"
                                                          className="project-desc__icon "/>
                                                     <div className="project-desc__wrapper">
                                                         <div
@@ -114,7 +136,7 @@ class oneWorkComponent extends Component {
 
                                             {oneWorkData.project_description && (
                                                 <div className="project-desc__item">
-                                                    <img src="../img/svg_icons/projects_ico/calendar_gray.svg" alt="item icon"
+                                                    <img src="/img/svg_icons/projects_ico/calendar_gray.svg" alt="item icon"
                                                          className="project-desc__icon "/>
                                                     <div className="project-desc__wrapper">
                                                         <div
@@ -126,7 +148,7 @@ class oneWorkComponent extends Component {
 
                                             {oneWorkData.project_description && (
                                                 <div className="project-desc__item">
-                                                    <img src="../img/svg_icons/projects_ico/project_gray.svg" alt="item icon"
+                                                    <img src="/img/svg_icons/projects_ico/project_gray.svg" alt="item icon"
                                                          className="project-desc__icon "/>
                                                     <div className="project-desc__wrapper">
                                                         <div
@@ -138,7 +160,7 @@ class oneWorkComponent extends Component {
 
                                             {oneWorkData.project_description && (
                                                 <div className="project-desc__item">
-                                                    <img src="../img/svg_icons/projects_ico/cube.svg" alt="item icon"
+                                                    <img src="/img/svg_icons/projects_ico/cube.svg" alt="item icon"
                                                          className="project-desc__icon "/>
                                                     <div className="project-desc__wrapper">
                                                         <div
@@ -150,7 +172,7 @@ class oneWorkComponent extends Component {
 
                                             {oneWorkData.project_description && (
                                                 <div className="project-desc__item">
-                                                    <img src="../img/svg_icons/projects_ico/case.svg" alt="item icon"
+                                                    <img src="/img/svg_icons/projects_ico/case.svg" alt="item icon"
                                                          className="project-desc__icon "/>
                                                     <div className="project-desc__wrapper">
                                                         <div
@@ -254,6 +276,7 @@ class oneWorkComponent extends Component {
                         )}
 
                         <ContactComponent/>
+
                         <FooterComponent/>
                     </Fragment>
                 }

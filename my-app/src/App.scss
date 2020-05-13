@@ -907,24 +907,64 @@ $small-devices-portrait-upper-boundary: 640px;
   padding-top: 70px;
   margin-top: auto;
   min-height: 510px;
+  
+  @media screen and (max-width: $tablet-landscape-upper-boundary - 200) {
+
+    padding-top: 0px;
+    min-height: auto;
+
+  }
+
+
 }
 
 .footer-block {
+
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding-bottom: 20px;
+
+
+  .footer-block__column--tablet-only{
+
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (max-width: $tablet-landscape-upper-boundary - 200) {
+
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      min-width: 240px;
+      flex-direction: unset;
+
+    }
+
+  }
+
+  .mHidd{
+
+    @media screen and (max-width: $phone-upper-boundary){
+
+      display: none!important;
+
+    }
+
+  }
 
   @media screen and (max-width: $tablet-landscape-upper-boundary - 200) {
     &__column {
       display: none;
 
       &--tablet-only {
+
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-bottom: 40px;
         text-align: center;
+
       }
     }
   }
@@ -958,6 +998,13 @@ $small-devices-portrait-upper-boundary: 640px;
     text-transform: uppercase;
     font-size: 1.125em;
     line-height: 20px;
+
+    @media screen and (max-width: $tablet-landscape-upper-boundary - 200){
+
+      padding-top: 40px;
+
+    }
+
   }
 
 
@@ -3580,7 +3627,9 @@ section{
   }
 
 }
-
+.width95{
+  width: 95vw;
+}
 // set animate on portfolio page, edit tiny-slider-react
 $animationSpeedOfGallery: 0.82s!important;
 .portfolio_slider {
@@ -3595,6 +3644,7 @@ $animationSpeedOfGallery: 0.82s!important;
       transition: $animationSpeedOfGallery;
       transition-duration: $animationSpeedOfGallery;
       animation-duration: $animationSpeedOfGallery;
+      position: absolute;
 
 
       .img-slide__text-wrapper__contain {
@@ -3809,7 +3859,7 @@ $animationSpeedOfGallery: 0.82s!important;
 
   &.why{
 
-    background: #f6f8f9;
+    background: $section-bg;
     padding: 80px 0;
 
     .title__global{
@@ -3958,6 +4008,13 @@ $animationSpeedOfGallery: 0.82s!important;
   &.work{
     //background-color: rgb(246, 248, 249);
     padding-top: 0;
+
+    &.v2{
+
+      padding-top: 80px;
+
+    }
+
     .title__global{
 
       margin: auto;
@@ -4098,6 +4155,7 @@ $animationSpeedOfGallery: 0.82s!important;
               font-family: $ubuntuRegular;
               text-transform: uppercase;
               color: $btn;
+              font-weight: 500;
 
             }
 
@@ -4203,6 +4261,134 @@ $animationSpeedOfGallery: 0.82s!important;
     }
 
 
+
+  }
+
+}
+
+section{
+
+  &.title-block-expertise{
+
+    .sub-title-text{
+
+      max-width: 680px;
+      width: 100%;
+      padding-bottom: 65px;
+
+      @media screen and (max-width: $small-devices-portrait-upper-boundary){
+
+        padding-bottom: 30px;
+
+      }
+
+    }
+
+  }
+
+  &.expertise-works{
+    color: #1a1e1f;
+    .two-sides-text{
+
+      font-size: 1em;
+      font-family: $robotoLight;
+      //font-weight: bold;
+      color: rgb(0, 12, 18);
+
+    }
+
+  }
+
+  &.how_to_it_works{
+
+    .direction-col__title{
+
+      font-family: $ubuntuRegular;
+      font-weight: 600;
+
+    }
+
+    .direction-col__text {
+
+      font-size: 15px;
+      color: rgb(0, 12, 18);
+      height: calc(100% - 73px);
+      font-family: $robotoRegular;
+      //font-weight: bold;
+
+    }
+
+  }
+
+  &.out-team-section{
+
+    .out-team-img-block{
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #687482;
+        opacity: 0.75;
+      }
+
+    }
+
+  }
+
+  &.why-use-section{
+
+    .h5-title{
+
+      font-family: $ubuntuRegular;
+      font-weight: bold;
+      font-size: 1em;
+
+    }
+
+    .icon-text-block__text{
+
+      font-size: 0.9375em;
+      color: rgb(0, 12, 18);
+      line-height: 1.2;
+      font-family: $robotoRegular;
+
+    }
+
+  }
+
+  &.slider-animate-v1{
+
+    .one-slide.tns-item{
+
+      z-index: -10;
+      background: $section-bg;
+      .one-slide__client-logo{
+
+        transition: 0.001s;
+        transform: translateX(-100vh);
+
+      }
+
+    }
+
+    .tns-slide-active{
+
+      z-index: 0!important;
+
+      .one-slide__client-logo {
+
+        transition: 1s!important;
+        display: block!important;
+        transform: translateX(0vh) !important;
+
+      }
+
+    }
 
   }
 

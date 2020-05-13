@@ -1,8 +1,6 @@
 import React, {Component, Fragment} from "react";
 import {Link, withRouter} from "react-router-dom";
 
-window.history.scrollRestoration = "manual";
-
 const _removeClassesForMenuBtn = () => {
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('header__nav-mobile');
@@ -260,8 +258,9 @@ class HeaderComponent extends Component {
                                         {/*<Link to='/#' className="top-nav__link">Technologies</Link>*/}
                                     {/*</li>*/}
                                     <li className="top-nav__item">
-                                        <Link to='/portfolio' className="top-nav__link">Success Stories</Link>
+                                        <Link to='/case-studies' className="top-nav__link">Success Stories</Link>
                                     </li>
+
                                     <li className="top-nav__item">
                                         <Link to='/#company' className="top-nav__link"
                                         >Company</Link>

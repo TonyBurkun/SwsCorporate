@@ -6,7 +6,9 @@ import FooterComponent from '../../reuse/footer/footer.component';
 import LoaderComponent from "../../reuse/loader/Loader.component";
 
 class oneServiceComponent extends Component {
+
     constructor(props) {
+
         super(props);
         window.scrollTo(0, 0);
 
@@ -16,7 +18,9 @@ class oneServiceComponent extends Component {
             short_description: null,
             showLoader: true,
         };
+
         this.getServiceData(props.match.params.name);
+
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
@@ -25,6 +29,7 @@ class oneServiceComponent extends Component {
 
         if (prevParam !== nextParam){
             this.getServiceData(nextParam);
+            console.log(nextParam)
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
@@ -33,18 +38,21 @@ class oneServiceComponent extends Component {
 
     }
 
-
     getServiceData(slug) {
+
         fetch('https://panel.stairwaysoft.com/api/wp/v2/posts?slug=' + slug)
             .then(response => response.json())
             .then(data => {
 
+                console.log(slug, " this")
                 if (data.length) {
                     this.setState({
+
                         oneService: data[0].data,
                         title: data[0].title,
                         short_description: data[0].data.short_description,
-                        showLoader: false
+                        showLoader: false,
+
                     })
                 } else {
                     this.props.history.push('/#services');
@@ -61,14 +69,12 @@ class oneServiceComponent extends Component {
         });
     };
 
-
     render() {
 
         const {oneService, title, short_description} = this.state;
 
 
         return (
-
             <Fragment>
                 <LoaderComponent visible={!Object.keys(oneService).length && this.state.showLoader}/>
                 <HeaderComponent/>
@@ -107,6 +113,7 @@ class oneServiceComponent extends Component {
                 </section>
                 <section className="pt-85 section-bg">
                     <div className="container">
+
                         <div className="three-column-block">
                             {oneService.box_repeater && oneService.box_repeater.map(item =>
                                 <div key={item.title} className="three-column-block__col text-column">

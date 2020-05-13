@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link , Router} from "react-router-dom";
+import {string} from "prop-types";
+import OneWorkComponent from "../../components/oneWork/oneWork.component";
 
 
 class FooterComponent extends Component {
@@ -27,11 +29,23 @@ class FooterComponent extends Component {
                 let menu = data.acf.footer_links_list;
 
                 menu.services.forEach((item) => {
+
                     let link = item.link;
                     let result = link.replace('http://panel.stairwaysoft.com/','/');
                     result = result.replace('https://panel.stairwaysoft.com/','/');
 
                     item.link = result;
+
+                });
+
+                menu.expertise.forEach((item) => {
+
+                    let link = item.link;
+                    let result;
+
+                    result = link.split(/\//g);
+                    item.link = '/work/'+result[result.length - 2]+'/';
+
 
                 });
 
@@ -61,22 +75,41 @@ class FooterComponent extends Component {
                             <div className="footer-block__column">
                                 <div className="list-items list-items--link">
                                     <div className="list-items__title">Services</div>
+
                                     {menu.services.map(item =>
+
                                         <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+
                                     )}
+
                                 </div>
                             </div>
                             }
+
                             {menu.expertise &&
                             <div className="footer-block__column">
                                 <div className="list-items list-items--link">
                                     <div className="list-items__title">Expertise</div>
-                                    {menu.expertise.map(item =>
-                                        <Link to={item.link} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+
+                                    {
+
+                                        menu.expertise.map(item =>
+
+                                                <Link to={item.link} key={item.link} className="list-items__one">
+
+                                                    {item.link_name}
+                                                    {/*OneWorkComponent*/}
+
+                                                </Link>
+
+                                        // menu.expertise.map(item => <a href={item.link} key={item.link} ref={React.createRef()} className="list-items__one">{item.link_name}</a>
+
                                     )}
+
                                 </div>
                             </div>
                             }
+
                             {menu.technologies &&
                             <div className="footer-block__column">
                                 <div className="list-items list-items--link">
@@ -87,10 +120,11 @@ class FooterComponent extends Component {
                                 </div>
                             </div>
                             }
-                            <div className="footer-block__column footer-block__column--tablet-only">
+                            <div className="footer-block__column footer-block__column--tablet-only ">
 
                                 {menu.success_stories &&
-                                <div className="list-items mb-100 list-items--link">
+
+                                <div className="list-item list-items--link mHidd" >
 
                                     <div className="list-items__title">Success Stories</div>
 
@@ -99,8 +133,10 @@ class FooterComponent extends Component {
                                     )}
 
                                 </div>
+
                                 }
-                                <div className="list-items w-auto">
+
+                                <div className="list-items w-auto ">
                                     <div className="list-items__title">Contact us:</div>
                                     <a href="mailto:info@stairwaysoft.com" className="list-items__one">
                                         <svg
@@ -115,9 +151,9 @@ class FooterComponent extends Component {
                                 </div>
 
                             </div>
-                            <div className="footer-block__column footer-block__column--tablet-only">
+                            <div className="footer-block__column footer-block__column--tablet-only dad">
                                 {menu.company &&
-                                <div className="list-items mb-100 list-items--link">
+                                <div className="list-items list-items--link">
                                     <div className="list-items__title">Company</div>
                                     {menu.company.map(item =>
 
@@ -141,8 +177,6 @@ class FooterComponent extends Component {
                         <div className="copyright-block list-items--link">
 
                             <div>{copyright}</div>
-                            <Link target="_blank" to="/privacy-policy" className="list-items__one privacy">Privacy Policy</Link>
-                            <Link target="_blank" to="/terms-of-use" className="list-items__one privacy">Terms Of Use</Link>
 
                         </div>
                     </div>

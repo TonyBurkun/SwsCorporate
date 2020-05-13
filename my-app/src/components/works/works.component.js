@@ -38,9 +38,11 @@ class WorksComponent extends Component {
 
         this.getTopSliderData();
         this.getWorksList();
+
     }
 
     getTopSliderData(){
+
         fetch('https://panel.stairwaysoft.com/api/acf/v3/options/options')
             .then(response => response.json())
             .then(data => {
@@ -64,6 +66,7 @@ class WorksComponent extends Component {
                 data.sort(function(a, b){
                     return a.data.order-b.data.order
                 });
+
                 this.setState({
 
                     works: data,
@@ -83,16 +86,25 @@ class WorksComponent extends Component {
                 <LoaderComponent visible={this.state.showLoader}/>
 
                 <HeaderComponent/>
+
                 <section className="portfolio_slider" >
 
                     <div className="img-slider">
 
                         {sliderData && sliderData.length &&
+
                         <TinySlider className="img-slider__init" settings={settings}>
 
                             {sliderData.map((item, index) => {
 
+                                let getLinkOfButoon = item['button_link'];
+                                let getArrOfLinkOfButoon = getLinkOfButoon.split('/');
+                                let getOfArrValidateLinks = getArrOfLinkOfButoon[getArrOfLinkOfButoon.length - 2];
+                                let linkButton ={ url: getOfArrValidateLinks};
+                                console.log(linkButton);
+
                                 return (
+
 
                                     <div key={index} className="img-slide">
 
@@ -110,12 +122,14 @@ class WorksComponent extends Component {
                                                     <div className="img-slide__text">
 
                                                         <p>
+
                                                             {item['description']}
+
                                                         </p>
 
                                                     </div>
 
-                                                    <a href={item['button_link']} className="btn btn--160w btn--upper img-slide__btn ">read more</a>
+                                                    <Link to={"/work/"+linkButton.url} className="btn btn--160w btn--upper img-slide__btn ">read more</Link>
 
                                                 </div>
 
