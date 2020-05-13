@@ -75,6 +75,7 @@ class WorksReuseComponent extends Component {
                         <div className="btn-block btn-block--center">
                             <Link to={'/portfolio'} className="btn btn--upper">more cases</Link>
                         </div>
+
                     </div>
                 </section>
 
