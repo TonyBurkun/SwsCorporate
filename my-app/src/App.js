@@ -27,9 +27,6 @@ class App extends Component {
             gotWorksReuse: false,
             gotAboutHome: false,
 
-
-
-
         };
 
         smoothscroll.polyfill();
@@ -57,7 +54,7 @@ class App extends Component {
                     <Switch>
 
 
-                        <Route path="/" exact render={() => (<MainPageComponent dataStatus={this.state} updateData={this.mainPageGotData}/>)}/>
+                        <Route path="/" exact render={() => (<MainPageComponent dataStatus={this.state} updateData={this.mainPageGotData} links={[{WorksComponentLink: WorksComponentLink}]}/>)}/>
                         <Route path="/clients" exact component={ClientComponent}/>
                         <Route path={WorksComponentLink} exact component={WorksComponent}/>
                         <Route path="/work/:name" exact component={OneWorkComponent}/>
