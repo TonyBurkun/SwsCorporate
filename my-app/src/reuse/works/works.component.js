@@ -2,7 +2,6 @@ import React, {Component, Fragment} from "react";
 import { Link } from "react-router-dom";
 
 class WorksReuseComponent extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -46,8 +45,8 @@ class WorksReuseComponent extends Component {
 
 
     render() {
-
         let {works} = this.state;
+
 
         return (
             <Fragment>
@@ -57,25 +56,22 @@ class WorksReuseComponent extends Component {
                         <div className="works-list">
                             {works.map(work =>
                                 <Link to={'/work/' + work.slug} key={work.slug} className="works-list__item one-work-block blackout-block">
-
                                     <img src={work.featured_image_url} alt="example of work" />
                                     <div className="blackout-block__inner blackout-block__inner--bottom">
-
                                         <div className="blackout-block__title">
                                             {work.title}
                                             <span>{work.data.project_description.location}</span>
                                         </div>
-
                                     </div>
-
                                 </Link>
                             )}
                         </div>
 
                         <div className="btn-block btn-block--center">
-                            <Link to={'/portfolio'} className="btn btn--upper">more cases</Link>
-                        </div>
 
+                            <Link to={this.props.links[0].caseStudy.WorksComponentLink} className="btn btn--upper">more cases</Link>
+
+                        </div>
                     </div>
                 </section>
 

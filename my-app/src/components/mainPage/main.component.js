@@ -90,12 +90,13 @@ class MainPageComponent extends Component {
 
                     </section>
 
-                   <WorksReuseComponent updateData={this.props.updateData} />
+                   <WorksReuseComponent updateData={this.props.updateData} links={[{caseStudy: this.props.links[0]}]} />
                    <AboutHomeComponent updateData={this.props.updateData}/>
                    <ConnectComponent/>
                    <FooterComponent/>
 
                </section>
+
             </Fragment>
         );
     }
