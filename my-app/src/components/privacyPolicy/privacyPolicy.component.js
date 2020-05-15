@@ -42,7 +42,8 @@ class PrivacyPolicy extends Component{
     render(){
 
         const {pageData} = this.state;
-        console.log(pageData);
+        window.scrollTo(0,0);
+
         return (
            <Fragment>
                <LoaderComponent visible={this.state.showLoader}/>

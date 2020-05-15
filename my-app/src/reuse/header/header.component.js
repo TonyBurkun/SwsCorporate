@@ -34,8 +34,6 @@ const _makeHeaderNotTransparent = () => {
     }
 };
 
-
-
 class HeaderComponent extends Component {
 
     constructor(props) {
@@ -146,7 +144,9 @@ class HeaderComponent extends Component {
     };
 
     render() {
+
         return (
+
             <Fragment>
                 <header id="header" className="header">
                     <div className="container">
@@ -306,8 +306,11 @@ class HeaderComponent extends Component {
                 </div>
                 <div id="header__overlay" className="header__overlay" onClick={this.handleClickOnOverlay}/>
             </Fragment>
+
         );
+
     }
+
 }
 
 export default withRouter(HeaderComponent);
