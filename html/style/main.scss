@@ -4,36 +4,34 @@
 @import 'partials/tiny-slider.scss';
 
 
-
-
 // -- HEADER -----------------------
-header{
+header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index:1000;
-  border-bottom: 1px solid rgba(223,222,221,0.24);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(223, 222, 221, 0.24);
 
 
 }
 
-.header{
+.header {
   color: $white;
 
-  &__wrapper{
+  &__wrapper {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
   }
 
-  &__logo-block{
+  &__logo-block {
     display: inline-flex;
     justify-content: space-between;
   }
 
 
-  &__trigger{
+  &__trigger {
     text-align: left;
     transition: opacity 3s;
     text-transform: uppercase;
@@ -41,38 +39,39 @@ header{
   }
 
 
-  &__logo{
+  &__logo {
     background: url("../img/header/sws_logo_w.svg") no-repeat;
     width: 185px;
     height: 39px;
     align-self: center;
-    &--color{
+
+    &--color {
       background: url("../img/header/sws_logo_color.svg") no-repeat;
     }
   }
 
-  @media screen and (max-width: $tablet-landscape-upper-boundary){
+  @media screen and (max-width: $tablet-landscape-upper-boundary) {
 
-    &__trigger{
+    &__trigger {
       width: 50px;
       display: flex;
       align-self: center;
       cursor: pointer;
       margin-right: 20px;
 
-      &:before{
+      &:before {
         content: 'Menu';
       }
 
-      &--open{
-        &:before{
+      &--open {
+        &:before {
           content: 'Close';
         }
       }
     }
 
-    .top-nav{
-      &__wrapper{
+    .top-nav {
+      &__wrapper {
         display: none;
       }
     }
@@ -80,10 +79,10 @@ header{
 
 }
 
-.top-nav{
+.top-nav {
   display: flex;
 
-  &__wrapper{
+  &__wrapper {
     display: flex;
     justify-content: space-between;
     align-self: center;
@@ -94,22 +93,23 @@ header{
     font-size: 1rem;
   }
 
-  &__item{
+  &__item {
     margin-right: 44px;
     align-self: baseline;
-    &:last-child{
+
+    &:last-child {
       margin-right: 0;
     }
 
   }
 
-  &__link{
+  &__link {
     text-decoration: none;
     color: inherit;
   }
 }
 
-.mobile-nav{
+.mobile-nav {
   position: fixed;
   top: 81px;
   left: 0;
@@ -118,26 +118,26 @@ header{
   background: $btn;
   color: $white;
   text-transform: uppercase;
-  z-index:1000;
+  z-index: 1000;
   height: calc(100% - 81px);
   transform: translateX(-100%);
   transition: transform .3s;
 
-  &--active{
+  &--active {
     transform: translateX(0);
     padding-bottom: 15px;
   }
 
-  &__wrapper{
+  &__wrapper {
     margin: 0 15px;
   }
 
-  &__item{
-    border-bottom: 1px solid rgba(255,255,255, 0.1);
+  &__item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
 
-  &__link{
+  &__link {
     color: inherit;
     text-decoration: none;
     padding: 20px 0;
@@ -147,19 +147,19 @@ header{
 
 }
 
-.header__overlay{
+.header__overlay {
   position: fixed;
   top: 81px;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(5,5,5,.3);
+  background: rgba(5, 5, 5, .3);
   transition: all .3s;
   visibility: hidden;
   opacity: 0;
   z-index: 0;
 
-  &--active{
+  &--active {
     z-index: 1;
     opacity: 1;
     visibility: visible;
@@ -169,19 +169,17 @@ header{
 
 }
 
-.header--scrolled{
+.header--scrolled {
   color: $black;
   background: $white;
   transition: .3s;
   border-bottom: 1px solid $white-header-bottom-border;
 
-  .header__logo{
+  .header__logo {
     background: url("../img/header/sws_logo_color.svg") no-repeat;
     transition: .3s;
   }
 }
-
-
 
 
 // --MAIN SCREEN -------------------
@@ -213,7 +211,7 @@ header{
   height: 100vh;
   display: flex;
 
-  &__item{
+  &__item {
     margin: auto;
     width: 100vw;
     //transform: translateX(-50%);
@@ -221,17 +219,17 @@ header{
   }
 }
 
-.slide{
+.slide {
   overflow: hidden;
   width: 994px;
   margin: 0 auto;
   padding: 0 20px;
 
   @media screen and (max-width: $tablet-landscape-upper-boundary) {
-   width: 100%;
+    width: 100%;
   }
 
-  &__title{
+  &__title {
     color: $white;
     font-family: $ubuntu;
     font-weight: 400;
@@ -239,7 +237,8 @@ header{
     text-align: center;
     line-height: 69px;
   }
-  &__desc{
+
+  &__desc {
     width: 675px;
     color: $white;
     font-family: $roboto;
@@ -255,16 +254,16 @@ header{
 }
 
 
-.services-blocks{
+.services-blocks {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin: -10px;
-  &__item{
+
+  &__item {
     margin: 10px;
     width: 373px;
     height: 250px;
-
 
 
   }
@@ -276,7 +275,7 @@ header{
   position: relative;
   overflow: hidden;
 
-  &:before{
+  &:before {
     content: '';
     position: absolute;
     background-color: $services-black-layout;
@@ -289,11 +288,11 @@ header{
   }
 
 
-  img{
+  img {
     width: 100%;
   }
 
-  &__inner{
+  &__inner {
     position: absolute;
     top: 50%;
     left: 35px;
@@ -306,21 +305,21 @@ header{
     font-size: 1em;
     transition: all .3s;
 
-    &--bottom{
+    &--bottom {
       top: auto;
       bottom: 35px;
       transform: translateY(0);
     }
   }
 
-  &__title{
+  &__title {
     position: relative;
     text-transform: uppercase;
     font-size: 1.375rem;
     font-family: $ubuntu;
     font-weight: 400;
 
-    &:before{
+    &:before {
       content: '';
       position: absolute;
       left: -10px;
@@ -330,7 +329,7 @@ header{
       background: $btn;
     }
 
-    span{
+    span {
       display: block;
       font-weight: 300;
       text-transform: none;
@@ -340,7 +339,7 @@ header{
     }
   }
 
-  &__desc{
+  &__desc {
     margin-bottom: 0;
     opacity: 0;
     transition: all 0.3s ease-in-out;
@@ -355,19 +354,19 @@ header{
     margin-top: 26px;
   }
 
-  &--hover:hover:before{
+  &--hover:hover:before {
     opacity: 0.95;
     transition: all 0.3s ease-in-out;
   }
 
-  &--hover:hover{
-    &{
-      .blackout-block__inner{
+  &--hover:hover {
+    & {
+      .blackout-block__inner {
         height: 200px;
         transition: all 0.3s ease-in-out;
       }
 
-      .blackout-block__title{
+      .blackout-block__title {
         font-size: 1.375rem;
         transition: 0.5s;
 
@@ -381,12 +380,12 @@ header{
         //}
       }
 
-      .blackout-block__desc{
+      .blackout-block__desc {
         opacity: 1;
         transition: all 0.3s ease-in-out;
       }
 
-      .blackout-block__arrow{
+      .blackout-block__arrow {
         opacity: 1;
         transition: all 0.3s ease-in-out;
       }
@@ -397,12 +396,12 @@ header{
 }
 
 .btn-block {
-  &.btn-block--center{
+  &.btn-block--center {
     text-align: center;
   }
 }
 
-.btn-block{
+.btn-block {
   margin-top: 44px;
 }
 
@@ -413,25 +412,25 @@ header{
   border-spacing: 0;
   border-collapse: collapse;
 
-  &__item{
+  &__item {
     width: 232px;
     height: 138px;
-    margin:-1px 0 0 -1px;
+    margin: -1px 0 0 -1px;
 
   }
 }
 
-.clients-list-block{
+.clients-list-block {
   display: flex;
   border: 1px solid $white-border;
   background: #fff;
 
 
-  img{
+  img {
     margin: auto;
   }
 
-  &__more-btn{
+  &__more-btn {
     text-decoration: none;
     position: relative;
     margin: auto;
@@ -440,7 +439,7 @@ header{
     color: $btn-hover;
     padding-right: 32px;
 
-    &:after{
+    &:after {
       content: '';
       right: 0;
       top: 50%;
@@ -454,39 +453,41 @@ header{
 }
 
 
-.slider{
+.slider {
 
 }
 
 
-.review-slider{
+.review-slider {
   margin-top: 100px;
 
 
-  &__one-slide{
+  &__one-slide {
     display: inline-flex !important;
     justify-content: flex-start;
     padding-top: 10px;
     padding-bottom: 70px;
   }
 
-  .review-slide{
-    &__client-logo{
+  .review-slide {
+    &__client-logo {
       width: 170px;
       margin: auto;
     }
-    &__content{
+
+    &__content {
       margin-left: 70px;
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       font-size: 1.125em;
     }
-    &__feedback{
+
+    &__feedback {
       position: relative;
       //padding-right: 140px;
       padding-right: 14%;
 
-      &:before{
+      &:before {
         content: '';
         position: absolute;
         left: -35px;
@@ -496,13 +497,15 @@ header{
         height: 16px;
       }
     }
-    &__name{
+
+    &__name {
       margin-top: 25px;
       font-weight: 700;
       font-size: 1.125em;
       color: $black;
     }
-    &__position{
+
+    &__position {
       font-weight: 400;
       line-height: 24px;
       font-size: 0.875em;
@@ -511,43 +514,43 @@ header{
     }
   }
 
-  .tns-outer{
+  .tns-outer {
     position: relative;
   }
 
-  .tns-controls{
+  .tns-controls {
     position: absolute;
     bottom: 0;
     right: 0;
-    z-index:100;
+    z-index: 100;
     background: white;
 
-    &:before{
+    &:before {
       display: block;
       position: absolute;
       content: '';
       background: url("../img/svg_icons/arrow_violet_left.svg") no-repeat;
       width: 20px;
       height: 14px;
-      top:25%;
+      top: 25%;
       left: 10px;
 
     }
 
-    &:after{
+    &:after {
       display: block;
       position: absolute;
       content: '';
       background: url("../img/svg_icons/arrow_violet_right.svg") no-repeat;
       width: 20px;
       height: 14px;
-      top:25%;
+      top: 25%;
       right: 10px;
 
 
     }
 
-    button{
+    button {
       display: inline-block;
       position: relative;
       outline: none;
@@ -556,20 +559,20 @@ header{
       border-radius: 0;
       border: 1px solid $white-border;
       background: transparent;
-      z-index:100;
+      z-index: 100;
       cursor: pointer;
       margin-right: -1px;
 
     }
   }
 
-  .tns-nav{
+  .tns-nav {
     position: absolute;
     bottom: 0;
     left: 227px;
-    z-index:100;
+    z-index: 100;
 
-    button{
+    button {
       outline: none;
       width: 7px;
       height: 7px;
@@ -580,11 +583,11 @@ header{
       padding: 0;
       margin-right: 14px;
 
-      &:last-child{
+      &:last-child {
         margin-right: 0;
       }
 
-      &.tns-nav-active{
+      &.tns-nav-active {
         background: $btn;
       }
     }
@@ -593,31 +596,29 @@ header{
 }
 
 
-
-.works-list{
+.works-list {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
 
-  @media screen and (max-width: $tablet-portrait-upper-boundary){
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media screen and (max-width: $phone-upper-boundary){
+  @media screen and (max-width: $phone-upper-boundary) {
     grid-template-columns: 1fr;
   }
 
 
-
-  &__item{
+  &__item {
     height: 250px;
 
-    &:first-child{
+    &:first-child {
       height: 520px;
       grid-column: 1/3;
       grid-row: 1/3;
 
-      @media screen and (max-width: $phone-upper-boundary){
+      @media screen and (max-width: $phone-upper-boundary) {
         grid-column: inherit;
         grid-row: inherit;
         height: 250px;
@@ -626,68 +627,70 @@ header{
   }
 }
 
-.one-work-block{
+.one-work-block {
   overflow: hidden;
-  img{
+
+  img {
     width: 100%;
   }
 }
 
 
-.company-facts{
+.company-facts {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 90px;
   margin: 0 -20px 0 -20px;
 
-  &__item{
+  &__item {
     //width: 374px;
     margin: 0 20px 0 20px;
 
   }
 
-  @media screen and (max-width: $tablet-portrait-upper-boundary){
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
     justify-content: center;
     margin: 0 -20px -60px -20px;
 
-    &__item{
+    &__item {
       margin: 0 20px 60px 20px;
     }
   }
 }
 
-.fact-block{
+.fact-block {
   display: flex;
   justify-content: flex-start;
-  &__icon{
+
+  &__icon {
     width: 60px;
     height: 60px;
   }
 
-  &__desc{
+  &__desc {
     margin-left: 20px;
     color: $dark-gray;
     font-weight: 300;
   }
 
-  &__value{
+  &__value {
     font-size: 2.1875em;
   }
 
-  &__sub{
+  &__sub {
     font-size: 1em;
   }
 }
 
 
-.about-block{
+.about-block {
   position: relative;
   display: flex;
   justify-content: flex-start;
   margin-top: 85px;
 
-  &__text{
+  &__text {
     width: 552px;
     font-size: 1.125em;
     line-height: 29px;
@@ -696,27 +699,28 @@ header{
     color: $black;
     min-height: 600px;
 
-    p{
+    p {
       margin-top: 0;
     }
   }
 
-  &__title{
+  &__title {
     margin: 100px 0 25px 0;
     text-align: left;
   }
 
-  &__img{
+  &__img {
     position: absolute;
     right: -170px;
     top: 0;
-    background: url("../img/main/map_city.png")no-repeat;
+    background: url("../img/main/map_city.png") no-repeat;
     width: 68%;
     height: 100%;
     background-size: cover;
 
 
   }
+
   @media screen and (max-width: $tablet-portrait-upper-boundary) {
     flex-wrap: wrap;
 
@@ -725,7 +729,7 @@ header{
       min-height: inherit;
     }
 
-    &__img{
+    &__img {
       position: relative;
       background: url("../img/main/map-city-with-pins.png") no-repeat;
       background-size: cover;
@@ -739,84 +743,87 @@ header{
   }
 }
 
-.world-map-block{
-  &__inner{
+.world-map-block {
+  &__inner {
     position: relative;
     width: 100%;
     height: 100%;
 
-    @media screen and (max-width: $tablet-portrait-upper-boundary){
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
       display: none;
     }
   }
 }
 
-.odessa-pin, .tel-aviv-pin{
+.odessa-pin, .tel-aviv-pin {
   position: absolute;
   top: 0;
   left: 0;
-  &__icon{
+
+  &__icon {
     background: url("../img/svg_icons/pin.svg") no-repeat;
     width: 22px;
     height: 30px;
     margin: 0 auto;
   }
-  &__text{
+
+  &__text {
     font-family: $ubuntu;
     font-weight: 500;
     font-size: 1.125em;
   }
 }
 
-.odessa-pin{
+.odessa-pin {
   top: 113px;
   left: 255px;
 
 
 }
-.tel-aviv-pin{
+
+.tel-aviv-pin {
   top: 251px;
   left: 345px;
 }
 
 
-.contacts-block{
+.contacts-block {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 25px 0;
 
-  &__item{
+  &__item {
     font-family: $ubuntu;
     color: $black;
     text-align: center;
     margin: 25px 130px;
   }
 
-  &__city{
+  &__city {
     font-size: 1.5625em;
 
   }
 
-  &__phone{
+  &__phone {
     font-size: 1.125em;
     margin-top: 20px;
     margin-bottom: 15px;
   }
 
-  &__country{
+  &__country {
     font-size: 1.125em;
   }
 }
 
 
-.contacts-section{
+.contacts-section {
   position: relative;
   background: url("../img/main/contacts-block-bg.jpg") no-repeat;
   background-size: cover;
   background-position: 50%;
 
-  &:before{
+  &:before {
     content: '';
     position: absolute;
     left: 0;
@@ -829,28 +836,26 @@ header{
   }
 }
 
-.connection-block{
+.connection-block {
   position: relative;
   padding-top: 182px;
   padding-bottom: 60px;
 
-  &__title{
+  &__title {
     text-align: center;
     font-size: 2.5em;
     color: $white;
   }
 
-  &__btn{
+  &__btn {
     margin-top: 110px;
   }
 }
 
 
-
-
 //FOOTER
 
-.footer{
+.footer {
   color: $white;
   background: $services-black-layout;
   font-family: $ubuntu;
@@ -858,7 +863,7 @@ header{
   padding-top: 70px;
 }
 
-.footer-block{
+.footer-block {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -869,14 +874,14 @@ header{
     &__column {
       display: none;
 
-      &--tablet-only{
+      &--tablet-only {
         width: 100%;
         display: flex;
         justify-content: center;
         margin-bottom: 40px;
         text-align: center;
 
-        & .list-items:first-child{
+        & .list-items:first-child {
           display: none;
         }
       }
@@ -885,62 +890,67 @@ header{
 }
 
 
-.list-items{
+.list-items {
   width: 165px;
-  &__title{
+
+  &__title {
     text-transform: uppercase;
     font-size: 1.125em;
     line-height: 20px;
   }
-  &__one{
+
+  &__one {
     display: block;
     color: inherit;
     text-decoration: none;
     margin-top: 24px;
   }
 
-  &__ico{
+  &__ico {
     width: 30px;
     height: 30px;
     display: inline-block;
     margin-right: 24px;
 
-    &:last-child{
+    &:last-child {
       margin-right: 0;
     }
   }
 
-  &--icons{}
+  &--icons {
+  }
 
-  &--fb{
+  &--fb {
     background: url("../img/svg_icons/fb.svg") no-repeat;
 
-    &:hover{
+    &:hover {
       background: url("../img/svg_icons/fb_hover.svg") no-repeat;
       transition: .3s;
     }
   }
-  &--in{
+
+  &--in {
     background: url("../img/svg_icons/linkedin.svg") no-repeat;
-    &:hover{
+
+    &:hover {
       background: url("../img/svg_icons/linkedin_hover.svg") no-repeat;
       transition: .3s;
     }
   }
-  &--be{
+
+  &--be {
     background: url("../img/svg_icons/beh.svg") no-repeat;
-    &:hover{
+
+    &:hover {
       background: url("../img/svg_icons/beh_hover.svg") no-repeat;
       transition: .3s;
     }
   }
 
 
-
-
 }
 
-.footer-icon{
+.footer-icon {
 
   width: 25px;
   height: 25px;
@@ -949,18 +959,17 @@ header{
   margin-right: 5px;
 
 
-
-  &--mail{
+  &--mail {
     background: url("../img/svg_icons/mail.svg") no-repeat;
   }
 
-  &--skype{
+  &--skype {
     background: url("../img/svg_icons/skype.svg") no-repeat;
   }
 }
 
 
-.copyright-block{
+.copyright-block {
   padding: 40px 0;
   font-family: $roboto;
   font-weight: 300;
@@ -973,108 +982,104 @@ header{
 }
 
 
-
-
-
-
 // --  CASE_STUDIES PAGE --------------
 
-.img-slider{
+.img-slider {
   position: relative;
 
- .img-slide{
-   position: relative;
+  .img-slide {
+    position: relative;
 
-   &:after{
-     content: '';
-     position: absolute;
-     left: 0;
-     top: -3px;
-     width: 100%;
-     height: 100%;
-     background: $grey;
-     opacity: .75;
-   }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -3px;
+      width: 100%;
+      height: 100%;
+      background: $grey;
+      opacity: .75;
+    }
 
 
+    &__img-bg {
+      width: 100%;
+    }
 
-   &__img-bg{
-     width: 100%;
-   }
+    &__container {
+      position: absolute;
+      width: $width-container;
+      height: 100%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      top: 0;
+      z-index: 1;
+    }
 
-   &__container{
-     position: absolute;
-     width: $width-container;
-     height: 100%;
-     left: 50%;
-     transform: translate(-50%, 0);
-     top: 0;
-     z-index: 1;
-   }
+    &__text-wrapper {
+      position: absolute;
+      color: $white;
+      width: $width-container;
+      padding: 0 20px;
+      max-width: 783px;
+      transform: translate(0, -50%);
+      top: 50%;
+      font-size: 16px;
+    }
 
-   &__text-wrapper{
-     position: absolute;
-     color: $white;
-     width: $width-container;
-     padding: 0 20px;
-     max-width: 783px;
-     transform: translate(0, -50%);
-     top: 50%;
-     font-size: 16px;
-   }
+    &__short-text {
+      font-size: 1.625em;
+      text-transform: uppercase;
+    }
 
-   &__short-text{
-     font-size: 1.625em;
-     text-transform: uppercase;
-   }
+    &__slide-title {
+      font-size: 3.125em;
+      text-transform: uppercase;
+      font-family: $ubuntu;
+      font-weight: 400;
+      margin-top: 42px;
+      margin-bottom: 32px;
 
-   &__slide-title{
-     font-size: 3.125em;
-     text-transform: uppercase;
-     font-family: $ubuntu;
-     font-weight: 400;
-     margin-top: 42px;
-     margin-bottom: 32px;
+    }
 
-   }
-   &__text{
-     margin-top: 0;
-     font-size: 1.375em;
-     font-weight: 300;
+    &__text {
+      margin-top: 0;
+      font-size: 1.375em;
+      font-weight: 300;
 
-     p{
-       margin-top: 0;
+      p {
+        margin-top: 0;
 
-       &:last-child{
+        &:last-child {
           margin-bottom: 0;
-       }
-     }
-   }
+        }
+      }
+    }
 
-   &__btn{
-     margin-top: 40px;
-   }
-
-
-   @media screen and (max-width: $tablet-landscape-upper-boundary){
-     &__container{
-       width: 100%;
-       left: 0;
-       transform: translate(0, 0)
-     }
-   }
-
- }
+    &__btn {
+      margin-top: 40px;
+    }
 
 
-  .tns-nav{
+    @media screen and (max-width: $tablet-landscape-upper-boundary) {
+      &__container {
+        width: 100%;
+        left: 0;
+        transform: translate(0, 0)
+      }
+    }
+
+  }
+
+
+  .tns-nav {
     position: absolute;
     bottom: 25px;
     left: 50%;
     transition: translate(0, -50%);
-    z-index:100;
+    z-index: 100;
 
-    button{
+    button {
       outline: none;
       width: 7px;
       height: 7px;
@@ -1085,11 +1090,11 @@ header{
       padding: 0;
       margin-right: 14px;
 
-      &:last-child{
+      &:last-child {
         margin-right: 0;
       }
 
-      &.tns-nav-active{
+      &.tns-nav-active {
         background: $btn;
       }
     }
@@ -1130,7 +1135,7 @@ header{
       left: 0;
     }
 
-    &.active{
+    &.active {
       color: $black;
     }
 
@@ -1140,7 +1145,7 @@ header{
 .tabcontent {
   display: none;
 
-  &.active{
+  &.active {
     display: flex;
   }
 }
@@ -1151,7 +1156,7 @@ header{
   margin: -22px -10px;
 
 
-  &__item{
+  &__item {
     width: 373px;
     //height: 250px;
     margin: 22px 10px;
@@ -1161,17 +1166,17 @@ header{
 
 // -- TABS END --------
 
-.bottom-hover-block{
+.bottom-hover-block {
   position: relative;
   overflow: hidden;
   height: 380px;
 
-  &__img{
+  &__img {
     width: 100%;
     height: 250px;
   }
 
-  &__desc{
+  &__desc {
     background: $white;
     position: absolute;
     bottom: 0;
@@ -1184,11 +1189,11 @@ header{
 
   }
 
-  &:hover .bottom-hover-block__desc{
+  &:hover .bottom-hover-block__desc {
     height: 239px;
   }
 
-  &__title-block{
+  &__title-block {
     position: relative;
     font-weight: 500;
     font-size: 1.375em;
@@ -1196,7 +1201,7 @@ header{
     padding-left: 10px;
     margin-bottom: 28px;
 
-    &:before{
+    &:before {
       content: '';
       position: absolute;
       left: 0;
@@ -1208,7 +1213,7 @@ header{
     }
   }
 
-  &__date{
+  &__date {
     display: block;
     font-size: 14px;
     color: $light-grey;
@@ -1216,7 +1221,7 @@ header{
     line-height: 23px;
   }
 
-  &__text{
+  &__text {
     color: $black;
     font-family: $roboto;
     font-weight: 400;
@@ -1224,13 +1229,11 @@ header{
     transition: all 0.3s ease-in-out;
   }
 
-  &:hover .bottom-hover-block__text{
+  &:hover .bottom-hover-block__text {
     opacity: 1;
     transition: all 0.3s ease-in-out;
   }
 }
-
-
 
 
 // -- CLIENTS PAGE -----------
@@ -1240,14 +1243,14 @@ header{
   background-size: cover;
   padding-bottom: 44.792%;
 
-  &__point{
+  &__point {
     position: absolute;
     display: inline-block;
     font-weight: 500;
     color: $black;
   }
 
-  &__point:before{
+  &__point:before {
     content: '';
     display: block;
     width: 9px;
@@ -1257,48 +1260,58 @@ header{
     margin: 4px auto 0 auto;
   }
 
-  .Canada{
+  .Canada {
     left: 18.6%;
     top: 10.6%;
   }
-  .USA{
+
+  .USA {
     left: 14.9%;
     top: 22%;
   }
-  .UK{
+
+  .UK {
     left: 45%;
     top: 14%;
   }
-  .ND{
+
+  .ND {
     left: 47%;
     top: 14%;
   }
-  .France{
+
+  .France {
     left: 45.6%;
     top: 20.1%;
   }
-  .Spain{
+
+  .Spain {
     left: 43.8%;
     top: 23.5%;
   }
-  .Latvia{
+
+  .Latvia {
     left: 52.3%;
     top: 10.9%;
   }
-  .Ukraine{
+
+  .Ukraine {
     left: 54.8%;
     top: 13.9%;
   }
-  .Russia{
+
+  .Russia {
     left: 58.6%;
     top: 11%;
   }
-  .Israel{
+
+  .Israel {
     left: 56.5%;
     top: 29.6%;
 
   }
-  .Kazakhstan{
+
+  .Kazakhstan {
     left: 63.2%;
     top: 15.6%;
   }
@@ -1306,17 +1319,17 @@ header{
 }
 
 
-.shift-content{
+.shift-content {
   margin-top: -31.3%;
 }
 
-.clients-blocks{
+.clients-blocks {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin: -10px;
 
-  &__item{
+  &__item {
     position: relative;
     width: 275px;
     height: 275px;
@@ -1326,17 +1339,17 @@ header{
     display: flex;
   }
 
-  &__img{
+  &__img {
     align-self: flex-start;
     margin: auto;
   }
 }
 
 
-.entire-hover-block{
+.entire-hover-block {
   position: relative;
 
-  &__content{
+  &__content {
     position: absolute;
     top: 0;
     left: 0;
@@ -1353,39 +1366,39 @@ header{
 
   }
 
-  &:hover{
-    .entire-hover-block__content{
+  &:hover {
+    .entire-hover-block__content {
       height: 275px;
       opacity: 0.95;
     }
   }
 
-  &__title{
+  &__title {
     font-size: 1.375em;
     font-weight: 500;
     margin-bottom: 27px;
   }
 
 
-  &__items-wrapper{
+  &__items-wrapper {
     div {
       margin-bottom: 20px;
     }
   }
 
-  &__list-item{
+  &__list-item {
     position: relative;
     padding-left: 30px;
 
-    &:before{
+    &:before {
       position: absolute;
       left: 0;
       top: 0;
     }
   }
 
-  &__project{
-    &:before{
+  &__project {
+    &:before {
       content: '';
       width: 21px;
       height: 16px;
@@ -1393,8 +1406,9 @@ header{
       display: block;
     }
   }
-  &__calendar{
-    &:before{
+
+  &__calendar {
+    &:before {
       content: '';
       width: 21px;
       height: 17px;
@@ -1402,8 +1416,9 @@ header{
       display: block;
     }
   }
-  &__team{
-    &:before{
+
+  &__team {
+    &:before {
       content: '';
       width: 21px;
       height: 20px;
@@ -1412,8 +1427,9 @@ header{
       top: -2px;
     }
   }
-  &__pin{
-    &:before{
+
+  &__pin {
+    &:before {
       content: '';
       width: 21px;
       height: 17px;
@@ -1423,7 +1439,7 @@ header{
   }
 
 
-  &__btn{
+  &__btn {
     display: flex;
     justify-content: space-around;
     position: absolute;
@@ -1431,7 +1447,7 @@ header{
     right: 20px;
     color: $white;
 
-    &:after{
+    &:after {
       content: '';
       display: block;
       width: 20px;
@@ -1445,13 +1461,12 @@ header{
 }
 
 
-
 // -- EXPERTISE PAGE ----------
 
-.expertise-top-block{
+.expertise-top-block {
   position: relative;
 
-  &:before{
+  &:before {
     content: '';
     position: absolute;
     width: 100%;
@@ -1460,22 +1475,23 @@ header{
     opacity: 0.65;
   }
 
-  &__img{
+  &__img {
     width: 100%;
     display: block;
   }
 }
 
 
-.title-block{
+.title-block {
   padding-bottom: 65px;
-  &__title{
+
+  &__title {
     margin-bottom: 35px;
 
   }
 }
 
-.sub-title-text{
+.sub-title-text {
   font-family: $roboto;
   font-size: 1.375em;
   color: $black;
@@ -1490,21 +1506,21 @@ header{
 .works-slider {
   position: relative;
 
-  &__one-slide{
+  &__one-slide {
     display: inline-flex !important;
     justify-content: flex-start;
     padding-top: 0;
     padding-bottom: 42px;
   }
 
-  .tns-nav{
+  .tns-nav {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index:100;
+    z-index: 100;
 
-    button{
+    button {
       outline: none;
       width: 7px;
       height: 7px;
@@ -1515,11 +1531,11 @@ header{
       padding: 0;
       margin-right: 14px;
 
-      &:last-child{
+      &:last-child {
         margin-right: 0;
       }
 
-      &.tns-nav-active{
+      &.tns-nav-active {
         background: $btn;
       }
     }
@@ -1527,12 +1543,12 @@ header{
 
 }
 
-.work-slide{
+.work-slide {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 
-  &__img{
+  &__img {
     width: 66%;
     align-self: flex-start;
   }
@@ -1544,71 +1560,73 @@ header{
     padding-left: 22px;
   }
 
-  &__title{
+  &__title {
     margin-top: -7px;
     margin-bottom: 36px;
   }
 
-  &__text-wrap{
-    &:first-child{
+  &__text-wrap {
+    &:first-child {
       margin-top: 0;
     }
   }
 
-  &__text{
+  &__text {
     margin-bottom: 0;
     font-family: $roboto;
     font-size: 1.125em;
     font-weight: 300;
     color: $black;
   }
-  &__btn{
+
+  &__btn {
     margin-top: 40px;
   }
 
   @media screen and (max-width: $tablet-portrait-upper-boundary) {
-    &__img{
+    &__img {
       width: 100%;
       align-self: flex-start;
     }
 
     &__desc {
+
       width: 100%;
       padding-left: 0;
+
     }
 
-    &__title{
+    &__title {
+
       margin-top: 40px;
       margin-bottom: 36px;
       text-align: center;
+
     }
 
-    &__btn{
+    &__btn {
+
       margin-top: 40px;
       margin-left: auto;
       margin-right: auto;
       display: block;
+
     }
+
   }
 
 }
 
+.out-team-img-block {
 
-.out-team-img-block{
   img {
+
     width: 100%;
     display: block;
+
   }
+
 }
-
-
-
-
-
-
-
-
-
 
 // -- PROJECT PAGE ----------------
 
@@ -1666,7 +1684,7 @@ header{
 //  }
 //}
 
-.shift-section{
+.shift-section {
   overflow: visible;
   margin-top: -6.9%;
 }
@@ -1678,20 +1696,20 @@ header{
   flex-wrap: wrap;
   overflow: hidden;
 
-  &__img{
+  &__img {
     display: block;
     width: 50%;
     z-index: 1;
   }
 
-  &__desc{
+  &__desc {
     background: $section-bg;
     width: 50%;
     z-index: 1;
   }
 
   @media screen and (max-width: $tablet-landscape-upper-boundary - 1) {
-    &__img{
+    &__img {
       width: 580px;
     }
 
@@ -1702,36 +1720,36 @@ header{
 
 }
 
-.project-desc{
+.project-desc {
   padding: 36px 46px;
 
 
-  &__item{
+  &__item {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 14px;
 
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
   }
 
-  &__icon{
+  &__icon {
     align-self: center;
     width: 20px;
     height: 20px;
   }
 
-  &__wrapper{
+  &__wrapper {
     margin-left: 26px;
   }
 
-  &__text{
+  &__text {
     font-weight: 500;
     color: $black;
   }
 
-  &__sub-text{
+  &__sub-text {
     font-size: 0.875em;
     font-weight: 300;
     color: $btn-hover;
@@ -1740,43 +1758,43 @@ header{
 }
 
 
-.image-text-block{
+.image-text-block {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 
-  &__title{
+  &__title {
     text-align: left;
     margin-top: 0;
     margin-bottom: 35px;
     font-size: 2.5em;
   }
 
-  &__img{
+  &__img {
     width: 580px;
     height: 325px;
   }
 
-  &__wrapper{
+  &__wrapper {
     width: calc(100% - 580px);
     font-family: $roboto;
     font-weight: 300;
     color: $black;
     padding-right: 25px;
 
-    p{
+    p {
       margin-top: 0;
     }
 
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
   }
 
-  &--reverse{
+  &--reverse {
     flex-direction: row-reverse;
 
-    .image-text-block__wrapper{
+    .image-text-block__wrapper {
       padding-left: 25px;
       padding-right: 0;
     }
@@ -1790,7 +1808,7 @@ header{
       margin-bottom: 35px;
     }
 
-    &__wrapper{
+    &__wrapper {
       width: 100%;
       order: 2;
     }
@@ -1798,7 +1816,7 @@ header{
 }
 
 
-.two-sides-text{
+.two-sides-text {
   display: flex;
   justify-content: center;
   margin: -1em  -25px -1em -25px;
@@ -1806,17 +1824,17 @@ header{
   font-weight: 300;
   color: $black;
 
-  &__one-side{
+  &__one-side {
     width: 50%;
     margin: 0 25px;
   }
 
-  @media screen and (max-width: $tablet-portrait-upper-boundary){
-    &{
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    & {
       flex-wrap: wrap;
     }
 
-    &__one-side{
+    &__one-side {
       width: 100%;
     }
   }
@@ -1829,12 +1847,11 @@ header{
   padding-bottom: 64px;
 
 
-
   /* Hide the images by default */
-  &__slide{
+  &__slide {
     display: none;
 
-    img{
+    img {
       width: 100%;
       display: block;
     }
@@ -1848,7 +1865,7 @@ header{
 }
 
 
-.nav-btn{
+.nav-btn {
   cursor: pointer;
   position: absolute;
   user-select: none;
@@ -1858,20 +1875,20 @@ header{
   display: flex;
 
 
-  &__one{
+  &__one {
     outline: none;
     width: 40px;
     height: 30px;
     border-radius: 0;
     border: 1px solid $white-border;
     background: $white;
-    z-index:100;
+    z-index: 100;
     display: flex;
     justify-content: center;
 
-    &--prev{
-      &:before{
-        content:'';
+    &--prev {
+      &:before {
+        content: '';
         display: block;
         background: url("../img/svg_icons/arrow_violet_left.svg") no-repeat;
         width: 20px;
@@ -1881,9 +1898,10 @@ header{
 
 
     }
-    &--next{
-      &:before{
-        content:'';
+
+    &--next {
+      &:before {
+        content: '';
         display: block;
         background: url("../img/svg_icons/arrow_violet_right.svg") no-repeat;
         width: 20px;
@@ -1911,17 +1929,18 @@ header{
   color: white;
 }
 
-.previews-row{
+.previews-row {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+
   &:after {
     content: "";
     display: table;
     clear: both;
   }
 
-  img{
+  img {
     width: 100%;
   }
 }
@@ -1943,39 +1962,37 @@ header{
 }
 
 
-
 // -- SERVICES PAGE -----------
 
 
-
-.top-img-section{
+.top-img-section {
   position: relative;
   background: url("../img/expertise/bg_expertise.jpg") no-repeat center;
   background-size: cover;
   padding-bottom: 28.386%;
   overflow: hidden;
 
-  &--services{
+  &--services {
     background: url("../img/expertise/bg_expertise.jpg") no-repeat center;
     background-size: cover;
   }
 
-  &--technologies{
+  &--technologies {
     background: url("../img/expertise/bg_expertise.jpg") no-repeat center;
     background-size: cover;
   }
 
-  &--expertise{
+  &--expertise {
     background: url("../img/expertise/bg_expertise.jpg") no-repeat center;
     background-size: cover;
   }
 
-  &--project{
+  &--project {
     background: url("../img/project/catinvestor_bg.jpg") no-repeat center;
     background-size: cover;
   }
 
-  &:before{
+  &:before {
     position: absolute;
     content: '';
     background: $grey;
@@ -1984,75 +2001,75 @@ header{
     height: 100%;
   }
 
-  &__container{
+  &__container {
     position: absolute;
     width: 1160px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) ;
+    transform: translate(-50%, -50%);
   }
 
-  &__content-wrapper{
+  &__content-wrapper {
     color: $white;
   }
 
-  &__title{
+  &__title {
     color: $white;
     margin-top: 0;
     margin-bottom: 30px;
   }
 
-  &__text-wrapper{
+  &__text-wrapper {
     width: 682px;
     font-size: 1.375em;
     font-weight: 300;
 
-    p{
+    p {
       margin-top: 0;
     }
 
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
   }
 
   @media screen and (max-width: $tablet-landscape-upper-boundary) {
-    &{
+    & {
       font-size: 12px;
     }
 
-    &__container{
+    &__container {
       width: 100%;
       margin-left: 20px;
     }
   }
 
   @media screen and (max-width: $tablet-portrait-upper-boundary) {
-    &{
+    & {
       height: 100vh;
     }
 
-    &__container{
+    &__container {
       width: 100%;
       padding: 0 20px;
       margin-left: 0;
     }
 
-    &__text-wrapper{
+    &__text-wrapper {
       width: auto;
     }
   }
 
 }
 
-.three-column-block{
+.three-column-block {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin: 0 -25px;
 
 
-  &__col{
+  &__col {
     width: 353px;
     margin: 0 25px;
     padding-bottom: 70px;
@@ -2060,7 +2077,7 @@ header{
 }
 
 
-.direction-block{
+.direction-block {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -2068,7 +2085,7 @@ header{
   margin-right: -10px;
   margin-top: -30px;
 
-  &__col{
+  &__col {
     flex-basis: 373px;
     margin-left: 10px;
     margin-right: 10px;
@@ -2076,10 +2093,11 @@ header{
 
   }
 
-  &--narrow{
+  &--narrow {
     margin-right: -5px;
     margin-left: -5px;
-    .direction-block__col{
+
+    .direction-block__col {
       flex-basis: 274px;
       margin-left: 5px;
       margin-right: 5px;
@@ -2092,9 +2110,9 @@ header{
 
 }
 
-.direction-col{
+.direction-col {
 
-  &__title{
+  &__title {
     position: relative;
     background: $white;
     font-size: 1.125em;
@@ -2104,7 +2122,7 @@ header{
     white-space: nowrap;
 
 
-    &:before{
+    &:before {
       position: absolute;
       left: 0;
       top: 0;
@@ -2112,7 +2130,8 @@ header{
       border: 31px solid transparent;
       border-left: 20px solid $section-bg;
     }
-    &:after{
+
+    &:after {
       position: absolute;
       right: -51px;
       top: 0;
@@ -2122,7 +2141,7 @@ header{
       z-index: 1;
     }
 
-    &--small{
+    &--small {
       font-size: 1em;
       font-weight: 500;
       white-space: normal;
@@ -2136,50 +2155,53 @@ header{
     }
 
   }
-  &__text{
+
+  &__text {
     margin-top: 16px;
     padding: 25px;
     background: $white;
     min-height: 170px;
 
-    &--small{
+    &--small {
       font-size: 0.9375em;
       margin-top: 10px;
     }
   }
 
 
-  &:nth-child(1){
+  &:nth-child(1) {
 
-    .direction-col__title{
+    .direction-col__title {
       padding-left: 25px;
     }
 
-    .direction-col__title:before{
+    .direction-col__title:before {
       display: none;
     }
   }
 
-  &--grey-bg{
-    .direction-col__title{
+  &--grey-bg {
+    .direction-col__title {
       background: $section-bg;
 
-      &:before{
+      &:before {
         border-left: 20px solid $white;
       }
-      &:after{
+
+      &:after {
         border-left: 20px solid $section-bg;
       }
 
 
     }
-    .direction-col__text{
+
+    .direction-col__text {
       background: $section-bg;
     }
   }
 }
 
-.icon-text-block{
+.icon-text-block {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -2187,7 +2209,7 @@ header{
   margin-right: -44px;
   margin-bottom: -68px;
 
-  &__one{
+  &__one {
     flex-basis: 530px;
     display: flex;
     justify-content: flex-start;
@@ -2206,23 +2228,25 @@ header{
       margin-left: 32px;
       margin-right: 32px;
     }
-    .icon-text-block__ico{
+
+    .icon-text-block__ico {
       width: 47px;
     }
   }
 
-  &__ico{
+  &__ico {
     width: 49px;
     align-self: flex-start;
   }
 
-  &__wrap{
+  &__wrap {
     position: relative;
     margin-left: 25px;
 
-    &--add-pin{
+    &--add-pin {
       font-size: 1em;
-      &:before{
+
+      &:before {
         position: absolute;
         content: '';
         width: 10px;
@@ -2236,11 +2260,11 @@ header{
       }
     }
 
-    p{
+    p {
       margin-top: 0;
     }
 
-    p:last-child{
+    p:last-child {
       margin-bottom: 0;
     }
   }
@@ -2251,8 +2275,7 @@ header{
 }
 
 
-
-.feedback-form{
+.feedback-form {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -2260,7 +2283,7 @@ header{
   margin-left: -10px;
   //margin-bottom: -50px;
 
-  &__label{
+  &__label {
     flex-basis: 373px;
     flex-grow: 1;
     margin-right: 10px;
@@ -2270,25 +2293,25 @@ header{
     font-weight: 400;
     margin-bottom: 50px;
 
-    &--error{
+    &--error {
       color: $error;
 
-      .feedback-form__error-msg{
+      .feedback-form__error-msg {
         display: block;
       }
     }
 
-    &--textarea{
+    &--textarea {
       flex-basis: 100%;
 
-      textarea{
+      textarea {
         height: 80px;
         resize: vertical;
       }
     }
   }
 
-  &__input{
+  &__input {
     width: 100%;
     border: none;
     border-bottom: 2px solid $grey;
@@ -2299,31 +2322,31 @@ header{
     padding-top: 12px;
     outline: none;
 
-    &--error{
+    &--error {
       border-color: $error;
       color: $error;
     }
 
   }
 
-  &__error-msg{
+  &__error-msg {
     display: none;
     color: $error;
     font-size: 0.75em;
     margin-top: 5px;
   }
 
-  &__attach-btn{
+  &__attach-btn {
     margin-left: 30px;
   }
 }
 
-.form-btn-block{
+.form-btn-block {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 
-  .attachments-tip{
+  .attachments-tip {
     align-self: center;
     font-size: 0.9375em;
     font-weight: 400;
@@ -2333,9 +2356,9 @@ header{
   }
 
   @media screen and (max-width: 800px) {
-   justify-content: center;
+    justify-content: center;
 
-    .attachments-tip{
+    .attachments-tip {
       width: 100%;
       margin-left: 0;
       margin-top: 25px;
@@ -2344,26 +2367,26 @@ header{
   }
 }
 
-.privacy-block{
+.privacy-block {
   color: $black;
   margin-top: 70px;
 
-  &__title{
+  &__title {
     font-size: 0.9375em;
     font-family: $ubuntu;
     font-weight: 700;
     margin-bottom: 20px;
   }
 
-  &__text-wrap{
+  &__text-wrap {
     font-family: $roboto;
     font-weight: 400;
 
-    p{
+    p {
       margin-top: 0;
     }
 
-    p:last-child{
+    p:last-child {
       margin-bottom: 0;
     }
   }
@@ -2373,14 +2396,14 @@ header{
 // -- TECHNOLOGIES PAGE ---------
 
 
-.technology-text-block{
+.technology-text-block {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-left: -30px;
   margin-right: -30px;
 
-  &__side{
+  &__side {
     margin-left: 30px;
     margin-right: 30px;
   }
@@ -2389,26 +2412,27 @@ header{
 }
 
 
-.technology-desc{
+.technology-desc {
   width: 528px;
 
-  &__title{
+  &__title {
     margin-top: 0;
     margin-bottom: 30px;
   }
 
-  &__text-wrap{
+  &__text-wrap {
     margin-bottom: -1em;
     font-family: $roboto;
     font-weight: 400;
     font-size: 0.9375em;
-    p{
+
+    p {
       margin-top: 0;
     }
   }
 }
 
-.technology-img{
+.technology-img {
   padding-top: 45px;
   flex-grow: 1;
   display: flex;
@@ -2416,7 +2440,7 @@ header{
 }
 
 
-.column-icon-text{
+.column-icon-text {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -2424,14 +2448,14 @@ header{
   margin-left: -31px;
   margin-bottom: -31px;
 
-  &__col{
+  &__col {
     flex-basis: 232px;
     margin-right: 31px;
     margin-left: 31px;
     margin-bottom: 31px;
   }
 
-  &__ico{
+  &__ico {
     height: 70px;
     display: flex;
 
@@ -2440,7 +2464,7 @@ header{
     }
   }
 
-  &__wrapper-text{
+  &__wrapper-text {
     margin-top: 30px;
     margin-bottom: -1em;
 
@@ -2456,7 +2480,7 @@ header{
 }
 
 
-.logo-list{
+.logo-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -2464,7 +2488,7 @@ header{
   margin-right: -60px;
   margin-top: -70px;
 
-  &__one{
+  &__one {
     margin-left: 60px;
     margin-right: 60px;
     margin-top: 70px;

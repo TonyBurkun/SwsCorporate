@@ -12,27 +12,37 @@ class WorksReuseComponent extends Component {
     }
 
     getWorksList() {
+
         fetch('https://panel.stairwaysoft.com/api/wp/v2/posts?filter[category_name]=portfolio')
+
             .then(response => response.json())
+
             .then(data => {
 
                 let works = data.slice(0,6);
                 works.sort(function(a, b){
-                    return a.data.order-b.data.order
+
+                    return a.data.order-b.data.order;
+
                 });
-                console.log(works);
+
                 this.setState({
                     works
                 });
 
                if (this.props.updateData) {
+
                    this.props.updateData('gotWorksReuse', true);
+
                }
 
                if (this.props.gotData) {
+
                    this.props.gotData('gotWorksReuse', true);
                }
+
             });
+
     }
 
 
@@ -69,7 +79,7 @@ class WorksReuseComponent extends Component {
 
                         <div className="btn-block btn-block--center">
 
-                            <Link to={this.props.links[0].caseStudy.WorksComponentLink} className="btn btn--upper">more cases</Link>
+                            <Link to={this.props.links && this.props.links[0].caseStudy.WorksComponentLink || this.props.link || '/oops'} className="btn btn--upper">more cases</Link>
 
                         </div>
                     </div>

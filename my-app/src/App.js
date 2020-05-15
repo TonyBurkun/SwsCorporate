@@ -46,27 +46,31 @@ class App extends Component {
 
     render() {
 
-        const WorksComponentLink =  "/case-studies";
+        const WorksComponentLink = "/case-studies";
 
         return (
             <Router>
                 <Fragment>
                     <Switch>
 
-
-                        <Route path="/" exact render={() => (<MainPageComponent dataStatus={this.state} updateData={this.mainPageGotData} links={[{WorksComponentLink: WorksComponentLink}]}/>)}/>
+                        <Route path="/" exact render={() => (
+                            <MainPageComponent dataStatus={this.state} updateData={this.mainPageGotData}
+                                               links={[{WorksComponentLink: WorksComponentLink}]}/>)}/>
                         <Route path="/clients" exact component={ClientComponent}/>
                         <Route path={WorksComponentLink} exact component={WorksComponent}/>
                         <Route path="/work/:name" exact component={OneWorkComponent}/>
-                        <Route path="/services/:name" exact component={OneServiceComponent}/>
+
+                        <Route path="/services/:name" exact render={() => (
+                            <OneServiceComponent links={[{WorksComponentLink: WorksComponentLink}]}/>)}/>
+
                         <Route path="/career" exact component={CareerComponent}/>
                         <Route path="/career/:id" exact component={OneCareerComponent}/>
                         <Route path="/privacy-policy" exact component={PrivacyPolicyComponent}/>
                         <Route path="/terms-of-use" exact component={TermsOfUseComponent}/>
-                        <Route path={"/technologies-*"} exact component={TechnologiesComponent} />
-                        <Route path={"/expertise-*"} exact component={ExpertiseComponent} />
+                        <Route path={"/technologies-*"} exact component={TechnologiesComponent}/>
+                        <Route path={"/expertise-*"} exact component={ExpertiseComponent}/>
 
-                        <Route path="*" component={NotFound} />
+                        <Route path="*" component={NotFound}/>
 
                     </Switch>
 

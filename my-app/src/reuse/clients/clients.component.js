@@ -21,17 +21,16 @@ class ClientsReuse extends Component {
 
         this.state = {
 
-            clients         : [],
-            reviews         : [],
-            slug            : null,
-            dataOfOutside   : '',
+            clients: [],
+            reviews: [],
+            slug: null,
+            dataOfOutside: '',
 
         };
 
         this.getClientsList();
 
     }
-
 
     getClientsList() {
 
@@ -43,15 +42,15 @@ class ClientsReuse extends Component {
 
                 this.setState({
 
-                    clients         : data[0].data.client,
-                    slug            : data[0].slug,
-                    dataOfOutside   : data,
+                    clients: data[0].data.client,
+                    slug: data[0].slug,
+                    dataOfOutside: data,
 
                 });
 
                 data[0].data.client.forEach((val, key) => {
 
-                    if(val.is_client_has_review){
+                    if (val.is_client_has_review) {
 
                         val.review.thumbnail = val.thumbnail;
                         reviews.push(val.review);
@@ -67,19 +66,19 @@ class ClientsReuse extends Component {
                 });
 
                 //set data of outside
-                if (this.props.updateData.pageData){
+                if (this.props.updateData.pageData) {
 
                     this.setState({
 
-                        clients             : this.props.updateData.clients,
-                        reviews             : this.props.updateData.reviews,
-                        dataOfOutside      : this.props.updateData.mainTitle__clients,
+                        clients: this.props.updateData.clients,
+                        reviews: this.props.updateData.reviews,
+                        dataOfOutside: this.props.updateData.mainTitle__clients,
 
                     })
 
                 }
 
-                if (this.props.updateData.gotClientsReuse === true){
+                if (this.props.updateData.gotClientsReuse === true) {
 
                     this.props.updateData('gotClientsReuse', true);
 
@@ -103,10 +102,10 @@ class ClientsReuse extends Component {
 
         let slug;
         let button;
-        let clients = this.state.clients.slice(0,9);
+        let clients = this.state.clients.slice(0, 9);
         let mainTitle__clients = this.props.updateData.mainTitle__clients || "Our clients";
 
-        if(this.state.slug) {
+        if (this.state.slug) {
 
             slug = this.state.slug;
 
@@ -114,11 +113,11 @@ class ClientsReuse extends Component {
 
         let reviews = this.state.reviews;
 
-        if(slug){
+        if (slug) {
 
-           button = <div className="clients-list__item clients-list-block">
-                    <Link  to={slug} className="clients-list-block__more-btn">More clients</Link >
-                    </div>
+            button = <div className="clients-list__item clients-list-block">
+                <Link to={slug} className="clients-list-block__more-btn">More clients</Link>
+            </div>
 
         }
         return (
@@ -135,9 +134,8 @@ class ClientsReuse extends Component {
                             {clients.map(client =>
 
                                 <div key={client.title} className="clients-list__item clients-list-block">
-                                    <img src={client.thumbnail || client.url} alt="pdf filler logo" />
+                                    <img src={client.thumbnail || client.url} alt="pdf filler logo"/>
                                 </div>
-
                             )}
 
                             {button}
@@ -147,9 +145,11 @@ class ClientsReuse extends Component {
                         <TinySlider className="slider" settings={settings}>
                             {reviews.map(review =>
                                 <div key={Math.random()} className="one-slide">
-                                    <img src={review.thumbnail || review.image} className="one-slide__client-logo" alt="" />
+                                    <img src={review.thumbnail || review.image} className="one-slide__client-logo"
+                                         alt=""/>
                                     <div className="one-slide__content">
-                                        <div className="one-slide__feedback" dangerouslySetInnerHTML={{__html: review.description}}>
+                                        <div className="one-slide__feedback"
+                                             dangerouslySetInnerHTML={{__html: review.description}}>
                                         </div>
                                         <div className="one-slide__name">
                                             {review.name}
@@ -170,4 +170,6 @@ class ClientsReuse extends Component {
         );
     }
 }
+
 export default ClientsReuse;
+

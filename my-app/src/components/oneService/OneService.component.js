@@ -13,23 +13,34 @@ class oneServiceComponent extends Component {
         window.scrollTo(0, 0);
 
         this.state = {
-            oneService: {},
-            title: null,
-            short_description: null,
-            showLoader: true,
+
+            oneService          : {},
+            title               : null,
+            short_description   : null,
+            showLoader          : true,
+            prevParam           : "",
+            nextParam           :"",
+
         };
 
-        this.getServiceData(props.match.params.name);
+        const getLinkArr = window.location.pathname.split("/");
+        this.getServiceData(getLinkArr[getLinkArr.length-1] || getLinkArr[getLinkArr.length - 2]);
+//        this.getServiceData(props.match.params.name);
 
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        const prevParam = this.props.match.params.name;
-        const nextParam = nextProps.match.params.name;
+        const getLinkArr = window.location.pathname.split("/");
+        const getLinkArrValidate = getLinkArr[getLinkArr.length-1] || getLinkArr[getLinkArr.length - 2];
+
+        this.state.nextParam = getLinkArrValidate;
+
+        const prevParam = this.state.prevParam;
+        const nextParam = getLinkArrValidate;
 
         if (prevParam !== nextParam){
             this.getServiceData(nextParam);
-            console.log(nextParam)
+
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
@@ -44,7 +55,7 @@ class oneServiceComponent extends Component {
             .then(response => response.json())
             .then(data => {
 
-                console.log(slug, " this")
+
                 if (data.length) {
                     this.setState({
 
@@ -54,11 +65,14 @@ class oneServiceComponent extends Component {
                         showLoader: false,
 
                     })
+
                 } else {
                     this.props.history.push('/#services');
                 }
 
             });
+
+
 
     }
 
@@ -72,7 +86,6 @@ class oneServiceComponent extends Component {
     render() {
 
         const {oneService, title, short_description} = this.state;
-
 
         return (
             <Fragment>
@@ -132,14 +145,21 @@ class oneServiceComponent extends Component {
 
                 <ContactComponent/>
 
-                <WorksReuseComponent gotData={this.gotDataFromInternalComponent}/>
+                <WorksReuseComponent gotData={this.gotDataFromInternalComponent} link={this.props.links[0].WorksComponentLink} />
 
                 <FooterComponent/>
+
 
             </Fragment>
 
         );
+
+        return (
+            this.state.prevParam = window.location.pathname.split("/")[window.location.pathname.split("/").length - 1] || window.location.pathname.split("/")[window.location.pathname.split("/").length - 2]
+        );
+
     }
+
 }
 
 export default oneServiceComponent;
