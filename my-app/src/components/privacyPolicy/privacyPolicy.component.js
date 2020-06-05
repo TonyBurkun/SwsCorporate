@@ -58,7 +58,7 @@ class PrivacyPolicy extends Component{
                    </div>
                </section>
 
-               <section className='bottom-padding-70 text-page'>
+               <section className='bottom-padding-70 text-page privacy-policy'>
                    <div className="container">
                        <h2 className='section-title'>{pageData.title}</h2>
                        <div dangerouslySetInnerHTML={{__html: pageData.description}}>

@@ -258,7 +258,7 @@ class HeaderComponent extends Component {
                                         {/*<Link to='/#' className="top-nav__link">Technologies</Link>*/}
                                     {/*</li>*/}
                                     <li className="top-nav__item">
-                                        <Link to='/case-studies' className="top-nav__link">Success Stories</Link>
+                                        <Link to={window.globalLinks.caseStudiesLink} className="top-nav__link">Success Stories</Link>
                                     </li>
 
                                     <li className="top-nav__item">
@@ -267,7 +267,7 @@ class HeaderComponent extends Component {
                                     </li>
                                     <li className="top-nav__item">
                                         <Link to='/career' className="top-nav__link"
-                                        >Career</Link>
+                                        >Careers</Link>
                                     </li>
                                 </ul>
                                 <button
@@ -292,7 +292,7 @@ class HeaderComponent extends Component {
                         {/*    <Link to="#" className="mobile-nav__link">Technologies</Link>*/}
                         {/*</li>*/}
                         <li className="mobile-nav__item">
-                            <Link to='/portfolio' className="mobile-nav__link">Success Stories</Link>
+                            <Link to={window.globalLinks.caseStudiesLink} className="mobile-nav__link">Success Stories</Link>
                         </li>
                         <li className="mobile-nav__item">
                             <Link to='/#company' className="mobile-nav__link"
@@ -300,7 +300,7 @@ class HeaderComponent extends Component {
                         </li>
                         <li className="mobile-nav__item">
                             <Link to='/career' className="mobile-nav__link"
-                            >Career</Link>
+                            >Careers</Link>
                         </li>
                     </ul>
                 </div>

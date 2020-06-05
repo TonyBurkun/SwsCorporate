@@ -85,7 +85,7 @@ class WorksReuseComponent extends Component {
 
                         <div className="btn-block btn-block--center">
 
-                            <Link to={this.props.links && this.props.links[0].caseStudy.WorksComponentLink || this.props.link || '/oops'} className="btn btn--upper">more cases</Link>
+                            <Link to={window.globalLinks.caseStudiesLink || '/oops'} className="btn btn--upper">more cases</Link>
 
                         </div>
                     </div>

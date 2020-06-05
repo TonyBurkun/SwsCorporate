@@ -145,8 +145,7 @@ class oneServiceComponent extends Component {
 
                 <ContactComponent/>
 
-                <WorksReuseComponent gotData={this.gotDataFromInternalComponent}
-                                     link={this.props.links[0].WorksComponentLink}/>
+                <WorksReuseComponent gotData={this.gotDataFromInternalComponent} />
 
                 <FooterComponent/>
 
@@ -156,6 +155,7 @@ class oneServiceComponent extends Component {
         );
 
         const prevP = window.location.pathname.split("/");
+
         return (
             this.state.prevParam = prevP[prevP.length - 1] || prevP[prevP.length - 2]
         );

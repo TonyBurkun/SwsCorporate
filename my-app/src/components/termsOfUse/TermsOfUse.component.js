@@ -58,13 +58,17 @@ class TermsOfUse extends Component{
                 </section>
 
                 <section className='bottom-padding-70 text-page'>
+
                     <div className="container">
+
                         <h2 className='section-title'>{pageData.title}</h2>
                         <div dangerouslySetInnerHTML={{__html: pageData.description}}>
 
                         </div>
                     </div>
+
                 </section>
+
                 <FooterComponent/>
 
             </Fragment>

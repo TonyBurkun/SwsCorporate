@@ -17,6 +17,7 @@ import TechnologiesComponent from "./patterns/technologies/technologies.componen
 import ExpertiseComponent from "./patterns/expertise/expertise.component";
 
 class App extends Component {
+
     constructor(props){
         super(props);
 
@@ -47,10 +48,18 @@ class App extends Component {
     render() {
 
         const WorksComponentLink = "/case-studies";
+        window.globalLinks = {
+
+            caseStudiesLink :  "/case-studies"
+
+        };
+
 
         return (
+
             <Router>
                 <Fragment>
+
                     <Switch>
 
                         <Route path="/" exact render={() => (
@@ -60,8 +69,7 @@ class App extends Component {
                         <Route path={WorksComponentLink} exact component={WorksComponent}/>
                         <Route path="/work/:name" exact component={OneWorkComponent}/>
 
-                        <Route path="/services/:name" exact render={() => (
-                            <OneServiceComponent links={[{WorksComponentLink: WorksComponentLink}]}/>)}/>
+                        <Route path="/services/:name" exact component={OneServiceComponent}/>
 
                         <Route path="/career" exact component={CareerComponent}/>
                         <Route path="/career/:id" exact component={OneCareerComponent}/>
