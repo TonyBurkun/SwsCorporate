@@ -129,8 +129,8 @@ class WorksComponent extends Component {
                                                         </p>
 
                                                     </div>
-
-                                                    <Link to={"/case-studies/"+linkButton.url} className="btn btn--160w btn--upper img-slide__btn ">read more</Link>
+                                                    {console.log()}
+                                                    <Link to={window.globalLinks.caseStudiesLink + "/"+linkButton.url} className="btn btn--160w btn--upper img-slide__btn ">read more</Link>
 
                                                 </div>
 
