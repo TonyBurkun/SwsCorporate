@@ -72,12 +72,11 @@ class oneServiceComponent extends Component {
 
             });
 
-
-
     }
 
     gotDataFromInternalComponent = (stateItem, value) => {
         this.setState({
+
             [stateItem]: value,
 
         });
@@ -155,6 +154,8 @@ class oneServiceComponent extends Component {
         );
 
         const prevP = window.location.pathname.split("/");
+
+        console.log(prevP, "idiwuiewbfuiwbfuiwbfuib");
 
         return (
             this.state.prevParam = prevP[prevP.length - 1] || prevP[prevP.length - 2]

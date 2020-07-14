@@ -114,11 +114,16 @@ class FooterComponent extends Component {
                             <div className="footer-block__column">
                                 <div className="list-items list-items--link">
                                     <div className="list-items__title">Technologies</div>
+
                                     {menu.technologies.map(item =>
-                                        <span key={item.link_name} className="list-items__one">{item.link_name}</span>
+
+                                        <Link to={item.link  && "/" + item.link.split('/')[item.link.split('/').length - 2]} key={item.link_name} className="list-items__one">{item.link_name}</Link>
+
                                     )}
+
                                 </div>
                             </div>
+
                             }
                             <div className="footer-block__column footer-block__column--tablet-only ">
 

@@ -67,7 +67,7 @@ class App extends Component {
                                                links={[{WorksComponentLink: WorksComponentLink}]}/>)}/>
                         <Route path="/clients" exact component={ClientComponent}/>
                         <Route path={WorksComponentLink} exact component={WorksComponent}/>
-                        <Route path="/work/:name" exact component={OneWorkComponent}/>
+                        <Route path="/case-studies/:name" exact component={OneWorkComponent}/>
 
                         <Route path="/services/:name" exact component={OneServiceComponent}/>
 

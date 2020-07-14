@@ -16,6 +16,7 @@ class TermsOfUse extends Component{
 
     getData() {
         fetch('https://panel.stairwaysoft.com/api/wp/v2/pages?slug=terms-of-use/' )
+
             .then(response => response.json())
             .then(data => {
                 this.setState({

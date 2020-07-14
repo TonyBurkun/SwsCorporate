@@ -130,7 +130,7 @@ class WorksComponent extends Component {
 
                                                     </div>
 
-                                                    <Link to={"/work/"+linkButton.url} className="btn btn--160w btn--upper img-slide__btn ">read more</Link>
+                                                    <Link to={"/case-studies/"+linkButton.url} className="btn btn--160w btn--upper img-slide__btn ">read more</Link>
 
                                                 </div>
 
@@ -165,7 +165,7 @@ class WorksComponent extends Component {
 
                             <div className="tabcontent">
                                 {works.map(work =>
-                                    <Link to={'/work/' + work.slug} key={work.slug} className="tabcontent__item bottom-hover-block">
+                                    <Link to={'/case-studies/' + work.slug} key={work.slug} className="tabcontent__item bottom-hover-block">
                                         <img src={work.featured_image_url} className="bottom-hover-block__img" alt=''/>
                                         <div className="bottom-hover-block__desc">
                                             <div className="bottom-hover-block__title-block">
