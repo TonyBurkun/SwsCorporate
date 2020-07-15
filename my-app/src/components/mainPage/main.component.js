@@ -26,11 +26,11 @@ class MainPageComponent extends Component {
 
         };
 
-
     }
 
 
     componentWillReceiveProps(nextProps, nextContext) {
+
         const statusObj = nextProps.dataStatus;
 
         console.log(statusObj.gotClientsReuse);
@@ -40,8 +40,33 @@ class MainPageComponent extends Component {
             gotClientsReuse: statusObj.gotClientsReuse || true,
             gotWorksReuse: statusObj.gotWorksReuse,
             gotAboutHome: statusObj.gotAboutHome,
-            showLoader: false
+            showLoader: false,
+            data: '',
+
         });
+
+        fetch('https://panel.stairwaysoft.com/api/wp/v2/pages/1120')
+            .then(response => response.json())
+
+            .then(data => {
+
+                this.setState({
+
+                    data: data.data,
+
+                })
+
+            })
+
+            .catch(
+
+                err=>{
+
+                    console.log(err);
+
+                }
+
+            )
 
     }
 
@@ -50,6 +75,7 @@ class MainPageComponent extends Component {
         const {gotServices, gotClientsReuse, gotWorksReuse, gotAboutHome} = this.state;
 
         if (gotServices && gotClientsReuse && gotWorksReuse && gotAboutHome) {
+
             const hash = window.location.hash.substring(1);
 
             if (hash.length) {
@@ -57,30 +83,35 @@ class MainPageComponent extends Component {
             }
 
         }
+        const data = this.state.data;
+        console.log(data)
 
 
         return (
             <Fragment>
                 <LoaderComponent visible={this.state.showLoader}/>
+
                 <HeaderComponent/>
+
                 <section className="head-block">
                     <div className="slider-block">
                         <div className="slider-block__item">
                             <div className="slide">
                                 <h2 className="slide__title">
-                                    Project outsourcing and/or creating your own development team
+
+                                    {data && data.section_header_title}
+
                                 </h2>
                                 <p className="slide__desc">
 
-                                    StairwaySoft is an Israeli and Ukraine based engineering provider
-                                    of innovative software development services with a team of expert
-                                    engineers. We service various businesses globally to create solutions
+                                    {data && data.section_header_description}
 
                                 </p>
                             </div>
                         </div>
                     </div>
                 </section>
+
                 <section>
 
                    <ServiceComponent updateData={this.props.updateData}/>
