@@ -4030,12 +4030,17 @@ $animationSpeedOfGallery: 0.82s!important;
       max-width: 100%;
 
     }
+    &.onlyOne #tns1{
 
+      transform: translateX(0) !important;
+
+    }
     .tns-outer, .tns-item.tns-item{
 
       margin-top: 0;
       padding-bottom: 30px!important;
       display: flex;
+      white-space: normal;
 
       justify-content: center;
       @media screen and (max-width: $tablet-portrait-upper-boundary) {

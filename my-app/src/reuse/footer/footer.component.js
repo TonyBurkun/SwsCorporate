@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link , Router} from "react-router-dom";
-import {string} from "prop-types";
-import OneWorkComponent from "../../components/oneWork/oneWork.component";
+//import {string} from "prop-types";
+//import OneWorkComponent from "../../components/oneWork/oneWork.component";
 
 
 class FooterComponent extends Component {
