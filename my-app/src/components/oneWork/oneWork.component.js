@@ -264,8 +264,9 @@ class oneWorkComponent extends Component {
                                     />
                                     {oneWorkData.site_url && (
                                         <div className="btn-block btn-block--center">
-                                            <a target='_blank' href={oneWorkData.site_url} className="btn btn--upper btn--160w">view
-                                                site</a>
+                                            <a target='_blank' rel="noopener noreferrer" href={oneWorkData.site_url} className="btn btn--upper btn--160w">
+                                                view site
+                                            </a>
                                         </div>
                                     )}
                                 </div>

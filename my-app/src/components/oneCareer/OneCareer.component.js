@@ -215,9 +215,9 @@ class OneCareerComponent extends Component {
             <Fragment>
                 <Modal visible={this.state.visible} width="1200" effect="fadeInLeft" onClickAway={() => this.closeModal()}>
                     <section className="section-bg" id='resume-form'>
-                        <a href="javascript:void(0);"
-                           className='close-modal-btn'
-                           onClick={() => this.closeModal()}/>
+                        <input type={"button"} className='close-modal-btn' onClick={() => this.closeModal()}/>
+                        {/*<a href="javascript:void(0);" className='close-modal-btn' onClick={() => this.closeModal()}/>*/}
+
                         <div className="container">
                             <h2 className="section-title">Send your resume</h2>
                             <form className="feedback-form" onSubmit={(event) => {this.sendForm(event)}}>

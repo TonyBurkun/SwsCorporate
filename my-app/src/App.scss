@@ -3460,6 +3460,7 @@ $small-devices-portrait-upper-boundary: 640px;
 }
 
 .close-modal-btn{
+  
   position: absolute;
   right: 20px;
   top: 20px;
@@ -3467,6 +3468,10 @@ $small-devices-portrait-upper-boundary: 640px;
   background: url("./img/svg_icons/close.svg") no-repeat center;
   width: 20px;
   height: 20px;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+
 }
 
 
@@ -4030,7 +4035,7 @@ $animationSpeedOfGallery: 0.82s!important;
       max-width: 100%;
 
     }
-    &.onlyOne #tns1{
+    &.onlyOne .tns-item{
 
       transform: translateX(0) !important;
 
@@ -4045,7 +4050,7 @@ $animationSpeedOfGallery: 0.82s!important;
       justify-content: center;
       @media screen and (max-width: $tablet-portrait-upper-boundary) {
 
-        flex-direction: column;
+        flex-direction: initial;
 
       }
 

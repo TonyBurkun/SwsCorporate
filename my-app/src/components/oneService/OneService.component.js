@@ -33,7 +33,11 @@ class oneServiceComponent extends Component {
         const getLinkArr = window.location.pathname.split("/");
         const getLinkArrValidate = getLinkArr[getLinkArr.length-1] || getLinkArr[getLinkArr.length - 2];
 
-        this.state.nextParam = getLinkArrValidate;
+        this.setState({
+
+            nextParam : getLinkArrValidate,
+
+        });
 
         const prevParam = this.state.prevParam;
         const nextParam = getLinkArrValidate;
@@ -155,10 +159,14 @@ class oneServiceComponent extends Component {
 
         const prevP = window.location.pathname.split("/");
 
-        console.log(prevP, "idiwuiewbfuiwbfuiwbfuib");
-
         return (
-            this.state.prevParam = prevP[prevP.length - 1] || prevP[prevP.length - 2]
+
+            this.setState({
+
+                prevParam : prevP[prevP.length - 1] || prevP[prevP.length - 2],
+
+            })
+
         );
 
     }

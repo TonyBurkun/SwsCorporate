@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {Link} from "react-router-dom";
+//import {Link} from "react-router-dom";
 import HeaderComponent from '../../reuse/header/header.component';
 import FooterComponent from '../../reuse/footer/footer.component';
 import LoaderComponent from "../../reuse/loader/Loader.component";

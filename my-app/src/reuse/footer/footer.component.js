@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { Link , Router} from "react-router-dom";
+import { Link } from "react-router-dom";
 //import {string} from "prop-types";
 //import OneWorkComponent from "../../components/oneWork/oneWork.component";
 
@@ -44,7 +44,7 @@ class FooterComponent extends Component {
                     let result;
 
                     result = link.split(/\//g);
-                    item.link = '/work/'+result[result.length - 2]+'/';
+                    item.link = window.globalLinks.caseStudiesLink +'/'+result[result.length - 2]+'/';
 
 
                 });
@@ -170,9 +170,16 @@ class FooterComponent extends Component {
                                 <div className="list-items list-items--icons">
                                     <div className="list-items__title">Follow Us:</div>
 
-                                    <a target='_blank'  href={menu.fb_link} className="list-items__one list-items__ico list-items--fb"/>
-                                    <a target='_blank' href={menu.in_link} className="list-items__one list-items__ico list-items--in"/>
-                                    <a target='_blank' href={menu.be_link} className="list-items__one list-items__ico list-items--be"/>
+                                    <a target='_blank'  href={menu.fb_link} rel="noopener noreferrer" className="list-items__one list-items__ico list-items--fb" >
+
+                                    </a>
+                                    <a target='_blank' href={menu.in_link} rel="noopener noreferrer" className="list-items__one list-items__ico list-items--in" >
+
+                                    </a>
+                                    <a target='_blank' href={menu.be_link} rel="noopener noreferrer" className="list-items__one list-items__ico list-items--be" >
+
+                                    </a>
+
                                     {/*<Link to="/#" className="list-items__one list-items__ico list-items--be"></Link>*/}
 
                                 </div>

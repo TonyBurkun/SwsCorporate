@@ -34,6 +34,7 @@ class ServiceComponent extends Component {
         const { services } = this.state;
         return (
             <Fragment>
+
                 <section className="bottom-padding-70" id='services'>
                     <h2 className="section-title" id="services">Services</h2>
                     <div className="container">
