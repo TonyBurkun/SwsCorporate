@@ -6,7 +6,7 @@ import AboutHomeComponent from './about/about.component';
 import ConnectComponent from '../../reuse/connect/connect.component';
 import HeaderComponent from '../../reuse/header/header.component';
 import FooterComponent from '../../reuse/footer/footer.component';
-import {scrollToSection} from '../../utils/scrollToSection'
+import {scrollToSection} from '../../utils/scrollToSection';
 import LoaderComponent from "../../reuse/loader/Loader.component";
 
 
@@ -80,6 +80,7 @@ class MainPageComponent extends Component {
 
             if (hash.length) {
                 scrollToSection(hash);
+
             }
 
         }

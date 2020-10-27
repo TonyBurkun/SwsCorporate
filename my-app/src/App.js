@@ -15,6 +15,7 @@ import PrivacyPolicyComponent from "./components/privacyPolicy/privacyPolicy.com
 import TermsOfUseComponent from "./components/termsOfUse/TermsOfUse.component";
 import TechnologiesComponent from "./patterns/technologies/technologies.component";
 import ExpertiseComponent from "./patterns/expertise/expertise.component";
+import articleComponent from "./components/article/Article.component";
 
 class App extends Component {
 
@@ -75,6 +76,7 @@ class App extends Component {
                         <Route path="/career/:id" exact component={OneCareerComponent}/>
                         <Route path="/privacy-policy" exact component={PrivacyPolicyComponent}/>
                         <Route path="/terms-of-use" exact component={TermsOfUseComponent}/>
+                        <Route path="/article/article-it-outsourcing" exact component={articleComponent}/>
                         <Route path={"/technologies-*"} exact component={TechnologiesComponent}/>
                         <Route path={"/expertise-*"} exact component={ExpertiseComponent}/>
 

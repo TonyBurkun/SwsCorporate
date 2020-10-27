@@ -38,16 +38,21 @@ class FooterComponent extends Component {
 
                 });
 
-                menu.expertise.forEach((item) => {
+                {menu.expertise &&
 
-                    let link = item.link;
-                    let result;
+                                menu.expertise.forEach((item) => {
 
-                    result = link.split(/\//g);
-                    item.link = window.globalLinks.caseStudiesLink +'/'+result[result.length - 2]+'/';
+                                    console.log( item.link)
+                                    let link = item.link;
+                                    let result;
+
+                                    result = link.split(/\//g);
+                                    item.link = window.globalLinks.caseStudiesLink +'/'+result[result.length - 2]+'/';
 
 
-                });
+                                });
+
+                }
 
                 this.setState({
 
@@ -87,7 +92,7 @@ class FooterComponent extends Component {
                             }
 
                             {menu.expertise &&
-                            <div className="footer-block__column">
+                            <div className="footer-block__column footer-block__column--tablet-only">
                                 <div className="list-items list-items--link">
                                     <div className="list-items__title">Expertise</div>
 
@@ -111,7 +116,7 @@ class FooterComponent extends Component {
                             }
 
                             {menu.technologies &&
-                            <div className="footer-block__column">
+                            <div className="footer-block__column footer-block__column--tablet-only">
                                 <div className="list-items list-items--link">
                                     <div className="list-items__title">Technologies</div>
 
@@ -128,8 +133,8 @@ class FooterComponent extends Component {
                             <div className="footer-block__column footer-block__column--tablet-only ">
 
                                 {menu.success_stories &&
-
-                                <div className="list-item list-items--link mHidd" >
+//                                mHidd - this class for hidden an element on table
+                                <div className="list-item list-items--link " >
 
                                     <div className="list-items__title">Success Stories</div>
 

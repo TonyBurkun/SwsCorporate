@@ -52,8 +52,41 @@ $small-devices-portrait-upper-boundary: 640px;
   }
 
   &__logo-block {
+
     display: inline-flex;
     justify-content: space-between;
+
+  }
+
+  &__top{
+
+    &-navigation{
+
+      @media screen  and (max-width: 360px){
+
+        margin-left: 5px;
+        align-items: center;
+
+      }
+
+      .top-nav__btn{
+
+        font-size: 14px;
+        outline: 0;
+
+        @media screen  and (max-width: 360px){
+
+          padding: 0 6px;
+          height: 32px;
+          font-size: 13px;
+
+      }
+
+
+      }
+
+    }
+
   }
 
   &__trigger {
@@ -147,7 +180,7 @@ $small-devices-portrait-upper-boundary: 640px;
   z-index: 1000;
   height: calc(100% - 81px);
   transform: translateX(-100%);
-  transition: transform .3s;
+  transition: transform .8s;
 
   &--active {
     transform: translateX(0);
@@ -935,7 +968,7 @@ $small-devices-portrait-upper-boundary: 640px;
     @media screen and (max-width: $tablet-landscape-upper-boundary - 200) {
 
       justify-content: space-around;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
       min-width: 240px;
       flex-direction: unset;
@@ -3588,9 +3621,9 @@ $small-devices-portrait-upper-boundary: 640px;
 }
 
 
-// set circle
 
 section{
+  // set list as circle
 
   ul{
 
@@ -3631,7 +3664,12 @@ section{
 
   }
 
+  // set list as number
+
+
+
 }
+
 .width95{
   width: 95vw;
 }
@@ -4123,9 +4161,11 @@ $animationSpeedOfGallery: 0.82s!important;
       }
 
       .img-slide__container{
+
         display: flex;
         flex-wrap: wrap;
         min-width: 760px;
+        align-items: center;
 
         @media screen and (max-width: $tablet-portrait-upper-boundary){
 
@@ -4154,6 +4194,14 @@ $animationSpeedOfGallery: 0.82s!important;
 
           max-width: 370px;
           padding-left: 22px;
+          height: 100%;
+
+          @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+            height: auto;
+
+          }
+
           @media screen and (max-width: $tablet-landscape-upper-boundary) {
 
             padding-left: 0;
@@ -4438,6 +4486,310 @@ section{
   @media screen and (max-width: $tablet-portrait-upper-boundary) {
 
     flex-direction: column;
+
+  }
+
+}
+
+.relative{
+
+  position: relative!important;
+
+}
+
+.section_article{
+
+  max-width: 1160px;
+  width: 95vw;
+  margin: auto  auto  70px  auto ;
+  position: relative;
+  //margin-bottom: 70px;
+
+  @media screen and (max-width: $tablet-landscape-upper-boundary) {
+
+    margin: auto;
+    padding: 0 20px;
+
+  }
+
+  .article_content{
+
+    max-width: 765px;
+    width: 100%;
+    float: right;
+    //margin-top: 45px;
+
+    ol{
+
+      padding-left: 20px;
+      li{
+
+        margin-bottom: 15px;
+
+      }
+
+    }
+
+    h3{
+
+      font-size: 40px;
+      font-family: $ubuntu;
+      color: rgb(67, 38, 113);
+      //line-height: 1.725;
+      font-weight: 400;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+
+      @media screen and(max-width: $tablet-landscape-upper-boundary) {
+
+        line-height: 1.2;
+        font-size: 30px;
+
+      }
+
+    }
+
+    h4{
+
+      font-size: 30px;
+      color: rgb(0, 12, 18);
+       font-weight: 100;
+
+      @media screen and(max-width: $tablet-landscape-upper-boundary) {
+
+        font-size: 25px;
+
+      }
+
+    }
+
+    p{
+
+      font-size: 16px;
+      font-family: $robotoRegular;
+      color: rgb(0, 12, 18);
+      line-height: 1.5;
+
+    }
+
+    @media screen and (max-width: $tablet-landscape-upper-boundary) {
+
+      ul{
+
+        padding-left: 20px;
+
+      }
+
+    }
+
+    img{
+
+      width: 100%;
+      height: auto;
+      //margin: 16px 0;
+      margin-top: 5px;
+
+    }
+
+  }
+
+  .article_control-nav-ico{
+
+    position: fixed;
+    left: 0;
+    //padding: 20px;
+    height: 45px;
+    width: 45px;
+    top: 25vh;
+    background: #9da6b1;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: $tablet-landscape-upper-boundary + 1) {
+
+      display: none;
+
+    }
+
+    img{
+
+      width: 27px;
+
+    }
+
+  }
+
+  .article_control{
+
+    position: absolute;
+    left: 0;
+    top: 174px;
+    //transition: 0.4s;
+
+    &.active_fixed{
+
+      @media screen and (min-width: $tablet-landscape-upper-boundary + 1) {
+
+        position: fixed;
+        left: 372px;
+        top: 104px;
+
+      }
+
+    }
+
+    &.active_absolute{
+
+      @media screen and (min-width: $tablet-landscape-upper-boundary + 1){
+
+        position: absolute;
+        left: 0!important;
+        bottom: 0;
+        top: auto;
+
+      }
+
+    }
+
+    @media screen and (max-width: $tablet-landscape-upper-boundary){
+
+      background: #432671;
+      width: 100%;
+      max-width: 320px;
+      top: 80px;
+      left: -320px!important;
+      position: fixed;
+      height: 100%;
+      color: #fff;
+      padding: 0 15px;
+      z-index: 101;
+      transition: 0.8s;
+
+    }
+
+    &::before{
+
+      transition: opacity 0.8s;
+      top: 0;
+      opacity: 0;
+      position: absolute;
+      z-index: -2;
+      height: 100vh;
+      width: 500vw;
+      content: '';
+      background: rgba(5, 5, 5, 0.3);
+      right: 0;
+      left: auto;
+
+    }
+
+    &.mobile-active{
+
+      left: 0!important;
+
+      &::before{
+
+        opacity: 1;
+        left: 0;
+        right: auto;
+
+      }
+
+      &::after{
+
+        content: '';
+        position: absolute;
+        z-index: -1;
+        background:  #432671;
+        right: 0;
+        top: 0;
+        opacity: 1;
+        height: 100vh;
+        width: 400vw;
+
+      }
+
+    }
+
+    &-title{
+
+      font-family: $ubuntuRegular;
+      font-size: 26px;
+      color: rgb(0, 12, 18);
+      line-height: 2.654;
+
+      @media screen and (max-width: $tablet-landscape-upper-boundary) {
+
+        color: #fff;
+
+      }
+
+      }
+
+    p{
+
+      width: 223px;
+      padding-left: 33px;
+      position: relative;
+      cursor: pointer;
+      font-size: 15px;
+      font-family: $ubuntuMedium;
+      line-height: 1.4;
+      color: #9da6b1;
+      transition: 0.5s;
+      -webkit-font-smoothing: antialiased;
+
+      &::selection{
+
+        background: none;
+
+      }
+
+      @media screen and (max-width: $tablet-landscape-upper-boundary) {
+
+        padding-left: 0;
+        //cursor: none;
+
+      }
+
+      &.active{
+
+        color: rgb(67, 38, 113);
+        @media screen and (max-width: $tablet-landscape-upper-boundary) {
+
+          color: #fff;
+
+        }
+
+        &::before{
+
+          @media screen and (min-width: $tablet-landscape-upper-boundary+1) {
+
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 20px;
+            background: url("../src/img/article/arrow.png") no-repeat left;
+            background-size: contain;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+
+          }
+
+        }
+
+      }
+
+
+
+    }
 
   }
 

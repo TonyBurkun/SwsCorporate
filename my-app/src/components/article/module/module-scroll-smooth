@@ -1,0 +1,11 @@
+export const scrollToSectionSmooth = (hash) => {
+
+    if (hash && hash.length) {
+        setTimeout(() => {
+            const el = document.getElementById(hash);
+            el.scrollIntoView({block: "end", behavior: "smooth"});
+        }, 200)
+    } else {
+        console.warn('There is no hash');
+    }
+};

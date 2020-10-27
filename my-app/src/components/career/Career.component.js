@@ -6,6 +6,7 @@ import CareerListItemComponent from "../../reuse/career/CareerListItem.component
 import LoaderComponent from "../../reuse/loader/Loader.component";
 
 class CareerComponent extends Component {
+
     constructor(props){
         super(props);
         window.scrollTo(0, 0);
@@ -61,8 +62,6 @@ class CareerComponent extends Component {
         })
     };
 
-
-
     render() {
 
         const {careersList, gotCareers, careerID} = this.state;
@@ -81,11 +80,11 @@ class CareerComponent extends Component {
             <Fragment>
                 <LoaderComponent visible={this.state.showLoader}/>
                 <HeaderComponent/>
+
                 <section className='career-img-section'>
-                    <img
-                        className='career-img-section__img'
-                        src="../img/career/career_bg_35.jpg" alt="team_img"
-                    />
+
+                    <img className='career-img-section__img' src="../img/career/career_bg_35.jpg" alt="team_img" />
+
                     <div className='career-img-section__text-block'>
                         <h1 className='career-img-section__title'>Become part of the Stairway Soft team!</h1>
                         <div className='career-img-section__description'>
@@ -96,7 +95,6 @@ class CareerComponent extends Component {
                             </p>
                         </div>
                     </div>
-
 
                 </section>
 
