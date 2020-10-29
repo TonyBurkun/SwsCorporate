@@ -15,7 +15,7 @@ export const scrollToSectionGetPosition = () => {
 
         d[s].id= 'listId_'+s+'_to';
         d[s].setAttribute("setIdForLocation", 'listId_'+s);
-        d[s].setAttribute("getLocationForControl", ( d[s].offsetTop - (document.getElementById('listId_'+s+'_to').scrollHeight * 2) ) );
+        d[s].setAttribute("getLocationForControl", ( d[s].offsetTop - (document.getElementById('listId_'+s+'_to').scrollHeight + 50) ) );
 
     }
 

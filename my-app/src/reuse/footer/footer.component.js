@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 //import {string} from "prop-types";
 //import OneWorkComponent from "../../components/oneWork/oneWork.component";
+import CookieConsent from "react-cookie-consent";
+import PopUpAdvertising, {modulePopupHide} from "./module/module-popup-advertising";
 
 
 class FooterComponent extends Component {
@@ -14,6 +16,7 @@ class FooterComponent extends Component {
             gotData: false,
             menu : [],
             copyright: '',
+            load: false,
 
         };
 
@@ -65,6 +68,19 @@ class FooterComponent extends Component {
             });
     }
 
+    componentDidMount() {
+
+        this.state.load = true;
+
+//        if (this.state.load === true) {
+
+//            modulePopupHide();
+
+//        }
+//       console.log();
+
+    }
+
     render() {
         let menu = this.state.menu;
         let copyright = this.state.copyright;
@@ -74,7 +90,18 @@ class FooterComponent extends Component {
 
                 {this.state.gotData &&
                    <footer className="footer">
-                    <div className="container">
+
+                       <PopUpAdvertising />
+
+                       <CookieConsent style={{ background: "rgba(0,0,0,0.75)", justifyContent: 'center'}} buttonText={'OK'} buttonStyle={{ background: "#fff"  }}>
+
+                           We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.
+
+                       </CookieConsent>
+
+
+
+                       <div className="container">
                         <div className="footer-block">
                             {menu.services &&
                             <div className="footer-block__column">
@@ -202,6 +229,8 @@ class FooterComponent extends Component {
             </Fragment>
         );
     }
+
+
 }
 
 export default FooterComponent;

@@ -38,6 +38,7 @@ class articleComponent extends Component {
                 })
 
                 scrollToSectionGetPosition();
+                scrollToSectionGetPosition();
 
             });
 
@@ -59,7 +60,8 @@ class articleComponent extends Component {
         let controlTitle = '';
         let controlList = '';
         let mobilePageNavigationImage = '';
-
+        let article_field_first_section_title = '';
+        let article_field_first_section_description = '';
         if (this.state.showLoader === false){
 
                 acfData = acf[0].data;
@@ -69,6 +71,8 @@ class articleComponent extends Component {
                 controlTitle = acfData.article_field_control_title;
                 controlList = acfData.article_field_control_points;
                 mobilePageNavigationImage = acfData.mobile_page_navigation_image;
+                article_field_first_section_title = acfData.article_field_first_section_title;
+                article_field_first_section_description = acfData.article_field_first_section_description;
 
         }
 
@@ -88,7 +92,7 @@ class articleComponent extends Component {
 
                         <h1 className='career-img-section__title'>
 
-                            IT Outsourcing for American companies
+                            {article_field_first_section_title && article_field_first_section_title}
 
                         </h1>
 
@@ -96,7 +100,7 @@ class articleComponent extends Component {
 
                             <p className='career-img-section__paragraph'>
 
-                                WDuring this pandemic period
+                                {article_field_first_section_description && article_field_first_section_description}
 
                             </p>
 
