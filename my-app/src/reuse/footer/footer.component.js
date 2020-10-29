@@ -16,7 +16,6 @@ class FooterComponent extends Component {
             gotData: false,
             menu : [],
             copyright: '',
-            load: false,
 
         };
 
@@ -66,19 +65,6 @@ class FooterComponent extends Component {
                 });
 
             });
-    }
-
-    componentDidMount() {
-
-        this.state.load = true;
-
-//        if (this.state.load === true) {
-
-//            modulePopupHide();
-
-//        }
-//       console.log();
-
     }
 
     render() {

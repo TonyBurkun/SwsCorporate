@@ -2,8 +2,6 @@ import React, {Component} from "react";
 
 class PopUpAdvertising extends Component {
 
-
-
     componentDidMount() {
 
         const popupOutsourcing = document.getElementsByClassName('popup_outsourcing')[0];
@@ -35,7 +33,6 @@ class PopUpAdvertising extends Component {
 
             }
 
-
         }
 
     }
@@ -60,9 +57,7 @@ class PopUpAdvertising extends Component {
 
                     <a href={'/article/article-it-outsourcing'} className="popup_outsourcing_container-link">read more</a>
 
-
                 </div>
-
 
             </div>
 
