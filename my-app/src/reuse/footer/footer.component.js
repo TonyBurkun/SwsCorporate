@@ -70,15 +70,21 @@ class FooterComponent extends Component {
     render() {
         let menu = this.state.menu;
         let copyright = this.state.copyright;
+        let bannerStatus = true;
+        if ((window.location.pathname === '/article/article-it-outsourcing')){
 
+            bannerStatus = false;
+
+        }
         return (
             <Fragment>
 
                 {this.state.gotData &&
                    <footer className="footer">
 
-                       <PopUpAdvertising />
-
+                       { bannerStatus  &&
+                           <PopUpAdvertising />
+                       }
                        <CookieConsent style={{ background: "rgba(0,0,0,0.75)", justifyContent: 'center'}} buttonText={'OK'} buttonStyle={{ background: "#fff"  }}>
 
                            We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it.

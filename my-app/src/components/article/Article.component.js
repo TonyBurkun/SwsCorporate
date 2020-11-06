@@ -13,6 +13,7 @@ class articleComponent extends Component {
         super(props);
 
         window.scrollTo(0, 0);
+        window.banner = false;
 
         this.state={
             showLoader: true,

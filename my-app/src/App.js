@@ -1,5 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+//import {Redirect} from "@reach/router";
+
 import './App.scss';
 import smoothscroll from 'smoothscroll-polyfill';
 
@@ -55,6 +57,7 @@ class App extends Component {
 
         };
 
+        window.banner = true;
 
         return (
 
@@ -62,6 +65,7 @@ class App extends Component {
                 <Fragment>
 
                     <Switch>
+
 
                         <Route path="/" exact render={() => (
                             <MainPageComponent dataStatus={this.state} updateData={this.mainPageGotData}

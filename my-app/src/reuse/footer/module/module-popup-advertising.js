@@ -1,4 +1,7 @@
 import React, {Component} from "react";
+import { Link } from "react-router-dom";
+
+//import {Redirect} from "@reach/router";
 
 class PopUpAdvertising extends Component {
 
@@ -6,28 +9,32 @@ class PopUpAdvertising extends Component {
 
         const popupOutsourcing = document.getElementsByClassName('popup_outsourcing')[0];
 
-        document.getElementsByClassName('popup_outsourcing_img-close')[0].addEventListener('click', closePopupAdvertisingX);
+        if (window.banner === true) {
 
-        function closePopupAdvertisingX(){
+            document.getElementsByClassName('popup_outsourcing_img-close')[0].addEventListener('click', closePopupAdvertisingX);
 
-            popupOutsourcing.classList.add('hidden');
-            popupOutsourcing.setAttribute('status', 'closed');
+            function closePopupAdvertisingX() {
 
-        }
+                popupOutsourcing.classList.add('hidden');
+                popupOutsourcing.setAttribute('status', 'closed');
 
-        window.addEventListener('scroll', closePopupAdvertising);
+            }
 
-        function closePopupAdvertising(){
+            window.addEventListener('scroll', closePopupAdvertising);
 
-            if (popupOutsourcing.attributes.status === undefined){
+            function closePopupAdvertising() {
 
-                if(window.pageYOffset > (window.innerHeight / 2) ){
+                if (popupOutsourcing.attributes.status === undefined) {
 
-                    popupOutsourcing.classList.add('hidden');
+                    if (window.pageYOffset > (window.innerHeight / 2)) {
 
-                }else{
+                        popupOutsourcing.classList.add('hidden');
 
-                    popupOutsourcing.classList.remove('hidden');
+                    } else {
+
+                        popupOutsourcing.classList.remove('hidden');
+
+                    }
 
                 }
 
@@ -39,29 +46,29 @@ class PopUpAdvertising extends Component {
 
     render() {
 
-        return(
+            return(
 
-            <div className="popup_outsourcing">
+                <div className="popup_outsourcing">
 
-                <img src="../../img/popup_outsourcing/popup_pic_sws.png" alt="" className={'popup_outsourcing_img'}/>
-                <img src="../../img/popup_outsourcing/esc_ico.svg" alt="" className={'popup_outsourcing_img-close'}/>
+                    <img src="../../img/popup_outsourcing/popup_pic_sws.png" alt="" className={'popup_outsourcing_img'}/>
+                    <img src="../../img/popup_outsourcing/esc_ico.svg" alt="" className={'popup_outsourcing_img-close'}/>
 
-                <div className="popup_outsourcing_container">
+                    <div className="popup_outsourcing_container">
 
-                    <div className="popup_outsourcing_container-title">What is IT outsourcing?</div>
-                    <div className="popup_outsourcing_container-description">
+                        <div className="popup_outsourcing_container-title">What is IT outsourcing?</div>
+                        <div className="popup_outsourcing_container-description">
 
-                        How does IT outsourcing work? Myths about outsourcing for small businesses and more in our article, <i>let's read!</i>
+                            How does IT outsourcing work? Myths about outsourcing for small businesses and more in our article, <i>let's read!</i>
+
+                        </div>
+
+                        <Link to={'/article/article-it-outsourcing'} className="popup_outsourcing_container-link"  >read more</Link>
 
                     </div>
 
-                    <a href={'/article/article-it-outsourcing'} className="popup_outsourcing_container-link">read more</a>
-
                 </div>
 
-            </div>
-
-        )
+            )
 
     }
 

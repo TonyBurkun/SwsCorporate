@@ -85,7 +85,7 @@ class MainPageComponent extends Component {
 
         }
         const data = this.state.data;
-        console.log(data);
+//        console.log(data);
 
 
         return (
