@@ -897,9 +897,9 @@ $small-devices-portrait-upper-boundary: 640px;
 
 .contacts-section {
   position: relative;
-  background: url("img/main/contacts-block-bg.jpg") no-repeat;
+  background: url("img/main/contacts-block-bg.jpg") no-repeat center;
   background-size: cover;
-  background-position: 50%;
+  //background-position: 50%;
 
   &:before {
     content: '';
@@ -918,15 +918,36 @@ $small-devices-portrait-upper-boundary: 640px;
   position: relative;
   padding-top: 182px;
   padding-bottom: 60px;
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
 
   &__title {
     text-align: center;
     font-size: 2.5em;
     color: $white;
+
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+      width: calc(100% - 90px);
+      margin: auto;
+      font-size: 2em;
+
+    }
+
   }
 
   &__btn {
     margin-top: 110px;
+
+
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+      margin-top: 50px;
+
+    }
+
   }
 }
 
@@ -1738,7 +1759,8 @@ $small-devices-portrait-upper-boundary: 640px;
     width: 373px;
     //height: 250px;
     margin: 22px 10px;
-    background: grey;
+    //background: grey;
+    background: #fff;
   }
 }
 
@@ -1748,10 +1770,26 @@ $small-devices-portrait-upper-boundary: 640px;
   position: relative;
   overflow: hidden;
   height: 380px;
+  text-decoration: none;
+
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+    height: auto;
+    //max-height: 365px;
+
+  }
 
   &__img{
     width: 100%;
-    height: 250px;
+    //height: 250px;
+
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+      width: 100%;
+      height: auto;
+
+    }
+
   }
 
   &__desc{
@@ -1764,6 +1802,12 @@ $small-devices-portrait-upper-boundary: 640px;
     height: 130px;
     overflow: hidden;
     transition: 0.3s;
+    
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
+        position: relative;
+        //bottom: 5px;
+
+    }
 
   }
 
@@ -2223,11 +2267,17 @@ $small-devices-portrait-upper-boundary: 640px;
 
   @media screen and (max-width: $tablet-landscape-upper-boundary - 1) {
     &__img{
-      width: 580px;
+
+      max-width: 580px;
+      width: 100%;
+
     }
 
     &__desc {
-      width: 580px;
+
+      max-width: 580px;
+      width: 100%;
+
     }
   }
 
@@ -2298,6 +2348,9 @@ $small-devices-portrait-upper-boundary: 640px;
     font-weight: 300;
     color: $black;
     padding-right: 25px;
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
+      padding-right: 0;
+    }
 
     p{
       margin-top: 0;
@@ -2314,13 +2367,21 @@ $small-devices-portrait-upper-boundary: 640px;
     .image-text-block__wrapper{
       padding-left: 25px;
       padding-right: 0;
+
+      @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+        padding-left: 0;
+
+      }
+
     }
   }
 
 
   @media screen and (max-width: $tablet-portrait-upper-boundary) {
     &__img {
-      width: auto;
+      width: 100%;
+      height: auto;
       order: 1;
       margin-bottom: 35px;
     }
@@ -3280,7 +3341,9 @@ $small-devices-portrait-upper-boundary: 640px;
 // CAREER PAGE
 
 .career-img-section{
+
   position: relative;
+  background-size: cover!important;
 
   &::after{
     content: '';
@@ -3301,18 +3364,32 @@ $small-devices-portrait-upper-boundary: 640px;
   }
 
   &__text-block{
-    position: absolute;
-    left: 50%;
-    top: 50%;
+    //position: absolute;
+    //left: 50%;
+    //top: 50%;
     color: #fff;
     text-align: left;
     z-index: 100;
     width: $width-container;
-    padding: 0 20px;
-    transform: translate(-50%, -50%);
+    padding: 9% 20px;
+    margin: auto;
+    position: relative;
+
 
     @media screen and (max-width: $tablet-landscape-upper-boundary) {
+
       width: 100%;
+      padding: 25% 20px;
+
+    }
+
+    @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+      padding: 25% 0;
+      width: calc(100% - 90px);
+      margin: auto;
+      font-size: 2em;
+
     }
 
   }
@@ -3474,6 +3551,12 @@ $small-devices-portrait-upper-boundary: 640px;
 
 .career-title{
   margin-bottom: 40px;
+  @media screen and (max-width: $tablet-portrait-upper-boundary) {
+
+    margin-top: 50px;
+
+  }
+
 }
 
 .two-col{
@@ -3780,7 +3863,7 @@ section{
 
       @media screen and (max-width: $tablet-portrait-upper-boundary){
 
-        padding-left: 0px;
+        //padding-left: 0px;
 
       }
       &::before{
@@ -3798,8 +3881,8 @@ section{
 
         @media screen and (max-width: $tablet-portrait-upper-boundary){
 
-          padding-left: 0px;
-          left: -20px;
+          //padding-left: 0px;
+          //left: -20px;
 
         }
 
@@ -3968,7 +4051,7 @@ $animationSpeedOfGallery: 0.82s!important;
   &__container {
 
     max-width: 1200px;
-    width: 95vw;
+    width: calc( 100vw - 40px );
     margin: auto;
 
   }
@@ -4608,8 +4691,8 @@ section{
       
       @media screen  and (max-width: $tablet-landscape-upper-boundary){
 
-        width: 90%;
-        margin: auto;
+        //width: 90%;
+        //margin: auto;
 
       }
       

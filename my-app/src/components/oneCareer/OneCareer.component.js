@@ -322,11 +322,12 @@ class OneCareerComponent extends Component {
                 <Fragment>
                     <LoaderComponent visible={this.state.showLoader}/>
                     <HeaderComponent/>
-                    <section className='career-img-section'>
-                        <img
-                            className='career-img-section__img'
-                            src="../img/career/career_bg_35.jpg" alt="team_img"
-                        />
+                    <section className='career-img-section' style={{background: 'url("../img/career/career_bg_35.jpg") no-repeat center'}} >
+
+                        {/*<img*/}
+                        {/*    className='career-img-section__img'*/}
+                        {/*    src="../img/career/career_bg_35.jpg" alt="team_img"*/}
+                        {/*/>*/}
                         <div className='career-img-section__text-block'>
                             <h1 className='career-img-section__title'>Become part of the Stairway Soft team!</h1>
                             <div className='career-img-section__description'>
